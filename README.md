@@ -1,2 +1,3 @@
-# website
+# BreatheCode Website
+
 Gatsby JS Website
