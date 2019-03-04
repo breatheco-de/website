@@ -18,6 +18,10 @@ export class Jumbotron extends React.Component {
 					<p className={this.props.parragraphClass}>
 						{this.props.subheading}
 					</p>
+					<div className="d-flex justify-content-around">
+						<a>{this.props.rightButton}</a>
+						<a>{this.props.leftButton}</a>
+					</div>
 					{this.props.colContent && (
 						<div className={this.props.rowContainer}>
 							<div className={this.props.rowClass}>
@@ -53,5 +57,7 @@ Jumbotron.propTypes = {
 	rowContainer: PropTypes.string,
 	rowClass: PropTypes.string,
 	colClass: PropTypes.string,
-	colContent: PropTypes.array
+	colContent: PropTypes.array,
+	rightButton: PropTypes.string,
+	leftButton: PropTypes.string
 };

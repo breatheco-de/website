@@ -104,8 +104,8 @@ export class Navbar extends React.Component {
 			<div>
 				<div className="d-none d-md-block">
 					<nav className="navbar navbar-expand-sm navbar-light bg-light">
-						<div className="container-fluid p-0">
-							<div className="row">
+						<div className="container-fluid">
+							<div className="row w-100">
 								<div className="col-4">
 									<div
 										className="collapse navbar-collapse d-flex justify-content-start"

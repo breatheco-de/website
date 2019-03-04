@@ -1,44 +1,47 @@
 import React from "react";
-import PropTypes from "prop-types"; 
+import PropTypes from "prop-types";
 
-export class Cards extends React.Component{
-    render(){
-        return(
-            <div class={this.props.cardClass}>
-                    <i class={this.props.iconClass} style="color:#00907B"></i>
-                    <div class="card-body">
-                      <h5 class="card-title">{this.props.title}</h5>
-                      <p class="card-text">{this.props.cardText}</p>
-                    </div>
-                     <div class="card-body">
-                            <h6 class="card-title">{this.props.subTitle}</h6>
-                            <p class="card-text">
-                                 <div class="container">
-                                    <div class="row">
-                                        <div class="col-12">
-                                           EloquentORM
-                                        </div>
-                                        <div class="col-12">
-                                            PHP
-                                        </div>
-                                        <div class="col-12">
-                                            SlimPHP
-                                        </div>
-                                        <div class="col-12">
-                                            MySQL
-                                        </div>
-                                        <div class="col-12">
-                                            JSON
-                                        </div>
-                                        <div class="col-12">
-                                            REST
-                                        </div>
-                                    </div>
-                                </div>
-                            </p>
-                    </div>
-                </div>
-            
-            );
-    }
+export class Cards extends React.Component {
+	render() {
+		return (
+			<div className={this.props.cardClass}>
+				<i className={this.props.iconClass} />
+				<div className="card-body">
+					<h5 className="card-title">{this.props.title}</h5>
+					<p className="card-text">{this.props.cardText}</p>
+				</div>
+				<div className="card-body">
+					<h6 className="card-title">{this.props.subTitle}</h6>
+					<div className="card-text">
+						<div className="container">
+							<div className="row">
+								{this.props.technologies &&
+									this.props.technologies.map(
+										(element, index) => {
+											return (
+												<div
+													key={index}
+													className="col-12">
+													{element}
+												</div>
+											);
+										}
+									)}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		);
+	}
 }
+
+Cards.propTypes = {
+	cardClass: PropTypes.string,
+	iconClass: PropTypes.string,
+	title: PropTypes.string,
+	cardText: PropTypes.string,
+	subTitle: PropTypes.string,
+	cardItem: PropTypes.string,
+	technologies: PropTypes.string
+};

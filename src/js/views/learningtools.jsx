@@ -1,6 +1,7 @@
 import React from "react";
 import { Jumbotron } from "../component/jumbotron.jsx";
 import PropTypes from "prop-types";
+import { Cards } from "../component/cards.jsx";
 
 export class LearningTools extends React.Component {
 	constructor() {
@@ -60,68 +61,59 @@ export class LearningTools extends React.Component {
 			],
 			libraries: [
 				{
-					icon: "fas fa-file-alt fa-5x",
-					title: "Assets API",
+					icon: "fab fa-react fa-5x",
+					title: "React Session",
 					description:
-						"Amazing resources for students (infographics, lessons, cheat-sheets, mock api's, etc).",
+						"Allows persistent sessions in react, compatible with react router.",
 					subtTitle: "Technologies",
-					technologies: [
-						"Markdown",
-						"PHP",
-						"MySQL",
-						"SQLite",
-						"SlimPHP",
-						"REST",
-						"Static Files"
-					]
+					technologies: ["React.js"]
 				},
 				{
-					icon: "fas fa-file-alt fa-5x",
-					title: "Assets API",
-					description:
-						"Amazing resources for students (infographics, lessons, cheat-sheets, mock api's, etc).",
+					icon: "fab fa-react fa-5x",
+					title: "React Notifier",
+					description: "Notification library for React Applications.",
 					subtTitle: "Technologies",
-					technologies: [
-						"Markdown",
-						"PHP",
-						"MySQL",
-						"SQLite",
-						"SlimPHP",
-						"REST",
-						"Static Files"
-					]
+					technologies: ["React.js"]
 				},
 				{
-					icon: "fas fa-file-alt fa-5x",
-					title: "Assets API",
-					description:
-						"Amazing resources for students (infographics, lessons, cheat-sheets, mock api's, etc).",
+					icon: "fab fa-react fa-5x",
+					title: "React Flux Dash",
+					description: "Flux implementation for React.js",
 					subtTitle: "Technologies",
-					technologies: [
-						"Markdown",
-						"PHP",
-						"MySQL",
-						"SQLite",
-						"SlimPHP",
-						"REST",
-						"Static Files"
-					]
+					technologies: ["React.js"]
+				}
+			],
+			applications: [
+				{
+					icon: "fas fa-sitemap fa-5x",
+					title: "CMS",
+					description:
+						"This is were most of the community content is being published: Lessons, Error Explanations and &quot;How to&apos;s&quot;.",
+					subtTitle: "Technologies",
+					technologies: ["React.js", "Gatsby.js", "CSS", "Markdown"]
 				},
 				{
-					icon: "fas fa-file-alt fa-5x",
-					title: "Assets API",
+					icon: "fas fa-home fa-5x",
+					title: "Student Web Client",
 					description:
-						"Amazing resources for students (infographics, lessons, cheat-sheets, mock api's, etc).",
+						"BreatheCode's main website for displaying the courses.",
 					subtTitle: "Technologies",
-					technologies: [
-						"Markdown",
-						"PHP",
-						"MySQL",
-						"SQLite",
-						"SlimPHP",
-						"REST",
-						"Static Files"
-					]
+					technologies: ["React.js", "CSS", "Sass", "HTML"]
+				},
+				{
+					icon: "fas fa-chalkboard-teacher fa-5x",
+					title: "Teacher Web Client",
+					description:
+						"Teachers are able to manage the pace of their cohorts, review students deliverables, etc.",
+					subtTitle: "Technologies",
+					technologies: ["React.js", "CSS", "Sass", "HTML"]
+				},
+				{
+					icon: "fas fa-users fa-5x",
+					title: "Admin Web Client",
+					description: "Manage BreathCode students, teachers, etc.",
+					subtTitle: "Technologies",
+					technologies: ["React.js", "CSS", "Sass", "HTML"]
 				}
 			]
 		};
@@ -137,10 +129,85 @@ export class LearningTools extends React.Component {
 				/>
 				<div className="container-fluid">
 					<div className="row">
-						<Titles title="tools" />
+						<Titles title="Tools" />
 					</div>
 					<div className="row">
-						<div className="col-12 col-md-6 d-flex justify-content-center" />
+						{this.state.toolCards.map((element, index) => {
+							return (
+								<div
+									key={index}
+									className="col-12 col-md-6 d-flex justify-content-center">
+									<Cards
+										iconClass={element.icon}
+										title={element.title}
+										cardText={element.description}
+										subtitle={element.subTitle}
+										technologies={element.technologies}
+									/>
+								</div>
+							);
+						})}
+					</div>
+
+					<div className="row">
+						<Titles title="API'S" />
+					</div>
+					<div className="row">
+						{this.state.apisCards.map((element, index) => {
+							return (
+								<div
+									key={index}
+									className="col-12 col-md-6 d-flex justify-content-center">
+									<Cards
+										iconClass={element.icon}
+										title={element.title}
+										cardText={element.description}
+										subtitle={element.subTitle}
+										technologies={element.technologies}
+									/>
+								</div>
+							);
+						})}
+					</div>
+					<div className="row">
+						<Titles title="Libraries" />
+					</div>
+					<div className="row">
+						{this.state.libraries.map((element, index) => {
+							return (
+								<div
+									key={index}
+									className="col-12 col-md-4 d-flex justify-content-center">
+									<Cards
+										iconClass={element.icon}
+										title={element.title}
+										cardText={element.description}
+										subtitle={element.subTitle}
+										technologies={element.technologies}
+									/>
+								</div>
+							);
+						})}
+					</div>
+					<div className="row">
+						<Titles title="Applications" />
+					</div>
+					<div className="row">
+						{this.state.applications.map((element, index) => {
+							return (
+								<div
+									key={index}
+									className="col-12 col-md-3 d-flex justify-content-center">
+									<Cards
+										iconClass={element.icon}
+										title={element.title}
+										cardText={element.description}
+										subtitle={element.subTitle}
+										technologies={element.technologies}
+									/>
+								</div>
+							);
+						})}
 					</div>
 				</div>
 			</div>

@@ -21,10 +21,13 @@ export class Home extends React.Component {
 		return (
 			<div>
 				<Jumbotron
+					jumbotronClass="jumbotron jumbotron-fluid  mb-0 text-center homeJumbo"
 					title="&lt;BreatheCode&gt;"
 					subheading="&lt;/We are a non-profit with the mission, to
 							accelerate the way junior developers learn and
 							evolve using technology.&gt;"
+					leftButton="Join our community"
+					rightButton="Start Learning"
 				/>
 				<nav className="nav flex-column d-block d-md-none flex-col ll">
 					<Dropdown />
