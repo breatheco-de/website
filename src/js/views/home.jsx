@@ -75,7 +75,9 @@ export class Home extends React.Component {
 					<div className="container">
 						<div className="row border-bottom">
 							<div className="col-3">
-								<i className="fas fa-apple-alt fa-2x" id="ltp">
+								<i
+									className="fas fa-apple-alt fa-2x blueB"
+									id="ltp">
 									&nbsp;
 								</i>
 								Learn The Platform
@@ -95,7 +97,7 @@ export class Home extends React.Component {
 						<div className="row border-bottom">
 							<div className="col-3">
 								<i
-									className="far fa-window-maximize fa-2x"
+									className="far fa-window-maximize fa-2x blueM"
 									id="ltc">
 									&nbsp;
 								</i>
@@ -125,7 +127,9 @@ export class Home extends React.Component {
 						</div>
 						<div className="row border-bottom">
 							<div className="col-3">
-								<i className="fas fa-code fa-2x" id="front">
+								<i
+									className="fas fa-code fa-2x yellowY"
+									id="front">
 									&nbsp;
 								</i>{" "}
 								Learning to Code
@@ -151,7 +155,7 @@ export class Home extends React.Component {
 						</div>
 						<div className="row border-bottom">
 							<div className="col-3">
-								<i className="fas fa-eye fa-2x" id="back">
+								<i className="fas fa-eye fa-2x blueB" id="back">
 									&nbsp;
 								</i>
 								Front-End Web Development
@@ -175,7 +179,9 @@ export class Home extends React.Component {
 						</div>
 						<div className="row border-bottom">
 							<div className="col-3">
-								<i className="fas fa-server fa-2x" id="build">
+								<i
+									className="fas fa-server fa-2x greenB"
+									id="build">
 									&nbsp;
 								</i>
 								Back-End Web Development
@@ -203,7 +209,9 @@ export class Home extends React.Component {
 						</div>
 						<div className="row border-bottom">
 							<div className="col-3">
-								<i className="fas fa-hammer fa-2x">&nbsp;</i>
+								<i className="fas fa-rocket fa-2x greenG">
+									&nbsp;
+								</i>
 								Building Web Apps
 							</div>
 							<div className="col-3">

@@ -96,3 +96,24 @@ position: absolute
     
 }
 
+.blueB{
+    color:#5BBFE8;
+}
+
+.greenG{
+    color:#68C4B9;
+}
+
+.greenB{
+    color: #6B85C5;
+}
+.blueM{
+    color:#007296;
+}
+.yellowY{
+    color:#F3A971;
+}
+
+.bottom{
+    bottom: -5px;
+}

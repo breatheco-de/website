@@ -105,10 +105,10 @@ export class Navbar extends React.Component {
 				<div className="d-none d-md-block">
 					<nav className="navbar navbar-expand-sm navbar-light bg-light">
 						<div className="container-fluid">
-							<div className="row w-100">
-								<div className="col-4">
+							<div className="row w-100 p-0">
+								<div className="col-4 position-relative bottom">
 									<div
-										className="collapse navbar-collapse d-flex justify-content-start"
+										className="collapse navbar-collapse d-flex justify-content-start position-absolute"
 										id="navbarNavAltMarkup">
 										<div className="navbar-nav">
 											<a
@@ -133,7 +133,7 @@ export class Navbar extends React.Component {
 										/>
 									</a>
 								</div>
-								<div className="col-4">
+								<div className="col-4 bottom">
 									<div
 										className="collapse navbar-collapse d-flex justify-content-end"
 										id="navbarNavAltMarkup">
