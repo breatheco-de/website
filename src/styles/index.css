@@ -131,3 +131,21 @@ position: absolute
 .blueRow{
     background-color:#287396
 }
+.aboutUs{
+    background-image:linear-gradient(#5bbfe8b5, #5bbfe899), url(https://ucarecdn.com/24dbc65c-e723-423b-8c2d-8ec5efa18880/); 
+    background-size: cover; 
+    color: white
+}
+.blueText{
+   color:#007398
+}
+.hereWeLiveJumbo{
+    background-image:linear-gradient(#5bbfe8b5, #5bbfe899), url(https://ucarecdn.com/aab88ce8-4431-43d2-945a-a5af97e60fb3/); 
+    background-size: cover;
+    color: white
+}
+
+.orangeText{
+    color:#FDA569;
+    margin-top: 14px
+}

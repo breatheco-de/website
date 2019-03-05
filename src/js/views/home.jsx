@@ -26,8 +26,8 @@ export class Home extends React.Component {
 					subheading="&lt;/We are a non-profit with the mission, to
 							accelerate the way junior developers learn and
 							evolve using technology.&gt;"
-					leftButton="Join our community"
-					rightButton="Start Learning"
+					leftButton="&lt; Join our community /&gt;"
+					rightButton="&lt; Start Learning /&gt;"
 				/>
 				<nav className="nav flex-column d-block d-md-none flex-col ll">
 					<Dropdown />

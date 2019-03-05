@@ -29,7 +29,7 @@ export class Jumbotron extends React.Component {
 									return (
 										<div
 											key={index}
-											className="col-12 col-sm-3">
+											className="col-12 col-sm-3 text-muted">
 											{element}
 										</div>
 									);
