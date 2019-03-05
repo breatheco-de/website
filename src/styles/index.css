@@ -45,7 +45,12 @@ position: absolute
     padding-left: 43px
 
 }
+.parragraphs1{
+    padding-bottom: 15px;
+    padding-top: 8px;
 
+
+}
 .lison{
     position: relative;
     padding-left: 19px
@@ -116,4 +121,13 @@ position: absolute
 
 .bottom{
     bottom: -5px;
+}
+
+.blueBC{
+   background-color:#3FB0EF;
+   border-color:#3FB0EF; 
+}
+
+.blueRow{
+    background-color:#287396
 }

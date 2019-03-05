@@ -10,7 +10,7 @@ export class Navbar extends React.Component {
 			changeSearch: false,
 			dropdownsItems: [
 				{
-					pClass: "border-bottom mb-0 parragraphs dropdown-toggle",
+					pClass: "border-bottom mb-0 parragraphs1 dropdown-toggle",
 					numbers: "dropdown-menu numbers",
 					boldDescription:
 						"Get amazing projects assign to your students, create Quizes for student self assessment, sync your repl.it classes, integrate with slack and cloud 9 for better teaching, etc.",
@@ -22,7 +22,7 @@ export class Navbar extends React.Component {
 					]
 				},
 				{
-					pClass: "border-bottom mb-0 parragraphs dropdown-toggle",
+					pClass: "border-bottom mb-0 parragraphs1 dropdown-toggle",
 					numbers: "dropdown-menu numbers",
 					boldDescription:
 						"The foundation of the web: Get introduced to the world of web development, learn HTML, CSS, Layout and Bootstrap. At the end of the course you will be able to create static websites.",
@@ -37,7 +37,7 @@ export class Navbar extends React.Component {
 					]
 				},
 				{
-					pClass: "border-bottom mb-0 parragraphs dropdown-toggle",
+					pClass: "border-bottom mb-0 parragraphs1 dropdown-toggle",
 					numbers: "dropdown-menu numbers",
 					boldDescription:
 						"Coding is like Mexican food, 6 ingredients that you mix on every algorithm: Loops, Conditionals, Logical Operations, etc. Learn the tricks get ready to be called a “Junior Developer” for the first time.",
@@ -52,7 +52,7 @@ export class Navbar extends React.Component {
 					]
 				},
 				{
-					pClass: "border-bottom mb-0 parragraphs dropdown-toggle",
+					pClass: "border-bottom mb-0 parragraphs1 dropdown-toggle",
 					numbers: "dropdown-menu numbers",
 					boldDescription:
 						"Create your first dynamic websites and games: Understand how browsers work and combine Javascript+CSS+HTML to update the website without refreshing it",
@@ -65,7 +65,7 @@ export class Navbar extends React.Component {
 					]
 				},
 				{
-					pClass: "border-bottom mb-0 parragraphs dropdown-toggle",
+					pClass: "border-bottom mb-0 parragraphs1 dropdown-toggle",
 					numbers: "dropdown-menu numbers",
 					boldDescription:
 						"Learn how to connect to a database, retrieve and store information using SQL, creating dynamic documents using PHP, object oriented programming, server configuration and more.",
@@ -81,7 +81,7 @@ export class Navbar extends React.Component {
 					]
 				},
 				{
-					pClass: "border-bottom mb-0 parragraphs dropdown-toggle",
+					pClass: "border-bottom mb-0 parragraphs1 dropdown-toggle",
 					numbers: "dropdown-menu numbers",
 					boldDescription:
 						"Graduation day! Use all the previous knowledge and skills combined to develop your first real life web application: User Stories, Wire-framing, React.js & Django.",
@@ -157,8 +157,8 @@ export class Navbar extends React.Component {
 				</div>
 
 				<nav className="navbar navbar-expand-xl navbar-light bg-light p-0 d-block d-md-none">
-					<div className="container-fluid">
-						<a className="navbar-brand p-15" href="#">
+					<div className="container-fluid p-2">
+						<a className="navbar-brand" href="#">
 							<img
 								src="https://ucarecdn.com/dbe55247-376b-4b81-988e-7dd95f4233b5/-/resize/45x/"
 								className="img-fluid"
@@ -167,7 +167,7 @@ export class Navbar extends React.Component {
 						</a>
 						<div className="buttons p-15">
 							<button
-								className="btn btn-primary"
+								className="btn btn-primary blueBC mr-1"
 								type="button"
 								data-toggle="collapse"
 								data-target="#collapseExample"
@@ -226,7 +226,7 @@ export class Navbar extends React.Component {
 							.state.change && "show"}`}
 						id="navbarSupportedContent">
 						<div className="container-fluid">
-							<div className="row">
+							<div className="row blueRow p-2 text-light">
 								<div className="col-12 d-flex d-flex justify-content-around">
 									<a>
 										<strong>Login</strong>

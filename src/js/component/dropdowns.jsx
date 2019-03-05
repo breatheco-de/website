@@ -9,7 +9,7 @@ export class Dropdown extends React.Component {
 				{
 					pClass: "border-bottom mb-0 parragraphs",
 					iconClass: "lison",
-					icon: "fas fa-apple-alt fa-2x icon",
+					icon: "fas fa-apple-alt fa-2x icon blueB",
 					heading: "Learn The Platform",
 					listItems: [
 						"Submit a quiz",
@@ -20,7 +20,7 @@ export class Dropdown extends React.Component {
 				{
 					pClass: "border-bottom mb-0 parragraphs",
 					iconClass: "lison",
-					icon: "far fa-window-maximize fa-2x icon",
+					icon: "far fa-window-maximize fa-2x icon blueM",
 					heading: "The Basics of the Web",
 					listItems: [
 						"Internet Architecture",
@@ -32,9 +32,9 @@ export class Dropdown extends React.Component {
 					]
 				},
 				{
-					pClass: "border-bottom mb-0 parragraphs",
+					pClass: "border-bottom mb-0 parragraphs ",
 					iconClass: "lison",
-					icon: "fas fa-code fa-2x icon",
+					icon: "fas fa-code fa-2x icon yellowY",
 					heading: "Learning to Code",
 					listItems: [
 						"Introduction",
@@ -48,7 +48,7 @@ export class Dropdown extends React.Component {
 				{
 					pClass: "border-bottom mb-0 parragraphs",
 					iconClass: "lison",
-					icon: "fas fa-eye fa-2x icon",
+					icon: "fas fa-eye fa-2x icon blueB",
 					heading: "Front-End Web Development",
 					listItems: [
 						"The DOM",
@@ -60,7 +60,7 @@ export class Dropdown extends React.Component {
 				{
 					pClass: "border-bottom mb-0 parragraphs",
 					iconClass: "lison",
-					icon: "fas fa-server fa-2x icon",
+					icon: "fas fa-server fa-2x icon greenB",
 					heading: "Back-End Web Development",
 					listItems: [
 						"Intro to Back-End",
@@ -75,7 +75,7 @@ export class Dropdown extends React.Component {
 				{
 					pClass: "border-bottom mb-0 parragraphs",
 					iconClass: "lison",
-					icon: "fas fa-hammer fa-2x icon",
+					icon: "fas fa-rocket fa-2x icon greenG",
 					heading: "Building Web Apps",
 					listItems: [
 						"Professional Web Development",
