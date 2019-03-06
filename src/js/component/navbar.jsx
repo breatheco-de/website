@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { DropdownItem } from "./dropdowns.jsx";
+import { Link } from "react-router-dom";
+
 export class Navbar extends React.Component {
 	constructor() {
 		super();
@@ -111,16 +113,20 @@ export class Navbar extends React.Component {
 										className="collapse navbar-collapse d-flex justify-content-start position-absolute"
 										id="navbarNavAltMarkup">
 										<div className="navbar-nav">
-											<a
-												className="nav-item nav-link"
-												href="./home.html">
-												Courses
-											</a>
-											<a
-												className="nav-item nav-link"
-												href="./learning-tools.html">
-												Learning Tools
-											</a>
+											<Link to="/" className="nav-link">
+												<a
+													className="nav-item nav-link"
+													href="./home.html">
+													Courses
+												</a>
+											</Link>
+											<Link
+												to="/learning-tools"
+												className="nav-link">
+												<a className="nav-item nav-link">
+													Learning Tools
+												</a>
+											</Link>
 										</div>
 									</div>
 								</div>
@@ -138,16 +144,22 @@ export class Navbar extends React.Component {
 										className="collapse navbar-collapse d-flex justify-content-end"
 										id="navbarNavAltMarkup">
 										<div className="navbar-nav">
-											<a
-												className="nav-item nav-link"
-												href="./about-us.html">
-												About Us
-											</a>
-											<a
-												className="nav-item nav-link"
-												href="#">
-												Logg in
-											</a>
+											<Link
+												to="/about-us"
+												className="nav-link">
+												<a className="nav-item nav-link">
+													About Us
+												</a>
+											</Link>
+											<Link
+												to="https://student.breatheco.de/login"
+												className="nav-link">
+												<a
+													className="nav-item nav-link"
+													href="#">
+													Logg in
+												</a>
+											</Link>
 										</div>
 									</div>
 								</div>

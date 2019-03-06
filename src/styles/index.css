@@ -149,3 +149,30 @@ position: absolute
     color:#FDA569;
     margin-top: 14px
 }
+.cardSize{
+    width: 38rem;
+    height: 22rem; 
+}
+.learningGreen{
+    color: #00907B;
+}
+.learningGreen2{
+    color: #00D09F; 
+}
+
+.tagsCol1{
+    background-color: #97F8ED
+}
+.tagsCol2{
+    background-color: #C2F8D0
+}
+.tagsCol3{
+    background-color: #BCF6AA
+}
+.tagsCol4{
+    background-color: #E0F790
+}
+.titleColor{
+    color: #004551;
+
+}
