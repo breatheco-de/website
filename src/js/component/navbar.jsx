@@ -132,11 +132,13 @@ export class Navbar extends React.Component {
 								</div>
 								<div className="col-4 d-flex justify-content-center">
 									<a className="navbar-brand" href="#">
-										<img
-											src="https://ucarecdn.com/dbe55247-376b-4b81-988e-7dd95f4233b5/-/resize/45x/"
-											className="img-fluid"
-											alt="Responsive image"
-										/>
+										<Link to="/" className="nav-link">
+											<img
+												src="https://ucarecdn.com/dbe55247-376b-4b81-988e-7dd95f4233b5/-/resize/45x/"
+												className="img-fluid"
+												alt="Responsive image"
+											/>
+										</Link>
 									</a>
 								</div>
 								<div className="col-4 bottom">
@@ -171,11 +173,13 @@ export class Navbar extends React.Component {
 				<nav className="navbar navbar-expand-xl navbar-light bg-light p-0 d-block d-md-none">
 					<div className="container-fluid p-2">
 						<a className="navbar-brand" href="#">
-							<img
-								src="https://ucarecdn.com/dbe55247-376b-4b81-988e-7dd95f4233b5/-/resize/45x/"
-								className="img-fluid"
-								alt="Responsive image"
-							/>
+							<Link to="/" className="nav-link">
+								<img
+									src="https://ucarecdn.com/dbe55247-376b-4b81-988e-7dd95f4233b5/-/resize/45x/"
+									className="img-fluid"
+									alt="Responsive image"
+								/>
+							</Link>
 						</a>
 						<div className="buttons p-15">
 							<button
@@ -251,13 +255,17 @@ export class Navbar extends React.Component {
 						</div>
 						<ul className="navbar-nav mr-auto">
 							<li className="nav-item">
-								<a className="nav-link border-bottom">
-									About Us
-								</a>
+								<Link to="/about-us" className="nav-link">
+									<a className="nav-link border-bottom">
+										About Us
+									</a>
+								</Link>
 							</li>
-							<li className="nav-item">
-								<span>Courses</span>
-							</li>
+							<Link to="/" className="nav-link">
+								<li className="nav-item">
+									<span>Courses</span>
+								</li>
+							</Link>
 							<div className="courses">
 								{this.state.dropdownsItems.map(
 									(element, index) => {
