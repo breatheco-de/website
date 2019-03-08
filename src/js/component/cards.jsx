@@ -6,7 +6,9 @@ export class Cards extends React.Component {
 		return (
 			<React.Fragment>
 				<div className={this.props.cardClass}>
+					<TheFetch />
 					<i className={this.props.iconClass} />
+
 					<div className="container d-flex justify-content-center">
 						<div className="row d-flex flex-row justify-content-around w-100 pb-0">
 							{this.props.technologies &&
@@ -45,5 +47,38 @@ Cards.propTypes = {
 	subTitle: PropTypes.string,
 	cardItem: PropTypes.string,
 	technologies: PropTypes.array,
-	tagsCol: PropTypes.string
+	tagsCol: PropTypes.string,
+	gitUrl: PropTypes.string
 };
+
+class TheFetch extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			items: [],
+			isLoaded: false
+		};
+	}
+	componentDidMount() {
+		fetch("https://api.github.com/repos/breatheco-de/desktop-client/issues")
+			.then(res => res.json())
+			.then(json => {
+				this.setState({
+					isLoaded: true,
+					items: json
+				});
+			});
+	}
+
+	render() {
+		let { isLoaded, items } = this.state;
+
+		if (!isLoaded) {
+			return <div className="d-flex justify-content-end">Loading ..</div>;
+		} else {
+			return (
+				<div className="d-flex justify-content-end">{items.length}</div>
+			);
+		}
+	}
+}
