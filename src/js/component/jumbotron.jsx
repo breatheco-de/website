@@ -18,9 +18,13 @@ export class Jumbotron extends React.Component {
 					<p className={this.props.parragraphClass}>
 						{this.props.subheading}
 					</p>
-					<div className="d-flex justify-content-around">
-						<a>{this.props.rightButton}</a>
-						<a>{this.props.leftButton}</a>
+					<div className="d-flex justify-content-center">
+						<a className={this.props.btnClass}>
+							{this.props.rightButton}
+						</a>
+						<a className={this.props.btnClass}>
+							{this.props.leftButton}
+						</a>
 					</div>
 					{this.props.colContent && (
 						<div className={this.props.rowContainer}>
@@ -59,5 +63,6 @@ Jumbotron.propTypes = {
 	colClass: PropTypes.string,
 	colContent: PropTypes.array,
 	rightButton: PropTypes.string,
-	leftButton: PropTypes.string
+	leftButton: PropTypes.string,
+	btnClass: PropTypes.string
 };

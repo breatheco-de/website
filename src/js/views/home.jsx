@@ -28,6 +28,7 @@ export class Home extends React.Component {
 							evolve using technology.&gt;"
 					leftButton="&lt; Join our community /&gt;"
 					rightButton="&lt; Start Learning /&gt;"
+					btnClass="btn btn btnColor d-flex  text-light rounded mx-1 my-1"
 				/>
 				<nav className="nav flex-column d-block d-md-none flex-col ll">
 					<Dropdown />

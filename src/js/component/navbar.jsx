@@ -117,14 +117,14 @@ export class Navbar extends React.Component {
 												<a
 													className="nav-item nav-link"
 													href="./home.html">
-													Courses
+													Learn
 												</a>
 											</Link>
 											<Link
 												to="/learning-tools"
 												className="nav-link">
 												<a className="nav-item nav-link">
-													Learning Tools
+													Collaborate
 												</a>
 											</Link>
 										</div>
@@ -183,7 +183,7 @@ export class Navbar extends React.Component {
 						</a>
 						<div className="buttons p-15">
 							<button
-								className="btn btn-primary blueBC mr-1"
+								className="btn btn blueBC mr-1 text-white"
 								type="button"
 								data-toggle="collapse"
 								data-target="#collapseExample"
@@ -255,6 +255,13 @@ export class Navbar extends React.Component {
 						</div>
 						<ul className="navbar-nav mr-auto">
 							<li className="nav-item">
+								<Link to="/learning-tools" className="nav-link">
+									<a className="nav-link border-bottom">
+										Collaborate
+									</a>
+								</Link>
+							</li>
+							<li className="nav-item">
 								<Link to="/about-us" className="nav-link">
 									<a className="nav-link border-bottom">
 										About Us
@@ -263,7 +270,7 @@ export class Navbar extends React.Component {
 							</li>
 							<Link to="/" className="nav-link">
 								<li className="nav-item">
-									<span>Courses</span>
+									<span>Learn</span>
 								</li>
 							</Link>
 							<div className="courses">

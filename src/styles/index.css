@@ -176,7 +176,7 @@ position: absolute
     color: #004551;
 
 }
-.fa-exclamation{
+.fa-exclamation-triangle{
     position: relative;
     bottom: -4px;
 
@@ -188,7 +188,7 @@ position: absolute
 }
 
 .btnRED{
-    background-color: #ff00009e;
-    border-color: #ff00009e;
+    background-color:#ff0000c7;
+    border-color: #ff0000c7;
     
 }

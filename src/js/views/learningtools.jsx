@@ -290,7 +290,7 @@ export class LearningTools extends React.Component {
 			<div>
 				<Jumbotron
 					jumbotronClass="jumbotron jumbotron-fluid mb-0 homeJumbo"
-					title="Learning Tools"
+					title="Collaborate"
 					firstContainerClass="container d-flex justify-content-center"
 					headerClass="display-4"
 				/>

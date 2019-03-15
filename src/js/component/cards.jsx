@@ -42,12 +42,12 @@ export class Cards extends React.Component {
 					</div>
 					<div className="d-flex justify-content-center mb-2">
 						<Button
-							gitIssueUrl={this.props.gitIssueUrl}
-							buttonContent="Go to README"
+							gitReadme={this.props.gitIssueUrl}
+							buttonContent="Go to Project"
 						/>
 						<Button
-							gitReadme={this.props.gitIssueUrl}
-							buttonContent="Go to issues"
+							gitIssueUrl={this.props.gitIssueUrl}
+							buttonContent="Go to README"
 						/>
 					</div>
 				</div>
@@ -91,8 +91,8 @@ class TheFetch extends React.Component {
 			return finalUrl;
 		}
 
-		if (urlIssue) {
-			let splitUrl = urlIssue.split("/");
+		if (urlReadme) {
+			let splitUrl = urlReadme.split("/");
 			let companyName = splitUrl[3];
 			let projectName = splitUrl[4];
 			let finalUrl =
@@ -123,15 +123,14 @@ class TheFetch extends React.Component {
 		} else {
 			return (
 				<div className="d-flex justify-content-end">
-					<button
-						type="button"
-						href={this.issuesFeed(undefined, this.props.Issue)}
-						className="btn btn-danger d-flex btnRED text-light rounded btn-sm">
-						<i className="fas fa-exclamation" />
+					<a
+						href={this.issuesFeed(null, this.props.Issue)}
+						className="btn btn-danger d-flex btnRED text-light rounded btn-sm mx-1 my-1">
+						<i className="fas fa-exclamation-triangle" />
 						&nbsp;
 						{items.length}
 						&nbsp;Issues
-					</button>
+					</a>
 				</div>
 			);
 		}
@@ -153,11 +152,7 @@ class Button extends React.Component {
 			let companyName = splitUrl[3];
 			let projectName = splitUrl[4];
 			let finalUrl =
-				"https://github.com/" +
-				companyName +
-				"/" +
-				projectName +
-				"/issues";
+				"https://github.com/" + companyName + "/" + projectName + " ";
 			return finalUrl;
 		}
 
@@ -181,7 +176,7 @@ class Button extends React.Component {
 					this.props.gitReadme,
 					this.props.gitIssueUrl
 				)}
-				className="btn btn-secondary btn-sm btnColor mr-1">
+				className="btn btn-info btn-sm btnColor mr-1">
 				{this.props.buttonContent}
 			</a>
 		);
