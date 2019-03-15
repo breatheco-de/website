@@ -1,12 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export class Cards extends React.Component {
 	render() {
 		return (
 			<React.Fragment>
 				<div className={this.props.cardClass}>
-					<TheFetch />
+					{this.props.gitIssueUrl && (
+						<TheFetch
+							Issue={this.props.gitIssueUrl}
+							gitIssueUrl={this.props.gitIssueUrl}
+						/>
+					)}
+
 					<i className={this.props.iconClass} />
 
 					<div className="container d-flex justify-content-center">
@@ -33,6 +40,16 @@ export class Cards extends React.Component {
 							{this.props.cardText}
 						</p>
 					</div>
+					<div className="d-flex justify-content-center mb-2">
+						<Button
+							gitIssueUrl={this.props.gitIssueUrl}
+							buttonContent="Go to README"
+						/>
+						<Button
+							gitReadme={this.props.gitIssueUrl}
+							buttonContent="Go to issues"
+						/>
+					</div>
 				</div>
 			</React.Fragment>
 		);
@@ -48,7 +65,7 @@ Cards.propTypes = {
 	cardItem: PropTypes.string,
 	technologies: PropTypes.array,
 	tagsCol: PropTypes.string,
-	gitUrl: PropTypes.string
+	gitIssueUrl: PropTypes.string
 };
 
 class TheFetch extends React.Component {
@@ -59,8 +76,36 @@ class TheFetch extends React.Component {
 			isLoaded: false
 		};
 	}
+
+	issuesFeed(urlIssue, urlReadme) {
+		if (urlIssue) {
+			let splitUrl = urlIssue.split("/");
+			let companyName = splitUrl[3];
+			let projectName = splitUrl[4];
+			let finalUrl =
+				"https://api.github.com/repos/" +
+				companyName +
+				"/" +
+				projectName +
+				"/issues";
+			return finalUrl;
+		}
+
+		if (urlIssue) {
+			let splitUrl = urlIssue.split("/");
+			let companyName = splitUrl[3];
+			let projectName = splitUrl[4];
+			let finalUrl =
+				"https://github.com/" +
+				companyName +
+				"/" +
+				projectName +
+				"/issues";
+			return finalUrl;
+		}
+	}
 	componentDidMount() {
-		fetch("https://api.github.com/repos/breatheco-de/desktop-client/issues")
+		fetch(this.issuesFeed(this.props.gitIssueUrl))
 			.then(res => res.json())
 			.then(json => {
 				this.setState({
@@ -77,8 +122,75 @@ class TheFetch extends React.Component {
 			return <div className="d-flex justify-content-end">Loading ..</div>;
 		} else {
 			return (
-				<div className="d-flex justify-content-end">{items.length}</div>
+				<div className="d-flex justify-content-end">
+					<button
+						type="button"
+						href={this.issuesFeed(undefined, this.props.Issue)}
+						className="btn btn-danger d-flex btnRED text-light rounded btn-sm">
+						<i className="fas fa-exclamation" />
+						&nbsp;
+						{items.length}
+						&nbsp;Issues
+					</button>
+				</div>
 			);
 		}
 	}
 }
+
+TheFetch.propTypes = {
+	gitIssueUrl: PropTypes.string,
+	Issue: PropTypes.string
+};
+
+class Button extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+	issuesFeed(urlIssue, urlReadme) {
+		if (urlIssue) {
+			let splitUrl = urlIssue.split("/");
+			let companyName = splitUrl[3];
+			let projectName = splitUrl[4];
+			let finalUrl =
+				"https://github.com/" +
+				companyName +
+				"/" +
+				projectName +
+				"/issues";
+			return finalUrl;
+		}
+
+		if (urlReadme) {
+			let splitUrl = urlReadme.split("/");
+			let companyName = splitUrl[3];
+			let projectName = splitUrl[4];
+			let finalUrl =
+				"https://github.com/" +
+				companyName +
+				"/" +
+				projectName +
+				"/blob/master/README.md";
+			return finalUrl;
+		}
+	}
+	render() {
+		return (
+			<a
+				href={this.issuesFeed(
+					this.props.gitReadme,
+					this.props.gitIssueUrl
+				)}
+				className="btn btn-secondary btn-sm btnColor mr-1">
+				{this.props.buttonContent}
+			</a>
+		);
+	}
+}
+
+Button.propTypes = {
+	gitIssueUrl: PropTypes.string,
+	issuesFeed: PropTypes.func,
+	buttonContent: PropTypes.string,
+	gitReadme: PropTypes.string
+};

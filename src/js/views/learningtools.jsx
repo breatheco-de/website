@@ -9,6 +9,8 @@ export class LearningTools extends React.Component {
 		this.state = {
 			toolCards: [
 				{
+					gitIssueUrl:
+						"https://github.com/breatheco-de/breathecode-cli",
 					cardClass: "card bg-light w-100 h-100 ",
 					icon:
 						"fas fa-terminal fa-7x d-flex justify-content-center pt-3 learningGreen",
@@ -31,6 +33,7 @@ export class LearningTools extends React.Component {
 					]
 				},
 				{
+					gitIssueUrl: "https://github.com/breatheco-de/c9-plugin",
 					cardClass: "card bg-light w-100 h-100",
 					icon:
 						"fas fa-cloud fa-7x d-flex justify-content-center pt-3 blueB",
@@ -55,6 +58,7 @@ export class LearningTools extends React.Component {
 			],
 			apisCards: [
 				{
+					gitIssueUrl: "https://github.com/breatheco-de/api",
 					cardClass: "card bg-light w-100 h-100",
 					icon:
 						"fas fa-user-graduate fa-7x d-flex justify-content-center pt-3 learningGreen",
@@ -95,6 +99,7 @@ export class LearningTools extends React.Component {
 					]
 				},
 				{
+					gitIssueUrl: "https://github.com/breatheco-de/assets",
 					cardClass: "card bg-light w-100 h-100 ",
 					icon:
 						"fas fa-file-alt fa-7x d-flex justify-content-center pt-3 blueB",
@@ -135,6 +140,8 @@ export class LearningTools extends React.Component {
 			],
 			libraries: [
 				{
+					gitIssueUrl:
+						"https://github.com/breatheco-de/react-session",
 					cardClass: "card bg-light w-100 h-100",
 					icon:
 						"fab fa-react fa-7x d-flex justify-content-center pt-3 learningGreen",
@@ -149,6 +156,8 @@ export class LearningTools extends React.Component {
 					]
 				},
 				{
+					gitIssueUrl:
+						"https://github.com/breatheco-de/react-notifier",
 					cardClass: "card bg-light w-100 h-100",
 					icon:
 						"fab fa-react fa-7x d-flex justify-content-center pt-3 blueB",
@@ -161,30 +170,17 @@ export class LearningTools extends React.Component {
 							color: "col-1.5 px-3 rounded tagsCol1"
 						}
 					]
-				},
-				{
-					cardClass: "card bg-light w-100 h-100",
-					icon:
-						"fab fa-react fa-7x d-flex justify-content-center pt-3 blueM",
-					title: "React Flux Dash",
-					description: "Flux implementation for React.js",
-					subtTitle: "Technologies",
-					technologies: [
-						{
-							tech: "React.js",
-							color: "col-1.5 px-3 rounded tagsCol1"
-						}
-					]
 				}
 			],
 			applications: [
 				{
+					gitIssueUrl: "https://github.com/breatheco-de/content",
 					cardClass: "card bg-light w-100 h-100",
 					icon:
 						"fas fa-sitemap fa-7x d-flex justify-content-center pt-3 learningGreen",
 					title: "CMS",
 					description:
-						"This is were most of the community content is being published: Lessons, Error Explanations and &quot;How to&apos;s&quot;.",
+						"This is were most of the community content is being published: Lessons, Error Explanations and How to's.",
 					technologies: [
 						{
 							tech: "React.js",
@@ -205,6 +201,8 @@ export class LearningTools extends React.Component {
 					]
 				},
 				{
+					gitIssueUrl:
+						"https://github.com/breatheco-de/desktop-client",
 					cardClass: "card bg-light w-100 h-100",
 					icon:
 						"fas fa-home fa-7x d-flex justify-content-center pt-3 blueB",
@@ -231,6 +229,8 @@ export class LearningTools extends React.Component {
 					]
 				},
 				{
+					gitIssueUrl:
+						"https://github.com/breatheco-de/teacher-client",
 					cardClass: "card bg-light w-100 h-100",
 					icon:
 						"fas fa-chalkboard-teacher fa-7x d-flex justify-content-center pt-3 blueM",
@@ -257,6 +257,7 @@ export class LearningTools extends React.Component {
 					]
 				},
 				{
+					gitIssueUrl: "https://github.com/breatheco-de/admin-client",
 					cardClass: "card bg-light w-100 h-100",
 					icon:
 						"fas fa-users fa-7x d-flex justify-content-center pt-3 learningGreen2",
@@ -311,6 +312,7 @@ export class LearningTools extends React.Component {
 										subtitle={element.subTitle}
 										technologies={element.technologies}
 										tagsCol={element.tagsCol}
+										gitIssueUrl={element.gitIssueUrl}
 									/>
 								</div>
 							);
@@ -334,6 +336,7 @@ export class LearningTools extends React.Component {
 										subtitle={element.subTitle}
 										technologies={element.technologies}
 										tagsCol={element.tagsCol}
+										gitIssueUrl={element.gitIssueUrl}
 									/>
 								</div>
 							);
@@ -347,7 +350,7 @@ export class LearningTools extends React.Component {
 							return (
 								<div
 									key={index}
-									className="col-12 col-md-4 d-flex justify-content-center">
+									className="col-12 col-md-6 d-flex justify-content-center">
 									<Cards
 										cardClass={element.cardClass}
 										iconClass={element.icon}
@@ -356,6 +359,7 @@ export class LearningTools extends React.Component {
 										subtitle={element.subTitle}
 										technologies={element.technologies}
 										tagsCol={element.tagsCol}
+										gitIssueUrl={element.gitIssueUrl}
 									/>
 								</div>
 							);
@@ -378,6 +382,7 @@ export class LearningTools extends React.Component {
 										subtitle={element.subTitle}
 										technologies={element.technologies}
 										tagsCol={element.tagsCol}
+										gitIssueUrl={element.gitIssueUrl}
 									/>
 								</div>
 							);
@@ -393,7 +398,7 @@ class Titles extends React.Component {
 	render() {
 		return (
 			<div className="col-12 d-flex justify-content-center">
-				<h2 className="display-4 titleColor">{this.props.title}</h2>
+				<h2 className="display-5 titleColor">{this.props.title}</h2>
 			</div>
 		);
 	}

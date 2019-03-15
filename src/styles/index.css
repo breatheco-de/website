@@ -176,3 +176,19 @@ position: absolute
     color: #004551;
 
 }
+.fa-exclamation{
+    position: relative;
+    bottom: -4px;
+
+}
+
+.btnColor{
+    background-color: #007296;
+    border-color: #007296;
+}
+
+.btnRED{
+    background-color: #ff00009e;
+    border-color: #ff00009e;
+    
+}
