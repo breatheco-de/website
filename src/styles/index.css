@@ -1,194 +1,100 @@
-
-
-.sticky, .row {
-    padding: 30px;
-}
- 
-.sticky, ul{
-    display: flex;
-    justify-content: space-between;
-}
-
-.flex-col, p{
-    padding: 10px;
-}
-
-.mobile ,li,p{
-    padding: 10px
-}
-
-.ll, li{
-    list-style-type: none;
-}
-
-.ll, ol{
-    padding-left: 0
-}
-
-.input{
-    padding-bottom: 15px
-}
-
-.input, input{
-    
-    border-style: none;
-}
-
- .icon{
-position: absolute
-    
-}
-
-.parragraphs{
-    padding-bottom: 15px;
-    padding-top: 8px;
-    padding-left: 43px
+.greenButton{
+    background-color: #DFEDD5;
 
 }
-.parragraphs1{
-    padding-bottom: 15px;
-    padding-top: 8px;
 
-
-}
-.lison{
-    position: relative;
-    padding-left: 19px
+.blueButton{
+    background-color: #D4E3FC;
 }
 
-.first-nav-parragraphs{
-    margin-bottom: 0;
-    padding-bottom: 0;
- }
-
- .courses li{
-  padding-left: 30px
- }
- 
- .mobile-nav{
-     padding:15px;
- }
- 
-.search-button{
-    background-color:#3FB0EF;
-    border-color: #3FB0EF;
-}
-.search-input{
-    margin:8px 0px 8px 8px;
-}
-.nav-row{
-    background-color:#287396;
-    padding: 10px;
-}
-.col-color{
-    color:whitesmoke;
-}
-.numbers{
-    border:none; 
-    background-color: transparent;
-}
-.c-color{
-    background-color:#f6f6f6;
-}
-.footer1{
-    background-color: #808080;
-    color:whitesmoke
+.blueLinks{
+    color:#007bff;
 }
 
-.homeJumbo{
-    background-color: #3FB0EF;
-    color: whitesmoke;
-    
+
+.buttonHeight{
+    height: 42px
 }
 
-.blueB{
-    color:#5BBFE8;
-}
-
-.greenG{
-    color:#68C4B9;
-}
-
-.greenB{
-    color: #6B85C5;
-}
-.blueM{
-    color:#007296;
-}
-.yellowY{
-    color:#F3A971;
-}
-
-.bottom{
-    bottom: -5px;
-}
-
-.blueBC{
-   background-color:#3FB0EF;
-   border-color:#3FB0EF; 
-}
-
-.blueRow{
-    background-color:#287396
-}
-.aboutUs{
-    background-image:linear-gradient(#5bbfe8b5, #5bbfe899), url(https://ucarecdn.com/24dbc65c-e723-423b-8c2d-8ec5efa18880/); 
-    background-size: cover; 
-    color: white
-}
-.blueText{
-   color:#007398
-}
-.hereWeLiveJumbo{
-    background-image:linear-gradient(#5bbfe8b5, #5bbfe899), url(https://ucarecdn.com/aab88ce8-4431-43d2-945a-a5af97e60fb3/); 
-    background-size: cover;
-    color: white
-}
-
-.orangeText{
-    color:#FDA569;
-    margin-top: 14px
-}
-.cardSize{
-    width: 38rem;
-    height: 22rem; 
-}
-.learningGreen{
-    color: #00907B;
-}
-.learningGreen2{
-    color: #00D09F; 
-}
-
-.tagsCol1{
-    background-color: #97F8ED
-}
-.tagsCol2{
-    background-color: #C2F8D0
-}
-.tagsCol3{
-    background-color: #BCF6AA
-}
-.tagsCol4{
-    background-color: #E0F790
-}
-.titleColor{
-    color: #004551;
+a{
+  background-image: none;
+  cursor: pointer;
 
 }
-.fa-exclamation-triangle{
-    position: relative;
-    bottom: -4px;
+
+.textDecorationGreen{
+    color: #28A745 !important;
+
+}
+.textDecorationGreen::hover{
+    color: #28A745 !important;
+    text-decoration: underline !important;
+     text-decoration-color: #28A745!important;
+}
+
+
+.textDecoration{
+    text-decoration: underline;
+}
+
+
+.gradient{
+  background-image: linear-gradient(#E9ECEF, #FFFFFF);
+}
+
+.btnRED{
+    background-color:#ff000000;
+    border-color: #ff0000c7 !important;
 
 }
 
 .btnColor{
     background-color: #007296;
     border-color: #007296;
+    color:white;
 }
 
-.btnRED{
-    background-color:#ff0000c7;
-    border-color: #ff0000c7;
-    
+.tagsCol1{
+    background-color: #fff;
+    border:1px solid #CCCCCC;
 }
+.tagsCol2{
+     background-color: #fff;
+    border:1px solid #CCCCCC;
+}
+.tagsCol3{
+     background-color: #fff;
+    border:1px solid #CCCCCC;
+}
+.tagsCol4{
+    background-color: #fff;
+    border:1px solid #CCCCCC;
+}
+
+.options-component{
+    background-color: white;
+    z-index: 20;
+
+}
+
+
+.gradientFooter{
+  background-image: linear-gradient(#FFFFFF,#E9ECEF);
+}
+
+.author.badge{
+    font-size: 16px;
+}
+.bc-loading-bar{
+    position: fixed;
+    margin: auto;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    z-index: 1021;
+}
+
+.bc-filter .options-component{
+ min-width: 660px!important;
+}
+
