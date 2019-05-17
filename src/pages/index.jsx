@@ -14,15 +14,15 @@ class Home extends React.Component {
 			<div>
 			<Navbar/>
 				<Jumbotron
-					jumbotronClass="jumbotron bg-white bold "
+					jumbotronClass="jumbotron bg-white bold container "
 					jumbotronTitle={() => <h1 className="display-4 text-center mb-sm-5">Welcome to BreatheCo<span className="text-primary">.</span>de</h1>}
 					firstColumnClass="col-sm-12 col-md-5 text-center text-md-right pt-5 pt-md-0"
-					secondColumnClass="col-sm-12 col-md-2  "
+					secondColumnClass="col-sm-12 col-md-2"
 					thirdColumnClass="col-sm-12 col-md-5 text-center text-sm-center text-md-left pt-5 pt-md-0"
 					pClassFirstCol="h2 bold"
-					pHeaderFirstCol="Are you here to help?"
+					pHeaderFirstCol="Here to help us?"
 					pClassSecondCol="h2 bold"
-					pHeaderSecondCol="Are your here to learn code?"
+					pHeaderSecondCol="Here to learn code?"
 					imgSrc="https://ucarecdn.com/dbe55247-376b-4b81-988e-7dd95f4233b5/-/resize/90x/"
 					imgClass="mx-auto d-flex"
 					pTexClassColOne="lead"
@@ -34,7 +34,7 @@ class Home extends React.Component {
 					thirdLinkColOneText="Start Collaborating now"
 					smallDescriptionFirstCol="Thanks to the open source contributions we have been able to publish 20 projects that have helped more than 2,000 learners , you can read about the reach and impact of our publications here"
 					smallDescriptionFirstColClass="mt-3 text-secondary"
-					
+
 					buttonAlignCenterClass=""
 					pTextClassColTwo="lead"
 					pTextSecondCol="We strongly recomend following our learning process in this order"
@@ -44,8 +44,8 @@ class Home extends React.Component {
 					thirdLinkColTwoText="Code a real life project"
 					smallDescriptionsecondTextCol="All of our contents, videos and interactive tutorials are published and open sourced to the web, but by being a sponsor you will be able to track your progress and receive guided learning and much more"
 					buttonColTwoClass="btn btn-outline-primary btn-lg  text-dark px-3 px-md-5 blueButton"
-					buttonColTwoText="login for guided learning"
-					buttonSmallText="$40/mo contribution"
+					buttonColTwoText="Login"
+					buttonSmallText="(Guided Learning)"
 					buttonAlignCenterClassTwo=" "
 					jumboRowClass="row"
 					linkClassColOne="textDecorationGreen"
