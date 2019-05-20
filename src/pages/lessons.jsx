@@ -86,7 +86,7 @@ export class Lessons extends React.Component {
 												<div className="px-1 py-2">
 													<Filter
 														label="Tags"
-														placeholder="Select one or more tags"
+														placeholder="Filter by topic"
 														onChange={d =>
 															this.setState({
 																selectedTags: d
@@ -125,7 +125,7 @@ export class Lessons extends React.Component {
 												<div className="px-1 pl-1 py-2">
 													<Filter
 														label="Author"
-														placeholder="Filter by Author"
+														placeholder="Filter by author"
 														onChange={d =>
 															this.setState({
 																selectedAuthors: d

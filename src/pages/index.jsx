@@ -40,7 +40,7 @@ class Home extends React.Component {
 					pTextClassColTwo="lead"
 					pTextSecondCol="We strongly recomend following our learning process in this order"
 					linksClassSecondCol="blueLinks"
-					firstLinkColTwoText="Read 10 min lessons"
+					firstLinkColTwoText="Lessons, videos and assets"
 					secondLinkColTwoText="Do interactive tutorials"
 					thirdLinkColTwoText="Code a real life project"
 					smallDescriptionsecondTextCol="All of our contents, videos and interactive tutorials are published and open sourced to the web, but by being a sponsor you will be able to track your progress and receive guided learning and much more"
