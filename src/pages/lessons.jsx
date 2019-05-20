@@ -50,6 +50,7 @@ export class Lessons extends React.Component {
 
             <Layout>
 			<Navbar/>
+
 				<Context.Consumer>
 					{({ store, actions }) => {
 						return (
@@ -165,7 +166,7 @@ export class Lessons extends React.Component {
 					}}
 				</Context.Consumer>
 				<Footer/>
-                </Layout>
+            </Layout>
 
 		);
 	}
