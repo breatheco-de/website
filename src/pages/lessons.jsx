@@ -121,7 +121,7 @@ export class Lessons extends React.Component {
 										return (
 											<div className="container" key={index}>
 												<div className="row">
-													<div className="col-12  py-3">
+													<div className="col-12  py-2">
 														<div className="pl-3">
 															<a
 																target="_blank"
@@ -129,15 +129,15 @@ export class Lessons extends React.Component {
 																href={actions.lessonUrl(lesson)}>
 																{lesson.title}
 															</a>
-															<div className="row">
-																<div className="col py-2 text-dark">
+															<div className={`row ${!lesson.authors&&"mb-2"}`}>
+																{lesson.authors&&<div className="col py-2 text-dark">
 																	{lesson.authors && "Contributors: "}
 																	{lesson.authors && lesson.authors.map((a,k) => (<a
 																		href={`https://github.com/${a}`}
 																		target="_blank"
 																		key={k}
 																		className="author badge badge-pill badge-light mr-2">@{a}</a>))}
-																</div>
+																</div>}
 															</div>
 															<p className="lead text-dark ">{lesson.subtitle}</p>
 															<div className="row ">

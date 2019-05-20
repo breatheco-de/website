@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "@breathecode/ui-components/dist/main.css";
 import Navbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
+import Layout from "../components/layout"
 
 
  class Contributing extends React.Component {
@@ -30,6 +31,7 @@ import Footer from "../components/footer.jsx";
 	render() {
 		return (
 			<div>
+            <Layout>
 				<Navbar/>
 				<Context.Consumer>
 					{({ store, actions }) => {
@@ -120,6 +122,7 @@ import Footer from "../components/footer.jsx";
 					}}
 				</Context.Consumer>
 				<Footer/>
+                </Layout>
 			</div>
 		);
 	}

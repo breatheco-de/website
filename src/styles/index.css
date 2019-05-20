@@ -87,6 +87,7 @@ a{
 }
 .bc-loading-bar{
     position: fixed;
+    width:100%;
     margin: auto;
     top: 50vh;
     left: 50vw;
@@ -98,7 +99,7 @@ a{
 }
 .bcfilter .options-component ul{
     max-width: 90vw;
-    max-height: 90vh;
+    max-height: 60vh;
     overflow-y: scroll;
 }
 
