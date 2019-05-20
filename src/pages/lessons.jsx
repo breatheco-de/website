@@ -19,7 +19,14 @@ export class Lessons extends React.Component {
 		};
 	}
 
-	filterByTags = l => {
+	filterByLang = l => {
+		if (this.state.selectedLanguages.length == 0) return true;
+		for (let i = 0; i < this.state.selectedLanguages.length; i++) {
+			if (l.lang.includes(this.state.selectedLanguages[i].value)) return true;
+		}
+		return false;
+	}
+    filterByTags = l => {
 		if (this.state.selectedTags.length == 0) return true;
 		for (let i = 0; i < this.state.selectedTags.length; i++) {
 			if (l.tags.includes(this.state.selectedTags[i].value)) return true;
@@ -139,6 +146,7 @@ export class Lessons extends React.Component {
 								</div>
 
 								{store.lessons == null ? <Loading /> : store.lessons
+                                    .filter(this.filterByLang)
 									.filter(this.filterByAuthors)
 									.filter(this.filterByTags)
 									.map((lesson, index) => {
