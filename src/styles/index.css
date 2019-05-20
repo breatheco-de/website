@@ -93,8 +93,12 @@ a{
     transform: translate(-50%, -50%);
     z-index: 1021;
 }
-
-.bc-filter .options-component{
- min-width: 660px!important;
+.bcfilter .options-component ul{
+    flex-wrap: wrap;
+}
+.bcfilter .options-component ul{
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow-y: scroll;
 }
 
