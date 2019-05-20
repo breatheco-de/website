@@ -137,27 +137,20 @@ import { Link } from "gatsby"
                                  {store.assets?store.assets.filter(this.filterByTech).filter(this.filterByTopic).filter(this.filterByType).map((asset)=>{
                                      return(
                                 <div>
-                                    <div className="row  text-center text-md-left mt-2  p-3 paddingLeftZero">
-                                        {asset.url.includes("jpg")?<div className="col-12 col-md-2 d-flex justify-content-center align-items-center">
+                                    <div className="row  text-center text-md-left mt-2  p-2 paddingLeftZero">
+                                        <div className="col-12 col-md-2 d-flex justify-content-center align-items-center">
                                             <img
-                                                className="img-fluid"
-                                                src={asset.url?asset.url:""}
+                                                className="img-fluid imgSize"
+                                                src={asset.preview?asset.preview:""}
                                             />
-                                        </div>:" "}
+                                        </div>
                                         <div className="col-12 col-md pl-1">
                                             <div className="row">
                                                 <div className="col-12">
                                                     <div><a href={asset.url?asset.url:""} className=" h2 text-dark">{asset.title?asset.title:"missing title"}</a></div>
                                                 </div>
                                             </div>
-                                            <div className="row">
-                                                <div className="col-12">
-                                                    <small className="text-muted lead font-italic">
-                                                        in the following technlogies:
 
-                                                    </small>
-                                                </div>
-                                            </div>
                                             <div className="row mb-2">
                                                 <div className="col-12 p-2 col-md">
                                                       {asset.technologies?asset.technologies.map((tech)=>{
