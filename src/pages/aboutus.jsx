@@ -7,6 +7,7 @@ import "../styles/index.css";
 import Navbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
 import {  Loading } from "@breathecode/ui-components";
+import "@breathecode/ui-components/dist/main.css";
 
 class AboutUs extends React.Component {
 	render() {

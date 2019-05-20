@@ -1,6 +1,7 @@
 import React from "react";
 import { SmallJumbotron } from "../components/smalljumbo.jsx";
 import { Filter, Icon, Loading } from "@breathecode/ui-components";
+import "@breathecode/ui-components/dist/main.css";
 import { Context } from "../store/appContext.jsx";
 import PropTypes from "prop-types";
 import moment from "moment";
@@ -87,13 +88,13 @@ export class OpenSource extends React.Component {
 													<div className="col text  pt-3">
                                                     <div className ="row">
                                                         <div className="col">
-                                                            <a 
+                                                            <a
                                                                 href={actions.issuesFeed(
                                                                         null,
                                                                         null,
                                                                         null,
                                                                         project.gitIssueUrl
-                                                                    )} 
+                                                                    )}
                                                                 className="h2 text-dark">{project.title}
                                                              </a>
                                                         </div>

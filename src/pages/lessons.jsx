@@ -5,7 +5,7 @@ import { Context } from "../store/appContext.jsx";
 import Store from "../store/appContext.jsx";
 import Navbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
-
+import "@breathecode/ui-components/dist/main.css";
 
 
 export class Lessons extends React.Component {

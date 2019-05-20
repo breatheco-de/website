@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "../styles/index.css";
+import "@breathecode/ui-components/dist/main.css";
 
 const NotFoundPage = () => (
   <Layout>
@@ -11,7 +12,7 @@ const NotFoundPage = () => (
   <div className='row text-center mb-5'>
         <div className="col">
           <div className="display-1 mb-5">
-          Sorry i think you are lost 
+          Sorry i think you are lost
           </div>
           <img className="rounded mx-auto img-fluid" src="https://github.com/breatheco-de/assets/blob/master/apis/img/funny/scared-baby.jpg?raw=true"/>
         </div>
@@ -19,7 +20,7 @@ const NotFoundPage = () => (
   </div>
 
   </div>
-    
+
   </Layout>
 )
 

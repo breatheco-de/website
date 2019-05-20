@@ -5,6 +5,7 @@ import { Filter, Loading } from "@breathecode/ui-components";
 import { Context } from "../store/appContext.jsx";
 import moment from "moment";
 import "bootstrap/dist/css/bootstrap.css";
+import "@breathecode/ui-components/dist/main.css";
 import Navbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
 
