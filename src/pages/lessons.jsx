@@ -13,6 +13,7 @@ export class Lessons extends React.Component {
 	constructor() {
 		super();
 		this.state = {
+            selectedLanguages:[],
 			selectedTags: [],
 			selectedAuthors: []
 		};
@@ -54,6 +55,7 @@ export class Lessons extends React.Component {
 
 				<Context.Consumer>
 					{({ store, actions }) => {
+                        console.log(store.lessonLanguage)
 						return (
 							<div>
 
@@ -89,6 +91,27 @@ export class Lessons extends React.Component {
 																value: tag
 															};
 														}):<Loading/>}
+
+													/>
+												</div>
+                                                <div className="px-1 py-2">
+													<Filter
+														label="Language"
+														placeholder="Filter by language"
+														onChange={d =>
+															this.setState({
+																selectedLanguages: d
+															})
+														}
+															options={store.lessonLanguage?actions.filterRepeated(store.lessonLanguage).map((lan, index) => {
+															return {
+																label: lan,
+																value: lan
+															};
+														}):[{
+																label: <Loading/>,
+																value: <Loading/>
+															}]}
 
 													/>
 												</div>
