@@ -6,6 +6,7 @@ import Store from "../store/appContext.jsx";
 import Navbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
 import "@breathecode/ui-components/dist/main.css";
+import Layout from "../components/layout"
 
 
 export class Lessons extends React.Component {
@@ -46,7 +47,8 @@ export class Lessons extends React.Component {
 
 	render() {
 		return (
-			<div>
+
+            <Layout>
 			<Navbar/>
 				<Context.Consumer>
 					{({ store, actions }) => {
@@ -163,7 +165,8 @@ export class Lessons extends React.Component {
 					}}
 				</Context.Consumer>
 				<Footer/>
-			</div>
+                </Layout>
+
 		);
 	}
 }

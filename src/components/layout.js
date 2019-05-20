@@ -27,14 +27,9 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-     
+
           <main>{children}</main>
-          <footer className="text-center gradientFooter pt-5 mt-5">
-            © {new Date().getFullYear()}, Built By  
-            {` `}
-            <Link to="/">BreatheCode</Link>
-          </footer>
-       
+
       </>
     )}
   />
