@@ -64,18 +64,14 @@ class Navbar extends React.Component {
 							</li>
 						</ul>
 						<form className="form-inline my-2 my-lg-0  d-flex justify-content-center">
-							<Link to="/contributing" className="nav-link">
-								<Button
-									href="/contributing"
-									classNameButton=" btn btn-outline-success buttonHeight mr-2"
-									buttonText="Start Contributing"
-								/>
+							<Link to="/contributing" className="nav-link btn btn-outline-success buttonHeight mr-2">
+                                Start Contributing
 							</Link>
-							<Button
-								classNameButton="btn btn-outline-primary buttonHeight  px-5"
-								buttonText="login"
+							<a
+								className="btn btn-outline-primary buttonHeight  px-5"
+
 								href="https://student.breatheco.de/login"
-							/>
+							>login</a>
 						</form>
 					</div>
 				</nav>
