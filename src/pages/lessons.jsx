@@ -51,6 +51,7 @@ export class Lessons extends React.Component {
             <Layout>
 			<Navbar/>
 
+
 				<Context.Consumer>
 					{({ store, actions }) => {
 						return (

@@ -99,7 +99,7 @@ a{
 }
 .bcfilter .options-component ul{
     max-width: 90vw;
-    max-height: 60vh;
+    max-height: 30vh;
     overflow-y: scroll;
 }
 

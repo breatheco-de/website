@@ -5,5 +5,11 @@ font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Ne
 }
 
 svg{
-    width:100%;
+    width:63%;
+}
+
+.bcfilter .options-component ul{
+    max-width: 90vw;
+    max-height: 30vh;
+    overflow-y: scroll;
 }
