@@ -153,7 +153,7 @@ export class Lessons extends React.Component {
 										return (
 											<div className="container" key={index}>
 												<div className="row">
-													<div className="col-12  py-2">
+													<div className="col-12  py-2 pl-2">
 														<div className="pl-3">
 															<a
 																target="_blank"
@@ -189,7 +189,7 @@ export class Lessons extends React.Component {
 														</div>
 													</div>
 												</div>
-												<hr className="my-4 " />
+												<hr className="my-4 ml-2" />
 											</div>
 										);
 									})}
