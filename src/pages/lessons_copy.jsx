@@ -16,10 +16,9 @@ export class Lessons extends React.Component {
             selectedLanguages:[],
 			selectedTags: [],
 			selectedAuthors: [],
-            changeAsset:false,
-            changeLesson:false,
+            change:false,
             displayLesson:false,
-            displayAssets:true,
+            displayAssets:false,
             selectedTypeTags:[],
             selectedTechTags:[],
             selectedTopicTags:[]
@@ -85,9 +84,10 @@ export class Lessons extends React.Component {
 	render() {
         const lessons =(<Context.Consumer>
 					{({ store, actions }) => {
-                        console.log(store.lessonLanguage);
+                        console.log(store.lessonLanguage)
 						return (
 							<div className={`${this.state.displayLesson&&"d-none"}`}>
+
 								<SmallJumbotron
 									jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
 									containerClass="pl-4  container"
@@ -101,57 +101,11 @@ export class Lessons extends React.Component {
                                     spanClass="h3 text-secondary"
                                     spanContent="md"
 								/>
+
 								<div className="row sticky-top bg-white border-top border-bottom">
 									<div className="container">
 										<div className="row">
-											<div className="col-12  d-flex justify-content-start">
-                                                <div className="px-1 py-2">
-                                                    <div className="btn-group dropright">
-                                                        <a
-                                                        onClick={() => {
-                                                            this.setState({
-                                                                changeLesson: !this.state.changeLesson,
-                                                            });
-                                                        }}
-
-                                                        className="ml-3 text-secondary  dropdown-toggle postion-absolute pt-2 m-0 active"
-                                                        data-toggle="dropdown"
-                                                        aria-haspopup="true"
-                                                        aria-expanded="false"
-                                                        >
-                                                            Lessons
-                                                        </a>
-                                                        <div className={`dropdown-menu ${this.state.changeLesson&&"show"}`}>
-                                                            <button
-                                                                class="dropdown-item"
-                                                                type="button"
-                                                                onClick={() => {
-                                                                this.setState({
-                                                                    displayAssets: false,
-                                                                    displayLesson:true,
-                                                                    changeLesson:false,
-
-                                                                });
-                                                                }}
-                                                            >
-                                                            Assets
-                                                            </button>
-                                                            <button
-                                                                class="dropdown-item"
-                                                                type="button"
-                                                                onClick={() => {
-                                                                this.setState({
-                                                                    displayLesson: false,
-                                                                    displayAssets:true,
-                                                                    changeLesson:false,
-                                                                });
-                                                                }}
-                                                            >
-                                                            Lessons
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
+											<div className="col-12  d-flex justify-content-start ">
 												<div className="px-1 py-2">
 													<Filter
 														label="Tags"
@@ -192,6 +146,19 @@ export class Lessons extends React.Component {
 													/>
 												</div>
 												<div className="px-1 pl-1 py-2">
+                                                    <button
+                                                    onClick={() => {
+                                                        this.setState({
+                                                            change: !this.state.change
+                                                        });
+                                                    }}
+                                                    type="button"
+                                                    className="ml-2 btn btn-secondary dropdown-toggle postion-absolute"
+                                                    data-toggle="dropdown"
+                                                    aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                        Select View
+                                                    </button>
 													<Filter
 														label="Author"
 														placeholder="Filter by author"
@@ -288,52 +255,6 @@ export class Lessons extends React.Component {
 									<div className="container">
 										<div className="row">
 											<div className="col  d-flex justify-content-start">
-                                                <div className="px-1 pl-1 py-2">
-                                                    <div className="btn-group dropright">
-                                                        <a
-                                                        onClick={() => {
-                                                            this.setState({
-                                                                changeAsset: !this.state.changeAsset
-                                                            });
-                                                        }}
-
-                                                        className="ml-3 text-secondary  dropdown-toggle postion-absolute pt-2 m-0 active"
-                                                        data-toggle="dropdown"
-                                                        aria-haspopup="true"
-                                                        aria-expanded="false">
-                                                            Assets
-                                                        </a>
-                                                        <div className={`dropdown-menu ${this.state.changeAsset&&"show"}`}>
-                                                            <button
-                                                                class="dropdown-item"
-                                                                type="button"
-                                                                onClick={() => {
-                                                                this.setState({
-                                                                    displayAssets: false,
-                                                                    displayLesson:true,
-                                                                    changeAsset:false,
-
-                                                                });
-                                                                }}
-                                                            >
-                                                            Assets
-                                                            </button>
-                                                            <button
-                                                                class="dropdown-item"
-                                                                type="button"
-                                                                onClick={() => {
-                                                                this.setState({
-                                                                    displayLesson: false,
-                                                                    displayAssets:true,
-                                                                    changeAsset:false,
-                                                                });
-                                                                }}
-                                                            >
-                                                            Lessons
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
 												<div className="px-1 pl-1 py-2">
 													<Filter
 													label="technologie"
@@ -450,8 +371,39 @@ export class Lessons extends React.Component {
 		return (
             <Layout>
                 <Navbar/>
+                    <div className="btn-group dropright">
+
+                        <div className={`dropdown-menu ${this.state.change&&"show"}`}>
+                            <button
+                                class="dropdown-item"
+                                type="button"
+                                onClick={() => {
+							    this.setState({
+								    displayAssets: false,
+                                    displayLesson:true
+
+							    });
+						        }}
+                             >
+                             Assets
+                             </button>
+                            <button
+                                class="dropdown-item"
+                                type="button"
+                                onClick={() => {
+							    this.setState({
+								    displayLesson: false,
+                                    displayAssets:true
+							    });
+						        }}
+                            >
+                             Lessons
+                             </button>
+                        </div>
+                    </div>
                     {lessons}
                     {aseets}
+
                 <Footer/>
             </Layout>
 
