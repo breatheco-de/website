@@ -41,7 +41,7 @@ export class OpenSource extends React.Component {
 											return (
 												<Filter
 													label="Tags"
-													placeholder="Select one or more tags"
+													placeholder="Filter by tags"
 													onChange={d =>
 														this.setState({
 															selectedTechnologies: d
