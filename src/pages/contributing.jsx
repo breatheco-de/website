@@ -40,7 +40,7 @@ import Layout from "../components/layout"
 							<div>
 								<SmallJumbotron
 									jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
-									containerClass="pl-4  container"
+									containerClass="pl-3  container"
 									headerClass="display-4 font-weight-bold  text-left"
 									headerText="Contributing"
 									pClass="lead  text-left"
@@ -52,8 +52,8 @@ import Layout from "../components/layout"
 								<div className="row border-top border-bottom sticky-top bg-white">
 									<div className="container">
 										<div className="row">
-											<div className="col d-flex justify-content-start">
-												<div className="px-1 pl-1 py-2">
+											<div className="col d-flex justify-content-start pl-2">
+												<div className="py-2">
 													<Filter
 														label="Labels: "
 														placeholder="Filter issues by labels"
