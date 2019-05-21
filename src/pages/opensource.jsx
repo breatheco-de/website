@@ -23,7 +23,7 @@ export class OpenSource extends React.Component {
 			<Navbar/>
 				<SmallJumbotron
 					jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
-					containerClass="pl-4 container"
+					containerClass="pl-3 container"
 					headerClass="display-4 font-weight-bold text-left"
 					headerText="Open Source Projects"
 					pClass="lead  text-left"
@@ -34,8 +34,8 @@ export class OpenSource extends React.Component {
 				<div className="row sticky-top bg-white border-top border-bottom">
 					<div className="container">
 						<div className="row">
-							<div className="col d-flex justify-content-start  py-1">
-								<div className="pl-1">
+							<div className="col d-flex justify-content-start  py-1 pl-2">
+
 									<Context.Consumer>
 										{({ store, actions }) => {
 											return (
@@ -59,7 +59,7 @@ export class OpenSource extends React.Component {
 											);
 										}}
 									</Context.Consumer>
-								</div>
+
 							</div>
 						</div>
 					</div>
