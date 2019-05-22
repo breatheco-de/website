@@ -339,9 +339,9 @@ export class Lessons extends React.Component {
                                                 </div>
 												<div className="px-1 pl-1 py-2">
 													<Filter
-													label="technologie"
+													label="technology"
 
-													placeholder="Filter By Technologie"
+													placeholder="Filter By Technology"
 													onChange={d =>
 														this.setState({
 															selectedTechTags: d

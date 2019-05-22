@@ -74,7 +74,7 @@ import { Link } from "gatsby"
 												<div className="px-1 pl-1 py-2">
 													<Filter
 													label="technologie"
-													placeholder="Filter By Technologie"
+													placeholder="Filter By technology"
 													onChange={d =>
 														this.setState({
 															selectedTechTags: d
@@ -155,6 +155,7 @@ import { Link } from "gatsby"
                                             <div className="row">
                                                 <div className="col-12">
                                                     <div><a href={asset.url?asset.url:""} className=" h2 text-dark">{asset.title?asset.title:"missing title"}</a></div>
+                                                    <p className="lead mt-3">Type: {asset.types}</p>
                                                 </div>
                                             </div>
 

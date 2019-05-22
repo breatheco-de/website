@@ -97,11 +97,6 @@ a{
 .bcfilter .options-component ul{
     flex-wrap: wrap;
 }
-.bcfilter .options-component ul{
-    max-width: 90vw;
-    max-height: 50vh!important;
-    overflow-y: scroll;
-}
 
 .fontFamily{
 
