@@ -60,7 +60,7 @@ import { Link } from "gatsby"
 								<SmallJumbotron
 									jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
 									containerClass="pl-4  container"
-									headerClass="headerSizeResponsive display-md-4  font-weight-bold  text-left"
+									headerClass="headerSizeResponsive display-4  font-weight-bold  text-left"
 									headerText="Assets"
 									pClass="lead  text-left"
 									spanClass="h3 text-secondary"

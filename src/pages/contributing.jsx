@@ -41,7 +41,7 @@ import Layout from "../components/layout"
 								<SmallJumbotron
 									jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
 									containerClass="pl-3  container"
-									headerClass="headerSizeResponsive display-md-4  font-weight-bold  text-left"
+									headerClass="fontSizeContributing display-4  font-weight-bold  text-left"
 									headerText="Contributing"
 									pClass="lead  text-left"
 									pContent="Are you here to contribute? We have organized all our needs on 'github issues', browse the following list and pick anything to start contributing!"

@@ -24,7 +24,7 @@ export class OpenSource extends React.Component {
 				<SmallJumbotron
 					jumboClass=" jumbotron jumbotron-fluid mb-0 bg-white"
 					containerClass="pl-3 container"
-					headerClass="headerSizeResponsive display-md-4  font-weight-bold text-left"
+					headerClass="headerSizeResponsive display-4  font-weight-bold text-left"
 					headerText="Open Source Projects"
 					pClass="lead  text-left"
 					pContent="The following projects is the list of the most important projects breatheco.de is working right now"

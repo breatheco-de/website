@@ -91,7 +91,7 @@ export class Lessons extends React.Component {
 								<SmallJumbotron
 									jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
 									containerClass="pl-4  container"
-									headerClass="headerSizeResponsive display-md-4  font-weight-bold  text-left"
+									headerClass="headerSizeResponsive display-4  font-weight-bold  text-left"
 									headerText="Lessons Published"
 									pClass="lead  text-left"
 									pContent="the following lessons explain different programing
@@ -101,7 +101,7 @@ export class Lessons extends React.Component {
                                     spanClass="h3 text-secondary"
                                     spanContent="md"
 								/>
-								<div className="row sticky-top bg-white border-top border-bottom">
+								<div className="row sticky-top bg-white border-top border-bottom fontSize">
 									<div className="container">
 										<div className="row">
 											<div className="col-12  d-flex justify-content-start">
@@ -156,6 +156,7 @@ export class Lessons extends React.Component {
 													<Filter
 														label="Tags"
 														placeholder="Filter by topic"
+                                                        className="minWidth"
 														onChange={d =>
 															this.setState({
 																selectedTags: d
@@ -174,7 +175,9 @@ export class Lessons extends React.Component {
 													<Filter
 														label="Language"
 														placeholder="Filter by language"
+                                                        className="minWidth"
 														onChange={d =>
+
 															this.setState({
 																selectedLanguages: d
 															})
@@ -277,14 +280,14 @@ export class Lessons extends React.Component {
 								<SmallJumbotron
 									jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
 									containerClass="pl-4  container"
-									headerClass="headerSizeResponsive display-md-4  font-weight-bold  text-left"
+									headerClass="headerSizeResponsive display-md-4 font-weight-bold  text-left"
 									headerText="Assets"
 									pClass="lead  text-left"
 									spanClass="h3 text-secondary"
 									spanContent="md"
 								/>
 
-								<div className="row border-top border-bottom sticky-top bg-white">
+								<div className="row border-top border-bottom sticky-top bg-white fontSize">
 									<div className="container">
 										<div className="row">
 											<div className="col  d-flex justify-content-start">
@@ -337,6 +340,7 @@ export class Lessons extends React.Component {
 												<div className="px-1 pl-1 py-2">
 													<Filter
 													label="technologie"
+
 													placeholder="Filter By Technologie"
 													onChange={d =>
 														this.setState({
