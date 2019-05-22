@@ -91,7 +91,7 @@ export class Lessons extends React.Component {
 								<SmallJumbotron
 									jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
 									containerClass="pl-4  container"
-									headerClass="display-4 font-weight-bold  text-left"
+									headerClass="headerSizeResponsive display-md-4  font-weight-bold  text-left"
 									headerText="Lessons Published"
 									pClass="lead  text-left"
 									pContent="the following lessons explain different programing
@@ -277,7 +277,7 @@ export class Lessons extends React.Component {
 								<SmallJumbotron
 									jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
 									containerClass="pl-4  container"
-									headerClass="display-4 font-weight-bold  text-left"
+									headerClass="headerSizeResponsive display-md-4  font-weight-bold  text-left"
 									headerText="Assets"
 									pClass="lead  text-left"
 									spanClass="h3 text-secondary"

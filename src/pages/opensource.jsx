@@ -22,9 +22,9 @@ export class OpenSource extends React.Component {
 			<div>
 			<Navbar/>
 				<SmallJumbotron
-					jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
+					jumboClass=" jumbotron jumbotron-fluid mb-0 bg-white"
 					containerClass="pl-3 container"
-					headerClass="display-4 font-weight-bold text-left"
+					headerClass="headerSizeResponsive display-md-4  font-weight-bold text-left"
 					headerText="Open Source Projects"
 					pClass="lead  text-left"
 					pContent="The following projects is the list of the most important projects breatheco.de is working right now"
