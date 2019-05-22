@@ -16,7 +16,7 @@ class Home extends React.Component {
 			<Navbar/>
 				<Jumbotron
 					jumbotronClass="jumbotron bg-white bold container "
-					jumbotronTitle={() => <h1 className="display-4 text-center mb-sm-5">Welcome to BreatheCo<span className="text-primary">.</span>de</h1>}
+					jumbotronTitle={() => <h1 className="headerSizeResponsive display-md-4 text-center mb-sm-5">Welcome to BreatheCo<span className="text-primary">.</span>de</h1>}
 					firstColumnClass="col-sm-12 col-md-5 text-center text-md-right pt-5 pt-md-0"
 					secondColumnClass="col-sm-12 col-md-2"
 					thirdColumnClass="col-sm-12 col-md-5 text-center text-sm-center text-md-left pt-5 pt-md-0"
