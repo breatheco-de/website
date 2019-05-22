@@ -121,7 +121,7 @@ export class Lessons extends React.Component {
                                                         >
                                                             Lessons
                                                         </a>
-                                                        <div className={`dropdown-menu ${this.state.changeLesson&&"show"}`}>
+                                                        <div className={`mt-3 dropdown-menu ${this.state.changeLesson&&"show"}`}>
                                                             <button
                                                                 class="dropdown-item"
                                                                 type="button"
@@ -303,7 +303,7 @@ export class Lessons extends React.Component {
                                                         aria-expanded="false">
                                                             Assets
                                                         </a>
-                                                        <div className={`dropdown-menu ${this.state.changeAsset&&"show"}`}>
+                                                        <div className={`mt-3 dropdown-menu ${this.state.changeAsset&&"show"}`}>
                                                             <button
                                                                 class="dropdown-item"
                                                                 type="button"
