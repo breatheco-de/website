@@ -31,7 +31,7 @@ export class OpenSource extends React.Component {
 					spanClass="h3 text-secondary"
 					spanContent="md"
 				/>
-				<div className="row sticky-top bg-white border-top border-bottom">
+				<div className="rowFontSize row sticky-top bg-white border-top border-bottom">
 					<div className="container">
 						<div className="row">
 							<div className="col d-flex justify-content-start  py-1 pl-2">
@@ -39,6 +39,7 @@ export class OpenSource extends React.Component {
 									<Context.Consumer>
 										{({ store, actions }) => {
 											return (
+                                            <div className="mx-1 px-2 px-md-0 py-1">
 												<Filter
 													label="Tags"
 													placeholder="Filter by tags"
@@ -56,6 +57,7 @@ export class OpenSource extends React.Component {
 															};
 														}):<Loading/>}
 												/>
+                                            </div>
 											);
 										}}
 									</Context.Consumer>

@@ -49,11 +49,11 @@ import Layout from "../components/layout"
 									spanContent="md"
 								/>
 
-								<div className="row border-top border-bottom sticky-top bg-white">
+								<div className="rowFontSize row border-top border-bottom sticky-top bg-white">
 									<div className="container">
 										<div className="row">
 											<div className="col d-flex justify-content-start pl-2">
-												<div className="py-2">
+												<div className="mx-1 px-2 px-md-0 py-1">
 													<Filter
 														label="Labels: "
 														placeholder="Filter issues by labels"

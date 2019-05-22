@@ -101,7 +101,7 @@ export class Lessons extends React.Component {
                                     spanClass="h3 text-secondary"
                                     spanContent="md"
 								/>
-								<div className="row sticky-top bg-white border-top border-bottom fontSize">
+								<div className="rowFontSize row sticky-top bg-white border-top border-bottom fontSize">
 									<div className="container">
 										<div className="row">
 											<div className="col-12  d-flex justify-content-start">
@@ -280,14 +280,14 @@ export class Lessons extends React.Component {
 								<SmallJumbotron
 									jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
 									containerClass="pl-4  container"
-									headerClass="headerSizeResponsive display-md-4 font-weight-bold  text-left"
+									headerClass=" headerSizeResponsive display-md-4 font-weight-bold  text-left"
 									headerText="Assets"
 									pClass="lead  text-left"
 									spanClass="h3 text-secondary"
 									spanContent="md"
 								/>
 
-								<div className="row border-top border-bottom sticky-top bg-white fontSize">
+								<div className="row border-top border-bottom sticky-top bg-white fontSize rowFontSize">
 									<div className="container">
 										<div className="row">
 											<div className="col  d-flex justify-content-start">
