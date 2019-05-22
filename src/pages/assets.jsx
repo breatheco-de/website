@@ -137,13 +137,21 @@ import { Link } from "gatsby"
 								</div>
                                  <div className="container">
                                  {store.assets?store.assets.filter(this.filterByTech).filter(this.filterByTopic).filter(this.filterByType).map((asset)=>{
+
+
+const imageStyles = {
+    backgroundImage: `url("${asset.preview}")`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+};
+
                                      return(
                                 <div>
                                     <div className="row  text-center text-md-left mt-2  p-2 paddingLeftZero">
-                                        <div className="col-12 col-md-2 d-flex justify-content-center align-items-center">
-                                            <img
-                                                className="img-fluid imgSize"
-                                                src={asset.preview?asset.preview:""}
+                                        <div className="col-12 col-md-2 d-flex justify-content-center align-items-center" style={imageStyles}>
+                                            <div
+
+
                                             />
                                         </div>
                                         <div className="col-12 col-md p-3">

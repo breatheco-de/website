@@ -51,7 +51,7 @@ export class Lessons extends React.Component {
 		return false;
 	};
     replaceDraft = lessonLink =>{
-            if (lessonLink.includes("[draft]")&&lessonLink.includes("en")){
+            if (lessonLink.includes("[draft]")&&lessonLink.includes("/en/")){
                 let newLink = lessonLink.replace("[draft]","");
                 return newLink;
             }
@@ -106,7 +106,7 @@ export class Lessons extends React.Component {
 										<div className="row">
 											<div className="col-12  d-flex justify-content-start">
                                                 <div className="px-1 py-2">
-                                                    <div className="btn-group dropright">
+                                                    <div className="btn-group">
                                                         <a
                                                         onClick={() => {
                                                             this.setState({
@@ -114,7 +114,7 @@ export class Lessons extends React.Component {
                                                             });
                                                         }}
 
-                                                        className="ml-3 text-secondary  dropdown-toggle postion-absolute pt-2 m-0 active"
+                                                        className="ml-2 text-secondary  dropdown-toggle postion-absolute pt-2 m-0 active"
                                                         data-toggle="dropdown"
                                                         aria-haspopup="true"
                                                         aria-expanded="false"
@@ -227,7 +227,7 @@ export class Lessons extends React.Component {
 															<a
 																target="_blank"
 																className="h2 text-dark btn-default"
-																href={actions.lessonUrl(lesson)}>
+																href={this.replaceDraft(actions.lessonUrl(lesson))}>
 																{lesson.title}
 															</a>
 															<div className={`row ${!lesson.authors&&"mb-2"}`}>
@@ -289,7 +289,7 @@ export class Lessons extends React.Component {
 										<div className="row">
 											<div className="col  d-flex justify-content-start">
                                                 <div className="px-1 pl-1 py-2">
-                                                    <div className="btn-group dropright">
+                                                    <div className="btn-group">
                                                         <a
                                                         onClick={() => {
                                                             this.setState({
@@ -297,7 +297,7 @@ export class Lessons extends React.Component {
                                                             });
                                                         }}
 
-                                                        className="ml-3 text-secondary  dropdown-toggle postion-absolute pt-2 m-0 active"
+                                                        className="ml-1 text-secondary  dropdown-toggle postion-absolute pt-2 m-0 active"
                                                         data-toggle="dropdown"
                                                         aria-haspopup="true"
                                                         aria-expanded="false">
@@ -398,38 +398,42 @@ export class Lessons extends React.Component {
 										</div>
 									</div>
 								</div>
-                                 <div className="container">
+                                  <div className="container">
                                  {store.assets?store.assets.filter(this.filterByTech).filter(this.filterByTopic).filter(this.filterByType).map((asset)=>{
+                                                const imageStyles = {
+                                                    backgroundImage: `url("${asset.preview}")`,
+                                                    backgroundPosition: 'center',
+                                                    backgroundSize: 'cover',
+                                                };
                                      return(
-                                <div>
-                                    <div className="row  text-center text-md-left mt-2  p-2 paddingLeftZero">
-                                        <div className="col-12 col-md-2 d-flex justify-content-center align-items-center">
-                                            <img
-                                                className="img-fluid imgSize"
-                                                src={asset.preview?asset.preview:""}
-                                            />
-                                        </div>
-                                        <div className="col-12 col-md p-3">
-                                            <div className="row">
-                                                <div className="col-12">
-                                                    <div><a href={asset.url?asset.url:""} className=" h2 text-dark">{asset.title?asset.title:"missing title"}</a></div>
-                                                </div>
-                                            </div>
+                                <div >
+                                    <div className="pl-2">
+                                        <div className="row  text-center text-md-left mt-2  p-2 paddingLeftZero">
+                                            <div className="col-12 col-md-2 d-flex justify-content-center align-items-center" style={imageStyles}>
 
-                                            <div className="row mb-2">
-                                                <div className="col-12 p-2 col-md">
-                                                      {asset.technologies?asset.technologies.map((tech)=>{
-                                                            return(
-                                                                <span className="author badge badge-pill badge-light mr-2"> {tech}</span>
-                                                            )
-                                                        }):" "}
+                                            </div>
+                                            <div className="col-12 col-md p-3">
+                                                <div className="row">
+                                                    <div className="col-12">
+                                                        <div><a href={asset.url?asset.url:""} className=" h2 text-dark">{asset.title?asset.title:"missing title"}</a></div>
+                                                    </div>
                                                 </div>
-                                                <div className="col-12 col-md-3 d-flex justify-content-md-end">
-                                                    <div className="row mx-auto">
-                                                        <div className="col-12 d-flex align-items-end">
-                                                            <a href={asset.url?asset.url:""} className="btn btn-outline-primary buttonHeight  px-2 ">
-                                                                View more
-                                                            </a>
+
+                                                <div className="row mb-2">
+                                                    <div className="col-12 p-2 col-md">
+                                                        {asset.technologies?asset.technologies.map((tech)=>{
+                                                                return(
+                                                                    <span className="author badge badge-pill badge-light mr-2"> {tech}</span>
+                                                                )
+                                                            }):" "}
+                                                    </div>
+                                                    <div className="col-12 col-md-3 d-flex justify-content-md-end">
+                                                        <div className="row mx-auto">
+                                                            <div className="col-12 d-flex align-items-end">
+                                                                <a href={asset.url?asset.url:""} className="btn btn-outline-primary buttonHeight  px-2 ">
+                                                                    View more
+                                                                </a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
