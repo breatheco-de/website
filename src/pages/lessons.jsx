@@ -413,13 +413,14 @@ export class Lessons extends React.Component {
                                 <div >
                                     <div className="pl-2">
                                         <div className="row  text-center text-md-left mt-2  p-2 paddingLeftZero">
-                                            <div className="col-12 col-md-2 d-flex justify-content-center align-items-center" style={imageStyles}>
+                                            <div className="col-12 col-md-2 d-flex justify-content-center align-items-center divSize" style={imageStyles}>
 
                                             </div>
                                             <div className="col-12 col-md p-3">
                                                 <div className="row">
                                                     <div className="col-12">
                                                         <div><a href={asset.url?asset.url:""} className=" h2 text-dark">{asset.title?asset.title:"missing title"}</a></div>
+                                                        <p className="lead mt-3">Type: {asset.types}</p>
                                                     </div>
                                                 </div>
 
