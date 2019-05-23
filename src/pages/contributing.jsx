@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "@breathecode/ui-components/dist/main.css";
 import Navbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
+import Layout from "../components/layout"
 
 
  class Contributing extends React.Component {
@@ -30,6 +31,7 @@ import Footer from "../components/footer.jsx";
 	render() {
 		return (
 			<div>
+            <Layout>
 				<Navbar/>
 				<Context.Consumer>
 					{({ store, actions }) => {
@@ -38,8 +40,8 @@ import Footer from "../components/footer.jsx";
 							<div>
 								<SmallJumbotron
 									jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
-									containerClass="pl-4  container"
-									headerClass="display-4 font-weight-bold  text-left"
+									containerClass="pl-3  container"
+									headerClass="fontSizeContributing display-4  font-weight-bold  text-left"
 									headerText="Contributing"
 									pClass="lead  text-left"
 									pContent="Are you here to contribute? We have organized all our needs on 'github issues', browse the following list and pick anything to start contributing!"
@@ -47,11 +49,11 @@ import Footer from "../components/footer.jsx";
 									spanContent="md"
 								/>
 
-								<div className="row border-top border-bottom sticky-top bg-white">
+								<div className="rowFontSize row border-top border-bottom sticky-top bg-white">
 									<div className="container">
 										<div className="row">
-											<div className="col d-flex justify-content-start">
-												<div className="px-1 pl-1 py-2">
+											<div className="col d-flex justify-content-start pl-2">
+												<div className="mx-1 px-2 px-md-0 py-1">
 													<Filter
 														label="Labels: "
 														placeholder="Filter issues by labels"
@@ -120,6 +122,7 @@ import Footer from "../components/footer.jsx";
 					}}
 				</Context.Consumer>
 				<Footer/>
+                </Layout>
 			</div>
 		);
 	}

@@ -22,26 +22,27 @@ export class OpenSource extends React.Component {
 			<div>
 			<Navbar/>
 				<SmallJumbotron
-					jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
-					containerClass="pl-4 container"
-					headerClass="display-4 font-weight-bold text-left"
+					jumboClass=" jumbotron jumbotron-fluid mb-0 bg-white"
+					containerClass="pl-3 container"
+					headerClass="headerSizeResponsive display-4  font-weight-bold text-left"
 					headerText="Open Source Projects"
 					pClass="lead  text-left"
 					pContent="The following projects is the list of the most important projects breatheco.de is working right now"
 					spanClass="h3 text-secondary"
 					spanContent="md"
 				/>
-				<div className="row sticky-top bg-white border-top border-bottom">
+				<div className="rowFontSize row sticky-top bg-white border-top border-bottom">
 					<div className="container">
 						<div className="row">
-							<div className="col d-flex justify-content-start  py-1">
-								<div className="pl-1">
+							<div className="col d-flex justify-content-start  py-1 pl-2">
+
 									<Context.Consumer>
 										{({ store, actions }) => {
 											return (
+                                            <div className="mx-1 px-2 px-md-0 py-1">
 												<Filter
 													label="Tags"
-													placeholder="Select one or more tags"
+													placeholder="Filter by tags"
 													onChange={d =>
 														this.setState({
 															selectedTechnologies: d
@@ -56,10 +57,11 @@ export class OpenSource extends React.Component {
 															};
 														}):<Loading/>}
 												/>
+                                            </div>
 											);
 										}}
 									</Context.Consumer>
-								</div>
+
 							</div>
 						</div>
 					</div>

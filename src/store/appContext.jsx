@@ -23,6 +23,7 @@ const Store = PassedComponent => {
 				.then(res => res.json())
 				.then(lessons => {
 					let { store } = this.state;
+                    store.lessonLanguage=lessons.map(l=>l.lang)
 					store.lessons = lessons;
 					store.tags = lessons.map(l => l.tags).flat().map(tag => this.state.actions.emojify(tag));
 					store.authors = lessons.map(l => l.authors).flat();

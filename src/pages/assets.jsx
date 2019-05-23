@@ -44,6 +44,8 @@ import { Link } from "gatsby"
 	}
 
 
+
+
 	render() {
 		return (
 			<div>
@@ -58,7 +60,7 @@ import { Link } from "gatsby"
 								<SmallJumbotron
 									jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
 									containerClass="pl-4  container"
-									headerClass="display-4 font-weight-bold  text-left"
+									headerClass="headerSizeResponsive display-4  font-weight-bold  text-left"
 									headerText="Assets"
 									pClass="lead  text-left"
 									spanClass="h3 text-secondary"
@@ -72,7 +74,7 @@ import { Link } from "gatsby"
 												<div className="px-1 pl-1 py-2">
 													<Filter
 													label="technologie"
-													placeholder="Filter By Technologie"
+													placeholder="Filter By technology"
 													onChange={d =>
 														this.setState({
 															selectedTechTags: d
@@ -135,29 +137,28 @@ import { Link } from "gatsby"
 								</div>
                                  <div className="container">
                                  {store.assets?store.assets.filter(this.filterByTech).filter(this.filterByTopic).filter(this.filterByType).map((asset)=>{
+                                                const imageStyles = {
+                                                    backgroundImage: `url("${asset.preview}")`,
+                                                    backgroundPosition: 'center',
+                                                    backgroundSize: 'cover',
+                                                };
                                      return(
                                 <div>
-                                    <div className="row  text-center text-md-left mt-2  p-3 paddingLeftZero">
-                                        {asset.url.includes("jpg")?<div className="col-12 col-md-2 d-flex justify-content-center align-items-center">
-                                            <img
-                                                className="img-fluid"
-                                                src={asset.url?asset.url:""}
+                                    <div className="row  text-center text-md-left mt-2  p-2 paddingLeftZero">
+                                        <div className="col-12 col-md-2 d-flex justify-content-center align-items-center" style={imageStyles}>
+                                            <div
+
+
                                             />
-                                        </div>:" "}
-                                        <div className="col-12 col-md pl-1">
+                                        </div>
+                                        <div className="col-12 col-md p-3">
                                             <div className="row">
                                                 <div className="col-12">
                                                     <div><a href={asset.url?asset.url:""} className=" h2 text-dark">{asset.title?asset.title:"missing title"}</a></div>
+                                                    <p className="lead mt-3">Type: {asset.types}</p>
                                                 </div>
                                             </div>
-                                            <div className="row">
-                                                <div className="col-12">
-                                                    <small className="text-muted lead font-italic">
-                                                        in the following technlogies:
 
-                                                    </small>
-                                                </div>
-                                            </div>
                                             <div className="row mb-2">
                                                 <div className="col-12 p-2 col-md">
                                                       {asset.technologies?asset.technologies.map((tech)=>{

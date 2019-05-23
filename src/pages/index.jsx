@@ -16,7 +16,7 @@ class Home extends React.Component {
 			<Navbar/>
 				<Jumbotron
 					jumbotronClass="jumbotron bg-white bold container "
-					jumbotronTitle={() => <h1 className="display-4 text-center mb-sm-5">Welcome to BreatheCo<span className="text-primary">.</span>de</h1>}
+					jumbotronTitle={() => <h1 className="headerSizeResponsive display-4 text-center mb-sm-5">Welcome to BreatheCo<span className="text-primary">.</span>de</h1>}
 					firstColumnClass="col-sm-12 col-md-5 text-center text-md-right pt-5 pt-md-0"
 					secondColumnClass="col-sm-12 col-md-2"
 					thirdColumnClass="col-sm-12 col-md-5 text-center text-sm-center text-md-left pt-5 pt-md-0"
@@ -40,7 +40,7 @@ class Home extends React.Component {
 					pTextClassColTwo="lead"
 					pTextSecondCol="We strongly recomend following our learning process in this order"
 					linksClassSecondCol="blueLinks"
-					firstLinkColTwoText="Read 10 min lessons"
+					firstLinkColTwoText="Lessons, videos and assets"
 					secondLinkColTwoText="Do interactive tutorials"
 					thirdLinkColTwoText="Code a real life project"
 					smallDescriptionsecondTextCol="All of our contents, videos and interactive tutorials are published and open sourced to the web, but by being a sponsor you will be able to track your progress and receive guided learning and much more"

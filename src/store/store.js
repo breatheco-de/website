@@ -3,6 +3,7 @@ import emoji from 'node-emoji';
 const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
+            lessonLanguage:null,
             assets:null,
             assetTechnologieTags:null,
             assetTopicTags:null,

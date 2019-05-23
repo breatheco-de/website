@@ -8,11 +8,13 @@ import Navbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
 import {  Loading } from "@breathecode/ui-components";
 import "@breathecode/ui-components/dist/main.css";
+import Layout from "../components/layout"
 
 class AboutUs extends React.Component {
 	render() {
 		return (
 			<div>
+
 			<Navbar/>
 				<p align="center">
 					<img src="https://assets.breatheco.de/apis/img/images.php?blob&random&cat=icon&tags=breathecode,128" />
@@ -29,6 +31,7 @@ class AboutUs extends React.Component {
 					</Context.Consumer>
 				</div>
 				<Footer/>
+
 			</div>
 		);
 	}
