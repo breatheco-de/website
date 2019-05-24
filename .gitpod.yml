@@ -1,4 +1,6 @@
 ports:
     - port: 8080
 tasks:
-    - init: npm install
+    - init: >
+        npm i now -g;
+        npm install;
