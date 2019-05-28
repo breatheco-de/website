@@ -156,7 +156,7 @@ export class Lessons extends React.Component {
 													<Filter
 														label="Tags"
 														placeholder="Filter by topic"
-                                                        className="minWidth"
+                                                        className="minWidth topicFilterPostion"
 														onChange={d =>
 															this.setState({
 																selectedTags: d
@@ -175,7 +175,7 @@ export class Lessons extends React.Component {
 													<Filter
 														label="Language"
 														placeholder="Filter by language"
-                                                        className="minWidth"
+                                                        className="minWidth languageFilterPosition"
 														onChange={d =>
 
 															this.setState({
@@ -198,6 +198,7 @@ export class Lessons extends React.Component {
 													<Filter
 														label="Author"
 														placeholder="Filter by author"
+                                                        className="authorFilterPosition"
 														onChange={d =>
 															this.setState({
 																selectedAuthors: d
