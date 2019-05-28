@@ -34,6 +34,19 @@ height:250px;
 
 }
 
+.languageFilterPosition.bcfilter .options-component{
+    left: -92px;
+}
+
+.topicFilterPostion.bcfilter .options-component{
+    left: -20px;
+}
+
+.authorFilterPosition.bcfilter .options-component{
+    left: -185px;
+}
+
+
 .bcfilter .options-component ul{
     max-width: 69vw!important;
     max-height: 50vh!important;
