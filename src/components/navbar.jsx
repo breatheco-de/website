@@ -3,17 +3,24 @@ import { Button } from "./button.jsx";
 import { Link } from "gatsby";
 import Store from "../store/appContext.jsx";
 
+function getUrlParameter(name) {
+	var params = new URLSearchParams(window.location.search);
+	return params.has(name) ? params.get(name) : null;
+}
 
 class Navbar extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			change: false
+			change: false,
+            iframe:getUrlParameter("iframe")
+
 		};
 	}
 	render() {
+        console.log(this.state.iframe)
 		return (
-			<div>
+			<div className={`${this.state.iframe&&"d-none"}`}>
 				<nav className="navbar navbar-expand-lg navbar-light bg-light gradient">
 					<Link to="/">
 						<img
