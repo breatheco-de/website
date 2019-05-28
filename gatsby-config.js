@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `BreatheCode`,
     description: `BreatheCode's mission is to accelerate the way junior developers learn and evolve using technology.`,
-    author: `@gatsbyjs`,
+    author: `@alesancher`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
