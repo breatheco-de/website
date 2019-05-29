@@ -7,6 +7,8 @@ export default function HTML(props) {
       <head>
         <meta charSet="utf-8" />
          <title>BreatheCode</title>
+         <meta name="description" content="Are you here to contribute? We have organized all our needs on 'github issues', browse the following list and pick anything to start contributing!"/>
+         <meta itemprop="image" content="https://ucarecdn.com/99082539-2a6e-42e4-984c-c62934a465f1/breathecodeiconwhite.png"/>
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta
           name="viewport"
