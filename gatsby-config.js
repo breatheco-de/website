@@ -3,6 +3,7 @@ module.exports = {
     title: `BreatheCode`,
     description: `Are you here to contribute? We have organized all our needs on 'github issues', browse the following list and pick anything to start contributing!`,
     author: `@alesancher`,
+    image:"https://ucarecdn.com/99082539-2a6e-42e4-984c-c62934a465f1/breathecodeiconwhite.png"
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
