@@ -3,24 +3,23 @@ import { Button } from "./button.jsx";
 import { Link } from "gatsby";
 import Store from "../store/appContext.jsx";
 
-function getUrlParameter(name) {
-	var params = new URLSearchParams(window.location.search);
-	return params.has(name) ? params.get(name) : null;
-}
 
 class Navbar extends React.Component {
 	constructor() {
 		super();
 		this.state = {
 			change: false,
-            iframe:getUrlParameter("iframe")
+            iframe:this.getUrlParameter("iframe")
 
 		};
 	}
-     getUrlParameter(name) {
+
+     getUrlParameter=(name)=> {
 	var params = new URLSearchParams(window.location.search);
 	return params.has(name) ? params.get(name) : null;
-    }
+
+    
+
 	render() {
         console.log(this.state.iframe)
 		return (
