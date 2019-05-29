@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `BreatheCode`,
-    description: `BreatheCode's mission is to accelerate the way junior developers learn and evolve using technology.`,
+    description: `Are you here to contribute? We have organized all our needs on 'github issues', browse the following list and pick anything to start contributing!`,
     author: `@alesancher`,
   },
   plugins: [
