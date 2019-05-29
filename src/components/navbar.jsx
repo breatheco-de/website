@@ -17,10 +17,14 @@ class Navbar extends React.Component {
 
 		};
 	}
+     getUrlParameter(name) {
+	var params = new URLSearchParams(window.location.search);
+	return params.has(name) ? params.get(name) : null;
+    }
 	render() {
         console.log(this.state.iframe)
 		return (
-			<div className={`${this.state.iframe&&"d-none"}`}>
+			<div className={`${this.state.iframe==="true"?"d-none":""}`}>
 				<nav className="navbar navbar-expand-lg navbar-light bg-light gradient">
 					<Link to="/">
 						<img
