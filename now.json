@@ -4,12 +4,5 @@
     "name": "breathecode-website",
     "builds": [
         { "src": "package.json", "use": "@now/static-build", "config": {"distDir": "public"} }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "status": 301,
-            "headers": { "Location": "https://breatheco.de/$1" }
-        }
     ]
 }
