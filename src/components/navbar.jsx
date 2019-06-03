@@ -1,17 +1,18 @@
 import React from "react";
 import { Button } from "./button.jsx";
+import withLocation from "./withLocation";
 import { Link } from "gatsby";
 import Store from "../store/appContext.jsx";
 import queryString  from 'query-string';
 import { Location } from '@reach/router';
 
 
+
 class Navbar extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			change: false
-
+			change: false,
 
 		};
 	}
@@ -20,9 +21,11 @@ class Navbar extends React.Component {
 
 
 	render() {
+        const { pageContext, search } = this.props;
 
+        const fromIframe = (search.iframe === 'true');
 		return (
-			<div >
+			<div className={`${fromIframe?"d-none":""}`} >
 				<nav className="navbar navbar-expand-lg navbar-light bg-light gradient">
 					<Link to="/">
 						<img
@@ -89,4 +92,4 @@ class Navbar extends React.Component {
 	}
 }
 
-export default Store(Navbar)
+export default withLocation(Navbar)
