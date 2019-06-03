@@ -2,6 +2,8 @@ import React from "react";
 import { Button } from "./button.jsx";
 import { Link } from "gatsby";
 import Store from "../store/appContext.jsx";
+import queryString  from 'query-string';
+import { Location } from '@reach/router';
 
 
 class Navbar extends React.Component {
