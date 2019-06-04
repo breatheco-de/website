@@ -2,7 +2,7 @@
     "version": 2,
     "alias": ["breatheco.de", "www.breatheco.de"],
     "routes": [
-       { "src": "/en/assets/", "status": 301, "headers": { "Location": "https://breatheco.de/assets/" }},
+       { "src": "/en/assets/", "status": 301, "headers": { "Location": "https://breatheco.de/assets/" }}
 
     ],
     "name": "breathecode-website",
