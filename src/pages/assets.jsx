@@ -8,7 +8,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import "@breathecode/ui-components/dist/main.css";
 import Navbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
-import { Link } from "gatsby"
+import { Link } from "gatsby";
+import Helmet from "react-helmet";
 
 
  class Contributing extends React.Component {
@@ -49,6 +50,11 @@ import { Link } from "gatsby"
 	render() {
 		return (
 			<div>
+                <Helmet>
+                    <title>Assets</title>
+                    <meta name="description" content="BreatheCode's mission is to accelerate the way junior developers learn and evolve using technology." />
+                    <meta itemprop="image" content="http://ucarecdn.com/99082539-2a6e-42e4-984c-c62934a465f1/breathecodeiconwhite.png"/>
+                 </Helmet>
 				<Navbar/>
 				<Context.Consumer>
 					{({ store, actions }) => {

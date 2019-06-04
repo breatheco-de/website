@@ -8,11 +8,17 @@ import "bootstrap/dist/css/bootstrap.css";
 import "@breathecode/ui-components/dist/main.css";
 import Navbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
+import Helmet from "react-helmet";
 
 class Home extends React.Component {
 	render() {
 		return (
 			<div>
+            <Helmet>
+                    <title>Contributing</title>
+                    <meta name="description" content="Are you here to contribute? We have organized all our needs on 'github issues', browse the following list and pick anything to start contributing!" />
+                    <meta name="image" content="http://ucarecdn.com/99082539-2a6e-42e4-984c-c62934a465f1/breathecodeiconwhite.png"/>
+            </Helmet>
 			<Navbar/>
 				<Jumbotron
 					jumbotronClass="jumbotron bg-white bold container "

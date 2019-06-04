@@ -8,13 +8,18 @@ import Navbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
 import {  Loading } from "@breathecode/ui-components";
 import "@breathecode/ui-components/dist/main.css";
-import Layout from "../components/layout"
+import Layout from "../components/layout";
+import Helmet from "react-helmet";
 
 class AboutUs extends React.Component {
 	render() {
 		return (
 			<div>
-
+            <Helmet>
+                    <title>About Us</title>
+                    <meta name="description" content="BreatheCode's mission is to accelerate the way junior developers learn and evolve using technology." />
+                    <meta name="image" content="http://ucarecdn.com/99082539-2a6e-42e4-984c-c62934a465f1/breathecodeiconwhite.png"/>
+            </Helmet>
 			<Navbar/>
 				<p align="center">
 					<img src="https://assets.breatheco.de/apis/img/images.php?blob&random&cat=icon&tags=breathecode,128" />

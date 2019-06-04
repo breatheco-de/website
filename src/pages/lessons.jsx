@@ -6,7 +6,8 @@ import Store from "../store/appContext.jsx";
 import Navbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
 import "@breathecode/ui-components/dist/main.css";
-import Layout from "../components/layout"
+import Layout from "../components/layout";
+import Helmet from "react-helmet";
 
 
 export class Lessons extends React.Component {
@@ -459,6 +460,11 @@ export class Lessons extends React.Component {
         );
 		return (
             <Layout>
+             <Helmet>
+                    <title>Lessons</title>
+                    <meta name="description" content="the following lessons explain different programing concepts and have been published by breathe code members, search for a partiulars lesson using the filters bellow" />
+                    <meta name="image" content="http://ucarecdn.com/99082539-2a6e-42e4-984c-c62934a465f1/breathecodeiconwhite.png"/>
+            </Helmet>
                 <Navbar/>
                     {lessons}
                     {aseets}
