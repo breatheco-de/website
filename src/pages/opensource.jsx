@@ -21,11 +21,11 @@ export class OpenSource extends React.Component {
 	render() {
 		return (
 			<div>
-            <Helmet>
-                <title>Open Source Projects</title>
-                <meta name="description" content="The following projects is the list of the most important projects breatheco.de is working right now" />
-                <meta name="image" content="http://ucarecdn.com/99082539-2a6e-42e4-984c-c62934a465f1/breathecodeiconwhite.png"/>
-            </Helmet>
+                <Helmet>
+                    <title>Open Source Projects</title>
+                    <meta name="description" content="The following projects is the list of the most important projects breatheco.de is working right now" />
+                    <meta name="image" content="http://ucarecdn.com/99082539-2a6e-42e4-984c-c62934a465f1/breathecodeiconwhite.png"/>
+                </Helmet>
 			<Navbar/>
 				<SmallJumbotron
 					jumboClass=" jumbotron jumbotron-fluid mb-0 bg-white"
