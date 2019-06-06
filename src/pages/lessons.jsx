@@ -6,7 +6,8 @@ import Store from "../store/appContext.jsx";
 import Navbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
 import "@breathecode/ui-components/dist/main.css";
-import Layout from "../components/layout"
+import Layout from "../components/layout";
+import Helmett from "../components/helmet";
 
 
 export class Lessons extends React.Component {
@@ -87,7 +88,14 @@ export class Lessons extends React.Component {
 					{({ store, actions }) => {
                         console.log(store.lessonLanguage);
 						return (
+
 							<div className={`${this.state.displayLesson&&"d-none"}`}>
+                                <Helmett
+                                    title="BreatheCode | Lessons"
+                                    description="the following lessons explain different programing concepts and have been published by breathe code members, search for a partiulars lesson using the filters bellow"
+                                    url="https://breatheco.de/lessons"
+                                    image="https://ucarecdn.com/717ad4fe-f186-44aa-872a-dd04584e4da0/logobcode.png"
+                                />
 								<SmallJumbotron
 									jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
 									containerClass="pl-4  container"

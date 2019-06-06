@@ -25,7 +25,7 @@ class Navbar extends React.Component {
 
         const fromIframe = (search.iframe === 'true');
 		return (
-			<div className={`${fromIframe?"d-none":""}`} >
+			<div className={`${fromIframe&&"d-none"}`} >
 				<nav className="navbar navbar-expand-lg navbar-light bg-light gradient">
 					<Link to="/">
 						<img

@@ -2,6 +2,7 @@ import React from 'react';
 import { Icon } from "@breathecode/ui-components";
 import withLocation from "../components/withLocation";
 
+
 class SingleAsset extends React.Component {
     render() {
          const { pageContext, search } = this.props;
