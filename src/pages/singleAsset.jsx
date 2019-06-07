@@ -2,6 +2,7 @@ import React from 'react';
 import { Icon } from "@breathecode/ui-components";
 import withLocation from "../components/withLocation";
 import Navbar from "../components/navbar.jsx";
+import {Link} from "gatsby"
 
 
 class SingleAsset extends React.Component {
@@ -40,14 +41,24 @@ class SingleAsset extends React.Component {
                         </div>
                     </div>
                     <div className="col-12 col-md-6 col-lg-4">
-                        <div className="card ">
+                        <div className="row p-1 sticky-top mt-2">
+                            <div className="col text-right">
+                                <Link  className="btn btn-outline-secondary btn-lg d-none d-lg-block " to="/assets">
+                                        Browse all assets
+                                </Link>
+                            </div>
+                        </div>
+                    <div className="row sticky-top">
+                        <div className="col">
+
+                                <div className="card ">
                                             <div className="card-body text-left">
                                                 <h5 className="card-title font-weight-bold lead h4">Goal</h5>
                                                 <p className="card-subtitle mb-2 text-muted font-italic mb-3">
                                                 Description
                                                 </p>
                                                 <div className="row border-bottom p-1 m-0 no-gutters small">
-                                                    <div className="col-5 ">Type</div>
+                                                    <div className="col-5 "><span className=""><Icon type="search" className="text-danger"/></span><span className="ml-1">Type</span></div>
                                                     <div className="col-7 d-flex justify-content-end">{pageContext.types.map((t)=>t)}</div>
                                                 </div>
                                                 <div className="row border-bottom p-1 m-0 no-gutters small">
@@ -75,7 +86,7 @@ class SingleAsset extends React.Component {
                                                 <div className="row text-center">
                                                     <div className="col-6">
                                                         <a
-
+                                                            href={pageContext.url}
                                                             className="btn btn-outline-primary btn-md px-1 w-100 ">
                                                             View website
                                                         </a>
@@ -93,6 +104,10 @@ class SingleAsset extends React.Component {
                                                 </div>
                                             </div>
                                         </div>
+
+                        </div>
+                    </div>
+
                     </div>
                  </div>
             </div>

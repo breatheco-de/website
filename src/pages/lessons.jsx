@@ -279,6 +279,8 @@ export class Lessons extends React.Component {
 						);
 					}}
 				</Context.Consumer>);
+
+        {/*assets*/}
         const aseets=(
             <Context.Consumer>
 					{({ store, actions }) => {
