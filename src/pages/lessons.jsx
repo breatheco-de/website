@@ -85,6 +85,9 @@ export class Lessons extends React.Component {
 
 
 	render() {
+        const flag ={
+         margin: "1px 0px"
+        }
         const lessons =(<Context.Consumer>
 					{({ store, actions }) => {
                         console.log(store.lessonLanguage);
@@ -193,7 +196,7 @@ export class Lessons extends React.Component {
 														}
 															options={store.lessonLanguage?actions.filterRepeated(store.lessonLanguage).map((lan, index) => {
 															return {
-																label: lan,
+																label: lan ,
 																value: lan
 															};
 														}):[{
@@ -256,6 +259,11 @@ export class Lessons extends React.Component {
 															<p className="lead text-dark ">{lesson.subtitle}</p>
 															<div className="row ">
                                                                 <div className="col pl-1">
+                                                                    <div
+																			key={index}
+																			className="author badge badge-pill badge-light mr-2 text-uppercase">
+																			{lesson.lang} {lesson.lang=="es"?<span><img className="mb-1" style={flag} src="https://ucarecdn.com/6f04f93e-1971-4e14-b730-94fad8254693/-/resize/18x/"/></span>:<span><img className="mb-1" style={flag} src="https://ucarecdn.com/ec2f5da2-1e3d-4a0c-886c-255417a1c529/-/resize/18x/"/></span>}
+                                                                    </div>
 																{lesson.tags.map((tag, index) => {
 																	return (
 																		<div
