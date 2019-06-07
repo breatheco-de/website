@@ -8,6 +8,7 @@ import Footer from "../components/footer.jsx";
 import "@breathecode/ui-components/dist/main.css";
 import Layout from "../components/layout";
 import Helmett from "../components/helmet";
+import {Link} from "gatsby"
 
 
 export class Lessons extends React.Component {
@@ -444,9 +445,9 @@ export class Lessons extends React.Component {
                                                     <div className="col-12 col-md-3 d-flex justify-content-md-end">
                                                         <div className="row mx-auto">
                                                             <div className="col-12 d-flex align-items-end">
-                                                                <a href={asset.url?asset.url:""} className="btn btn-outline-primary buttonHeight  px-2 ">
+                                                                <Link to={"/lesson/"+asset.slug} className="btn btn-outline-primary buttonHeight  px-2 ">
                                                                     View more
-                                                                </a>
+                                                                </Link>
                                                             </div>
                                                         </div>
                                                     </div>
