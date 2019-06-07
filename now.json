@@ -2,7 +2,8 @@
     "version": 2,
     "alias": ["breatheco.de", "www.breatheco.de"],
     "routes": [
-       { "src": "/en/assets/", "status": 301, "headers": { "Location": "https://breatheco.de/assets/" }}
+       { "src": "/en/assets/", "status": 301, "headers": { "Location": "https://breatheco.de/assets/" }},
+       { "src": "/en/lesson-asset/command-line-or-bash-cheat-sheet/", "status": 301, "headers": { "Location": "https://breatheco.de/lesson/command-line-or-bash-cheat-sheet/" }}
 
     ],
     "name": "breathecode-website",

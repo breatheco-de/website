@@ -59,7 +59,7 @@ class SingleAsset extends React.Component {
                                                 </p>
                                                 <div className="row border-bottom p-1 m-0 no-gutters small">
                                                     <div className="col-5 "><span className=""><Icon type="search" className="text-danger"/></span><span className="ml-1">Type</span></div>
-                                                    <div className="col-7 d-flex justify-content-end">{pageContext.types.map((t)=>t)}</div>
+                                                    <div className="col-7 d-flex justify-content-end">{pageContext.types?pageContext.types.map((t)=>t):""}</div>
                                                 </div>
                                                 <div className="row border-bottom p-1 m-0 no-gutters small">
                                                     <div className="col-6 "><span className="colorRed"><Icon type="youtube" className="text-danger"/></span><span className="ml-1">Publish Date:</span></div>
