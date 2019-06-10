@@ -6,7 +6,9 @@ import Store from "../store/appContext.jsx";
 import Navbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
 import "@breathecode/ui-components/dist/main.css";
-import Layout from "../components/layout"
+import Layout from "../components/layout";
+import Helmett from "../components/helmet";
+import {Link} from "gatsby"
 
 
 export class Lessons extends React.Component {
@@ -83,11 +85,21 @@ export class Lessons extends React.Component {
 
 
 	render() {
+        const flag ={
+         margin: "1px 0px"
+        }
         const lessons =(<Context.Consumer>
 					{({ store, actions }) => {
                         console.log(store.lessonLanguage);
 						return (
+
 							<div className={`${this.state.displayLesson&&"d-none"}`}>
+                                <Helmett
+                                    title="BreatheCode | Lessons"
+                                    description="the following lessons explain different programing concepts and have been published by breathe code members, search for a partiulars lesson using the filters bellow"
+                                    url="https://breatheco.de/lessons"
+                                    image="https://ucarecdn.com/717ad4fe-f186-44aa-872a-dd04584e4da0/logobcode.png"
+                                />
 								<SmallJumbotron
 									jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
 									containerClass="pl-4  container"
@@ -184,8 +196,8 @@ export class Lessons extends React.Component {
 														}
 															options={store.lessonLanguage?actions.filterRepeated(store.lessonLanguage).map((lan, index) => {
 															return {
-																label: lan,
-																value: lan
+																label:  lan==="es"?<span>ES <img className="mb-1" style={flag} src="https://ucarecdn.com/6f04f93e-1971-4e14-b730-94fad8254693/-/resize/18x/"/></span>:<span>EN <img className="mb-1" style={flag} src="https://ucarecdn.com/ec2f5da2-1e3d-4a0c-886c-255417a1c529/-/resize/18x/"/></span>,
+																value: lan,
 															};
 														}):[{
 																label: <Loading/>,
@@ -247,6 +259,11 @@ export class Lessons extends React.Component {
 															<p className="lead text-dark ">{lesson.subtitle}</p>
 															<div className="row ">
                                                                 <div className="col pl-1">
+                                                                    <div
+																			key={index}
+																			className="author badge badge-pill badge-light mr-2 text-uppercase">
+																			{lesson.lang} {lesson.lang=="es"?<span><img className="mb-1" style={flag} src="https://ucarecdn.com/6f04f93e-1971-4e14-b730-94fad8254693/-/resize/18x/"/></span>:<span><img className="mb-1" style={flag} src="https://ucarecdn.com/ec2f5da2-1e3d-4a0c-886c-255417a1c529/-/resize/18x/"/></span>}
+                                                                    </div>
 																{lesson.tags.map((tag, index) => {
 																	return (
 																		<div
@@ -270,6 +287,8 @@ export class Lessons extends React.Component {
 						);
 					}}
 				</Context.Consumer>);
+
+        {/*assets*/}
         const aseets=(
             <Context.Consumer>
 					{({ store, actions }) => {
@@ -436,9 +455,9 @@ export class Lessons extends React.Component {
                                                     <div className="col-12 col-md-3 d-flex justify-content-md-end">
                                                         <div className="row mx-auto">
                                                             <div className="col-12 d-flex align-items-end">
-                                                                <a href={asset.url?asset.url:""} className="btn btn-outline-primary buttonHeight  px-2 ">
+                                                                <Link to={"/lesson/"+asset.slug} className="btn btn-outline-primary buttonHeight  px-2 ">
                                                                     View more
-                                                                </a>
+                                                                </Link>
                                                             </div>
                                                         </div>
                                                     </div>

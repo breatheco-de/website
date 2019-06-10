@@ -8,7 +8,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import "@breathecode/ui-components/dist/main.css";
 import Navbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
-import Layout from "../components/layout"
+import Layout from "../components/layout";
+import Helmett from "../components/helmet";
 
 
  class Contributing extends React.Component {
@@ -31,6 +32,12 @@ import Layout from "../components/layout"
 	render() {
 		return (
 			<div>
+                 <Helmett
+                    title="BreatheCode | Contributing"
+                    description="Are you here to contribute? We have organized all our needs on 'github issues', browse the following list and pick anything to start contributing!"
+                    url="https://breatheco.de/contributing/"
+                    image="https://ucarecdn.com/717ad4fe-f186-44aa-872a-dd04584e4da0/logobcode.png"
+                />
             <Layout>
 				<Navbar/>
 				<Context.Consumer>
@@ -38,6 +45,12 @@ import Layout from "../components/layout"
 						const filt = store.issueLabels ? store.issueLabels.map(i => ({ label: i, value: i})):null;
 						return (
 							<div>
+                                 <Helmett
+                                    title="BreatheCode|Contributing"
+                                    description="Are you here to contribute? We have organized all our needs on 'github issues', browse the following list and pick anything to start contributing!"
+                                    url="https://breathecode-website.camilocoo.now.sh/contributing"
+                                    image="https://ucarecdn.com/99082539-2a6e-42e4-984c-c62934a465f1/breathecodeiconwhite.png"
+                                />
 								<SmallJumbotron
 									jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
 									containerClass="pl-3  container"

@@ -8,6 +8,7 @@ import moment from "moment";
 import Store from "../store/appContext.jsx";
 import Navbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
+import Helmett from "../components/helmet";
 
 export class OpenSource extends React.Component {
 	constructor() {
@@ -20,6 +21,12 @@ export class OpenSource extends React.Component {
 	render() {
 		return (
 			<div>
+            <Helmett
+                title="BreatheCode | Open Source"
+                description="The following projects is the list of the most important projects breatheco.de is working right now"
+                url="https://breatheco.de/opensource"
+                image="https://ucarecdn.com/717ad4fe-f186-44aa-872a-dd04584e4da0/logobcode.png"
+            />
 			<Navbar/>
 				<SmallJumbotron
 					jumboClass=" jumbotron jumbotron-fluid mb-0 bg-white"

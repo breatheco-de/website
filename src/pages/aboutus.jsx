@@ -8,13 +8,19 @@ import Navbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
 import {  Loading } from "@breathecode/ui-components";
 import "@breathecode/ui-components/dist/main.css";
-import Layout from "../components/layout"
+import Layout from "../components/layout";
+import Helmett from "../components/helmet";
 
 class AboutUs extends React.Component {
 	render() {
 		return (
 			<div>
-
+             <Helmett
+                    title="BreatheCode | About Us"
+                    description="BreatheCode's mission is to accelerate the way junior developers learn and evolve using technology."
+                    url="https://breatheco.de/aboutus"
+                    image="https://ucarecdn.com/717ad4fe-f186-44aa-872a-dd04584e4da0/logobcode.png"
+                />
 			<Navbar/>
 				<p align="center">
 					<img src="https://assets.breatheco.de/apis/img/images.php?blob&random&cat=icon&tags=breathecode,128" />
