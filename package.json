@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "@breathecode/ui-components": "^1.1.62",
+    "@breathecode/ui-components": "^1.1.63",
     "gatsby": "^2.3.31",
     "gatsby-image": "^2.0.40",
     "gatsby-plugin-google-tagmanager": "^2.0.13",
@@ -42,7 +42,7 @@
     "now-build": "gatsby build",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
-  "repository": {      
+  "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
   },
