@@ -1,6 +1,6 @@
 import React from "react";
 import { SmallJumbotron } from "../components/smalljumbo.jsx";
-import { Filter, Loading, Icon } from "@breathecode/ui-components";
+import { Filter, Loading } from "@breathecode/ui-components";
 import { Context } from "../store/appContext.jsx";
 import Store from "../store/appContext.jsx";
 import Navbar from "../components/navbar.jsx";
@@ -13,6 +13,13 @@ import {Link} from "gatsby";
 const flag ={
     margin: "1px 0px"
 }
+
+const Flag = (props) => console.log("flaf props",  props) ||
+    (props.data.value == "es") ?
+        <li>ES <img className="mb-1" style={flag} src="https://ucarecdn.com/6f04f93e-1971-4e14-b730-94fad8254693/-/resize/18x/"/></li>
+        :
+        <li>EN <img className="mb-1" style={flag} src="https://ucarecdn.com/ec2f5da2-1e3d-4a0c-886c-255417a1c529/-/resize/18x/"/></li>;
+
 
 export class Lessons extends React.Component {
 	constructor() {
@@ -189,19 +196,10 @@ export class Lessons extends React.Component {
 														label="Language"
 														placeholder="Filter by language"
                                                         className="minWidth languageFilterPosition"
-                                                        optionComponent={({ selected, onSelect, onDeselect, data }) =>
-                                                        <li className={(selected) ? "selected" : ""} onClick={() => selected ? onDeselect(data) : onSelect(data)}>
-                                                            { (data.value == "es") ?
-                                                                <span>ES <img className="mb-1" style={flag} src="https://ucarecdn.com/6f04f93e-1971-4e14-b730-94fad8254693/-/resize/18x/"/></span>
-                                                                :
-                                                                <span>EN <img className="mb-1" style={flag} src="https://ucarecdn.com/ec2f5da2-1e3d-4a0c-886c-255417a1c529/-/resize/18x/"/></span>
-                                                            }
-                                                            { selected && <Icon type="times" />}
-                                                        </li>}
-                                                        multiselect={false}
+                                                        optionComponent={Flag}
 														onChange={d =>
 															this.setState({
-																selectedLanguages: d ? [d] : []
+																selectedLanguages: d
 															})
 														}
 														options={store.lessonLanguage ? actions.filterRepeated(store.lessonLanguage).map((lan, index) => {

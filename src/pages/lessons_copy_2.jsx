@@ -14,6 +14,17 @@ const flag ={
     margin: "1px 0px"
 }
 
+let Flag = ({ selected, onSelect, onDeselect, data }) =>
+    <li className={(selected) ? "selected" : ""} onClick={() => selected ? onDeselect() : onSelect(data)}>
+        { (data.value == "es") ?
+            <span>ES <img className="mb-1" style={flag} src="https://ucarecdn.com/6f04f93e-1971-4e14-b730-94fad8254693/-/resize/18x/"/></span>
+            :
+            <span>EN <img className="mb-1" style={flag} src="https://ucarecdn.com/ec2f5da2-1e3d-4a0c-886c-255417a1c529/-/resize/18x/"/></span>
+        }
+        { selected && <Icon type="times" />}
+    </li>;
+
+
 export class Lessons extends React.Component {
 	constructor() {
 		super();
@@ -189,19 +200,11 @@ export class Lessons extends React.Component {
 														label="Language"
 														placeholder="Filter by language"
                                                         className="minWidth languageFilterPosition"
-                                                        optionComponent={({ selected, onSelect, onDeselect, data }) =>
-                                                        <li className={(selected) ? "selected" : ""} onClick={() => selected ? onDeselect(data) : onSelect(data)}>
-                                                            { (data.value == "es") ?
-                                                                <span>ES <img className="mb-1" style={flag} src="https://ucarecdn.com/6f04f93e-1971-4e14-b730-94fad8254693/-/resize/18x/"/></span>
-                                                                :
-                                                                <span>EN <img className="mb-1" style={flag} src="https://ucarecdn.com/ec2f5da2-1e3d-4a0c-886c-255417a1c529/-/resize/18x/"/></span>
-                                                            }
-                                                            { selected && <Icon type="times" />}
-                                                        </li>}
+                                                        optionComponent={Flag}
                                                         multiselect={false}
 														onChange={d =>
 															this.setState({
-																selectedLanguages: d ? [d] : []
+																selectedLanguages: d.value
 															})
 														}
 														options={store.lessonLanguage ? actions.filterRepeated(store.lessonLanguage).map((lan, index) => {

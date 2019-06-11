@@ -24,8 +24,9 @@ class Navbar extends React.Component {
         const { pageContext, search } = this.props;
 
         const fromIframe = (search.iframe === 'true');
+        if(fromIframe) return null;
+
 		return (
-			<div className={`${fromIframe&&"d-none"}`} >
 				<nav className="navbar navbar-expand-lg navbar-light bg-light gradient">
 					<Link to="/">
 						<img
@@ -87,7 +88,6 @@ class Navbar extends React.Component {
 						</form>
 					</div>
 				</nav>
-			</div>
 		);
 	}
 }
