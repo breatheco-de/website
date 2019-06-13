@@ -3,15 +3,25 @@ import { Icon } from "@breathecode/ui-components";
 import withLocation from "../components/withLocation";
 import Navbar from "../components/navbar.jsx";
 import {Link} from "gatsby"
+import "../styles/index.css";
 
 
 class SingleAsset extends React.Component {
     render() {
         const { pageContext } = this.props;
-        const imageStyles = {
+        const imageStyles_one = {
         backgroundImage: `url("${pageContext.preview}")`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
+        padding: "106px"
+    };
+    const imageStyles_two = {
+        backgroundImage: `url("${pageContext.preview}")`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        height: "477px"
+
+
     };
     const singleAsset={
             marginTop:"60px"
@@ -19,50 +29,57 @@ class SingleAsset extends React.Component {
     const title={
         color:"black"
     }
+    console.log(pageContext);
 
 
         return (
+
         <React.Fragment>
         <Navbar/>
             <div className="container" style={singleAsset}>
+            {/*main row*/}
                  <div className="row">
-                    <div className="col-12 col-md-6 col-lg-8">
+                    {/*first column */}
+                    <div className=" col-12 col-md-6 m-md-2 col-lg-7 col-xl-8  ">
                         <div className="row">
-                            <div className="col-12 pl-0">
-                                <div className="h1 font-weight-bold text-dark mb-4" style={title}>{pageContext.title}</div>
+                            <div className="col ">
+                                <div className="h3 font-weight-bold text-dark mb-4 assetTitle" style={title}>{pageContext.title}</div>
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-12 col-md-6 vh-100" style={imageStyles}/>
-
-                            <div className="col-12 col-md-6 ">
-                            Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.
+                            <div className="col-12 col-md-12 col-lg-6">
+                                <div className="d-md-block d-lg-none" style={imageStyles_one}></div>
+                                 <div className=" d-none d-lg-block" style={imageStyles_two}></div>
+                            </div>
+                            <div className="col-12 col-md-12  col-lg-6 mt-4 mt-lg-0">
+                                {pageContext.description}
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 col-md-6 col-lg-4">
-                        <div className="row p-1 sticky-top mt-2">
-                            <div className="col text-right">
-                                <Link  className="btn btn-outline-secondary btn-lg d-none d-lg-block " to="/assets">
+                    {/*second columnn*/}
+                    <div className="col-12 col-md ">
+                        <div className="row p-1 sticky-top mt-2 mt-lg-0">
+                            <div className="col text-right px-lg-1">
+                                <Link  className="btn btn-outline-secondary btn-lg d-none d-lg-block" to="/assets">
                                         Browse all assets
                                 </Link>
                             </div>
                         </div>
                     <div className="row sticky-top">
-                        <div className="col">
+                        <div className="col p-1">
 
-                                <div className="card ">
+                                <div className="card m-1">
                                             <div className="card-body text-left">
                                                 <h5 className="card-title font-weight-bold lead h4">Goal</h5>
                                                 <p className="card-subtitle mb-2 text-muted font-italic mb-3">
-                                                Description
+                                                {pageContext.description}
                                                 </p>
                                                 <div className="row border-bottom p-1 m-0 no-gutters small">
                                                     <div className="col-5 "><span className=""><Icon type="search" className="text-danger"/></span><span className="ml-1">Type</span></div>
                                                     <div className="col-7 d-flex justify-content-end">{pageContext.types?pageContext.types.map((t)=>t):""}</div>
                                                 </div>
-                                                <div className="row border-bottom p-1 m-0 no-gutters small">
-                                                    <div className="col-6 "><span className="colorRed"><Icon type="youtube" className="text-danger"/></span><span className="ml-1">Publish Date:</span></div>
+                                                <div className={`${!pageContext["created_at"]&&"d-none"} row border-bottom p-1 m-0 no-gutters small`}>
+                                                    <div className="col-6 "><span className="colorRed"><Icon type="calendarCheck" /></span><span className="ml-1">Publish Date:</span></div>
                                                     <div className="col-6 d-flex justify-content-end ">{pageContext["created_at"]}</div>
                                                 </div>
                                                 <div className={`row border-bottom p-1 m-0 no-gutters small ${!pageContext["up_votes"]&&"d-none"}`}>
@@ -87,8 +104,8 @@ class SingleAsset extends React.Component {
                                                     <div className="col-6">
                                                         <a
                                                             href={pageContext.url}
-                                                            className="btn btn-outline-primary btn-md px-1 w-100 ">
-                                                            View website
+                                                            className={` ${pageContext.download&&"d-none"} btn btn-outline-primary btn-md px-1 w-100 `}>
+                                                            {pageContext.url.includes("ucarecdn")?"View Asset":"View Website"}
                                                         </a>
 
                                                     </div>
@@ -96,7 +113,7 @@ class SingleAsset extends React.Component {
 
                                                         <button
 
-                                                            className="btn btn-outline-success btn-md px-1 w-100 ">
+                                                            className={`${!pageContext.download&&"d-none"} btn btn-outline-success btn-md px-1 w-100 `}>
                                                             Download
                                                         </button>
 
