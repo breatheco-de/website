@@ -29,6 +29,8 @@ class SingleAsset extends React.Component {
     const title={
         color:"black"
     }
+    console.log("page context"+pageContext);
+
     console.log(pageContext);
 
 
@@ -105,7 +107,7 @@ class SingleAsset extends React.Component {
                                                         <a
                                                             href={pageContext.url}
                                                             className={` ${pageContext.download&&"d-none"} btn btn-outline-primary btn-md px-1 w-100 `}>
-                                                            {pageContext.url.includes("ucarecdn")?"View Asset":"View Website"}
+                                                            {pageContext.url?pageContext.url.includes("ucarecdn")?"View Asset":"View Website":""}
                                                         </a>
 
                                                     </div>

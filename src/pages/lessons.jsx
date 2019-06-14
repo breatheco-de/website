@@ -9,14 +9,22 @@ import "@breathecode/ui-components/dist/main.css";
 import Layout from "../components/layout";
 import Helmett from "../components/helmet";
 import {Link} from "gatsby";
+import queryString  from 'query-string';
+import { Location } from '@reach/router';
+import withLocation from "../components/withLocation";
+
 
 const flag ={
     margin: "1px 0px"
 }
 
 export class Lessons extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
+        const {location} = props;
+        const {search} = location;
+
+
 		this.state = {
             selectedLanguages:[],
 			selectedTags: [],
@@ -29,6 +37,7 @@ export class Lessons extends React.Component {
             selectedTechTags:[],
             selectedTopicTags:[]
 		};
+
 	}
 
 	filterByLang = l => {
@@ -89,9 +98,11 @@ export class Lessons extends React.Component {
 
 	render() {
 
+
+
         const lessons =(<Context.Consumer>
 					{({ store, actions }) => {
-                        console.log("Languages: ",store.lessonLanguage);
+
 						return (
 
 							<div className={`${this.state.displayLesson&&"d-none"}`}>
@@ -171,11 +182,14 @@ export class Lessons extends React.Component {
 														placeholder="Filter by topic"
                                                         className="minWidth topicFilterPostion"
 														onChange={d =>
+
 															this.setState({
 																selectedTags: d
 															})
+
 														}
 															options={store.tags?actions.filterRepeated(store.tags).map((tag, index) => {
+
 															return {
 																label: tag,
 																value: tag
@@ -200,7 +214,7 @@ export class Lessons extends React.Component {
                                                         </li>}
                                                         multiselect={false}
 														onChange={d =>
-															this.setState({
+                                                         this.setState({
 																selectedLanguages: d ? [d] : []
 															})
 														}
@@ -304,9 +318,7 @@ export class Lessons extends React.Component {
         const aseets=(
             <Context.Consumer>
 					{({ store, actions }) => {
-                        console.log(store.assetTypesTags);
-                        console.log(store.assetTechnologieTags);
-                        console.log(store.assetTopicTags);
+
 						return (
 							<div className={`${this.state.displayAssets&&"d-none"}`}>
 								<SmallJumbotron
