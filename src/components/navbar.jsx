@@ -1,10 +1,10 @@
 import React from "react";
 import { Button } from "./button.jsx";
-import withLocation from "./withLocation";
 import { Link } from "gatsby";
 import Store from "../store/appContext.jsx";
 import queryString  from 'query-string';
 import { Location } from '@reach/router';
+import withLocation from "./withLocation";
 
 
 
@@ -24,7 +24,8 @@ class Navbar extends React.Component {
         const { pageContext, search } = this.props;
 
         const fromIframe = (search.iframe === 'true');
-        if(fromIframe) return null;
+
+        console.log(this.props)
 
 		return (
 				<nav className="navbar navbar-expand-lg navbar-light bg-light gradient">
