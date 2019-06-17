@@ -21,12 +21,13 @@ const flag ={
 export class Lessons extends React.Component {
 	constructor(props) {
 		super(props);
-        const {location} = props;
-        const {search} = location;
-
+        
+        const { location } = props;
+        console.log("location");
+        console.log(location.search);
 
 		this.state = {
-            defaultLanguages:["en"],
+            defaultLanguages: [location.search.includes("?lang=es")?this.getLanguage(location.search):"en"],
             selectedLanguages:[],
 			selectedTags: [],
 			selectedAuthors: [],
@@ -41,14 +42,23 @@ export class Lessons extends React.Component {
 
 	}
 
+getLanguage=(queryString)=>{
+        let splitQuery = queryString.split("=");
 
-    filterByDefaultLang = l => {
+        let lang = splitQuery[1];
+
+   return lang 
+
+ }
+
+    filterByDefaultLag = l => {
 		if (this.state.defaultLanguages.length == 0) return true;
 		for (let i = 0; i < this.state.defaultLanguages.length; i++) {
-			if (l.lang.includes(this.state.defaultLanguages[i].value)) return true;
+			if (l.lang.includes(this.state.defaultLanguages[i])) return true;
 		}
 		return false;
 	}
+
 
 	filterByLang = l => {
 		if (this.state.selectedLanguages.length == 0) return true;
@@ -267,7 +277,7 @@ export class Lessons extends React.Component {
 								</div>
 
 								{store.lessons == null ? <Loading /> : store.lessons
-                                    .filter(this.filterByDefaultLang)
+                                    .filter(this.filterByDefaultLag)
                                     .filter(this.filterByLang)
 									.filter(this.filterByAuthors)
 									.filter(this.filterByTags)
