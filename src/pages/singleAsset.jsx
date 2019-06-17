@@ -113,19 +113,19 @@ class SingleAsset extends React.Component {
                                                     </div>
                                                     <div className="col-6">
 
-                                                        <button
-
+                                                        <a
+                                                            href={pageContext.download}
                                                             className={`${!pageContext.download&&"d-none"} btn btn-outline-success btn-md px-1 w-100 `}>
                                                             Download
-                                                        </button>
+                                                        </a>
 
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-                        </div>
-                    </div>
+                                </div>
+                            </div>
 
                     </div>
                  </div>
