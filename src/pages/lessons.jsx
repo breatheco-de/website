@@ -26,6 +26,7 @@ export class Lessons extends React.Component {
 
 
 		this.state = {
+            defaultLanguages:["en"],
             selectedLanguages:[],
 			selectedTags: [],
 			selectedAuthors: [],
@@ -38,6 +39,15 @@ export class Lessons extends React.Component {
             selectedTopicTags:[]
 		};
 
+	}
+
+
+    filterByDefaultLang = l => {
+		if (this.state.defaultLanguages.length == 0) return true;
+		for (let i = 0; i < this.state.defaultLanguages.length; i++) {
+			if (l.lang.includes(this.state.defaultLanguages[i].value)) return true;
+		}
+		return false;
 	}
 
 	filterByLang = l => {
@@ -257,6 +267,7 @@ export class Lessons extends React.Component {
 								</div>
 
 								{store.lessons == null ? <Loading /> : store.lessons
+                                    .filter(this.filterByDefaultLang)
                                     .filter(this.filterByLang)
 									.filter(this.filterByAuthors)
 									.filter(this.filterByTags)
