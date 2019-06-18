@@ -242,9 +242,11 @@ export class Lessons extends React.Component {
                                                         multiselect={false}
 														onChange={d =>  {
                                                             this.setState({
-																selectedLanguages: d ? [d] : []
+																selectedLanguages: d ? [d] : [],
+                                                                defaultLanguages:""
+
 															});
-                                                            navigate("/lessons"  + this.updateQueryStringParameter(location.search,"lang",d.value) );
+                                                            navigate("/lessons" + this.updateQueryStringParameter(location.search,"lang",d.value) );
 
                                                         }}
 														options={store.lessonLanguage ? actions.filterRepeated(store.lessonLanguage).map((lan, index) => {
