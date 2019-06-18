@@ -4,7 +4,7 @@
     "routes": [
        { "src": "/en/assets/", "status": 301, "headers": { "Location": "https://breatheco.de/assets/" }},
        { "src": "/../lesson-asset/(.*)", "status": 301, "headers": { "Location": "https://breatheco.de/lesson/$1" }},
-       { "src": "/(..)/lessons/", "status": 301, "headers": { "Location": "https://breatheco.de/lessons/?lang=$1" }}
+       { "src": "/(..)/lessons.*", "status": 301, "headers": { "Location": "https://breatheco.de/lessons/?lang=$1" }}
 
     ],
     "name": "breathecode-website",

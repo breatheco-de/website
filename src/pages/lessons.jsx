@@ -10,8 +10,9 @@ import Layout from "../components/layout";
 import Helmett from "../components/helmet";
 import {Link} from "gatsby";
 import queryString  from 'query-string';
-import { Location } from '@reach/router';
+import { Location, navigate } from '@reach/router';
 import withLocation from "../components/withLocation";
+
 
 
 const flag ={
@@ -21,10 +22,9 @@ const flag ={
 export class Lessons extends React.Component {
 	constructor(props) {
 		super(props);
-        
         const { location } = props;
-        console.log("location");
-        console.log(location.search);
+
+
 
 		this.state = {
             defaultLanguages: [location.search.includes("?lang=es")?this.getLanguage(location.search):"en"],
@@ -41,15 +41,23 @@ export class Lessons extends React.Component {
 		};
 
 	}
+    updateQueryStringParameter=(uri, key, value)=> {
+        var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+        var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+        if (uri.match(re)) {
+            return uri.replace(re, '$1' + key + "=" + value + '$2');
+        }
+        else {
+            return uri + separator + key + "=" + value;
+        }
+    }
 
-getLanguage=(queryString)=>{
+    getLanguage=(queryString)=>{
         let splitQuery = queryString.split("=");
-
         let lang = splitQuery[1];
+        return lang;
 
-   return lang 
-
- }
+    }
 
     filterByDefaultLag = l => {
 		if (this.state.defaultLanguages.length == 0) return true;
@@ -117,9 +125,8 @@ getLanguage=(queryString)=>{
 
 
 	render() {
-
-
-
+        const {location} =this.props;
+        console.log(location);
         const lessons =(<Context.Consumer>
 					{({ store, actions }) => {
 
@@ -233,11 +240,13 @@ getLanguage=(queryString)=>{
                                                             { selected && <Icon type="times" />}
                                                         </li>}
                                                         multiselect={false}
-														onChange={d =>
-                                                         this.setState({
+														onChange={d =>  {
+                                                            this.setState({
 																selectedLanguages: d ? [d] : []
-															})
-														}
+															});
+                                                            navigate("/lessons "  + this.updateQueryStringParameter(location.search,"lang",d.value) );
+
+                                                        }}
 														options={store.lessonLanguage ? actions.filterRepeated(store.lessonLanguage).map((lan, index) => {
 															return {
 																label:  lan,
@@ -468,7 +477,11 @@ getLanguage=(queryString)=>{
 									</div>
 								</div>
                                   <div className="container">
-                                 {store.assets?store.assets.filter(this.filterByTech).filter(this.filterByTopic).filter(this.filterByType).map((asset)=>{
+                                 {store.assets?store.assets
+                                 .filter(this.filterByDefaultLag)
+                                 .filter(this.filterByTech)
+                                 .filter(this.filterByTopic)
+                                 .filter(this.filterByType).map((asset)=>{
                                                 const imageStyles = {
                                                     backgroundImage: `url("${asset.preview}")`,
                                                     backgroundPosition: 'center',
@@ -500,7 +513,7 @@ getLanguage=(queryString)=>{
                                                     <div className="col-12 col-md-3 d-flex justify-content-md-end">
                                                         <div className="row mx-auto">
                                                             <div className="col-12 d-flex align-items-end">
-                                                                <Link to={"/lesson/"+asset.slug} className="btn btn-outline-primary buttonHeight  px-2 ">
+                                                                <Link to={"/lesson/"+ asset.slug } className="btn btn-outline-primary buttonHeight  px-2 ">
                                                                     View more
                                                                 </Link>
                                                             </div>

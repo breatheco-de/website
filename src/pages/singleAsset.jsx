@@ -48,31 +48,29 @@ class SingleAsset extends React.Component {
                                 <div className="h3 font-weight-bold text-dark mb-4 assetTitle" style={title}>{pageContext.title}</div>
                             </div>
                         </div>
+
                         <div className="row">
-                            <div className="col-12 col-md-12 col-lg-6">
-                                <div className="d-md-block d-lg-none" style={imageStyles_one}></div>
+                            <div className="col">
+                                <div className="d-md-block d-lg-none vh-25" style={imageStyles_one}></div>
                                  <div className=" d-none d-lg-block" style={imageStyles_two}></div>
                             </div>
-                            <div className="col-12 col-md-12  col-lg-6 mt-4 mt-lg-0">
-                                {pageContext.description}
-                            </div>
+
                         </div>
                     </div>
                     {/*second columnn*/}
                     <div className="col-12 col-md ">
-                        <div className="row p-1 sticky-top mt-2 mt-lg-0">
+                        <div className="row p-1 sticky-top  mt-lg-0">
                             <div className="col text-right px-lg-1">
-                                <Link  className="btn btn-outline-secondary btn-lg d-none d-lg-block" to="/assets">
+                                <Link  className="btn btn-outline-secondary btn-lg d-none d-md-block  mt-lg-3" to="/assets">
                                         Browse all assets
                                 </Link>
                             </div>
                         </div>
-                    <div className="row sticky-top">
+                    <div className="row sticky-top mt-2">
                         <div className="col p-1">
-
                                 <div className="card m-1">
                                             <div className="card-body text-left">
-                                                <h5 className="card-title font-weight-bold lead h4">Goal</h5>
+                                                <h5 className="card-title font-weight-bold lead h4">Description</h5>
                                                 <p className="card-subtitle mb-2 text-muted font-italic mb-3">
                                                 {pageContext.description}
                                                 </p>
@@ -86,7 +84,7 @@ class SingleAsset extends React.Component {
                                                 </div>
                                                 <div className={`row border-bottom p-1 m-0 no-gutters small ${!pageContext["up_votes"]&&"d-none"}`}>
                                                     <div className="col-7 "><span ><Icon type="play" className="text-danger font-size" /></span><span className="ml-2">Upvotes</span></div>
-                                                    <div className="col-5 d-flex justify-content-end ">{pageContext["up_votes"]}</div>
+                                                    <div className="col-5 d-flex justify-content-end">{pageContext["up_votes"]}</div>
                                                 </div>
 
                                                 <div className="row p-1 m-0 no-gutters small">
