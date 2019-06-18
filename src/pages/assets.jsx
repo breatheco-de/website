@@ -10,16 +10,35 @@ import Navbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
 import { Link } from "gatsby";
 import Helmett from "../components/helmet";
+import queryString  from 'query-string';
+import { Location, navigate } from '@reach/router';
+import withLocation from "../components/withLocation";
 
 
  class Contributing extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
+        const { location } = props;
 		this.state = {
+            defaultLanguages: [location.search.includes("?lang=es")?this.getLanguage(location.search):"en"],
             selectedTypeTags:[],
             selectedTechTags:[],
             selectedTopicTags:[]
 		};
+	}
+
+     getLanguage=(queryString)=>{
+        let splitQuery = queryString.split("=");
+        let lang = splitQuery[1];
+        return lang;
+
+    }
+    filterByDefaultLag = l => {
+		if (this.state.defaultLanguages.length == 0) return true;
+		for (let i = 0; i < this.state.defaultLanguages.length; i++) {
+			if (l.lang.includes(this.state.defaultLanguages[i])) return true;
+		}
+		return false;
 	}
 
     filterByTech = asset => {
@@ -73,7 +92,6 @@ import Helmett from "../components/helmet";
 									spanClass="h3 text-secondary"
 									spanContent="md"
 								/>
-
 								<div className="row border-top border-bottom sticky-top bg-white">
 									<div className="container">
 										<div className="row">
@@ -143,7 +161,7 @@ import Helmett from "../components/helmet";
 									</div>
 								</div>
                                  <div className="container">
-                                 {store.assets?store.assets.filter(this.filterByTech).filter(this.filterByTopic).filter(this.filterByType).map((asset)=>{
+                                 {store.assets?store.assets .filter(this.filterByDefaultLag).filter(this.filterByTech).filter(this.filterByTopic).filter(this.filterByType).map((asset)=>{
                                                 const imageStyles = {
                                                     backgroundImage: `url("${asset.preview}")`,
                                                     backgroundPosition: 'center',
