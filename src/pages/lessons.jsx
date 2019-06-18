@@ -244,7 +244,7 @@ export class Lessons extends React.Component {
                                                             this.setState({
 																selectedLanguages: d ? [d] : []
 															});
-                                                            navigate("/lessons "  + this.updateQueryStringParameter(location.search,"lang",d.value) );
+                                                            navigate("/lessons"  + this.updateQueryStringParameter(location.search,"lang",d.value) );
 
                                                         }}
 														options={store.lessonLanguage ? actions.filterRepeated(store.lessonLanguage).map((lan, index) => {
