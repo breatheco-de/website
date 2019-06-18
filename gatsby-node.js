@@ -10,11 +10,7 @@ exports.createPages = ({ actions, graphql }) => {
         fetch("https://assets.breatheco.de/apis/resources/all")
             .then(resp => resp.json())
             .then(assets => {
-	            {/*let technologyTags = [];
-                for(let i = 0;i<projects.length;i++){
-                    if(technologyTags.indexOf(projects[i].technology) == -1)
-                        technologyTags.push(projects[i].technology);
-                }*/}
+
                 assets.forEach(a => {
                     createPage({
                         path: `/lesson/${a.slug}`,
@@ -23,6 +19,32 @@ exports.createPages = ({ actions, graphql }) => {
                     })
 
                 });
+                resolve();
+            })
+            .catch(error => {
+                console.log(error);
+                reject();
+            });
+    });
+
+};
+
+exports.createPages = ({ actions, graphql }) => {
+    const { createPage } = actions;
+
+    return new Promise((resolve, reject) => {
+        fetch("https://assets.breatheco.de/apis/resources/all")
+            .then(resp => resp.json())
+            .then(assets => {
+
+
+                    createPage({
+                        path: `/lessons`,
+                        component: path.resolve("./src/pages/lessons.jsx"),
+                        context: assets,
+                    })
+
+
                 resolve();
             })
             .catch(error => {

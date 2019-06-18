@@ -125,8 +125,10 @@ export class Lessons extends React.Component {
 
 
 	render() {
-        const {location} =this.props;
-        console.log(location);
+
+        const {location, pageContext} =this.props;
+        console.log(this.props);
+        console.log(pageContext);
         const lessons =(<Context.Consumer>
 					{({ store, actions }) => {
 
@@ -208,13 +210,13 @@ export class Lessons extends React.Component {
 														label="Tags"
 														placeholder="Filter by topic"
                                                         className="minWidth topicFilterPostion"
-														onChange={d =>
-
-															this.setState({
+														onChange={d =>  {
+                                                            this.setState({
 																selectedTags: d
-															})
+															});
+                                                            navigate("/lessons" + this.updateQueryStringParameter(location.search,"topic",d.value) );
 
-														}
+                                                        }}
 															options={store.tags?actions.filterRepeated(store.tags).map((tag, index) => {
 
 															return {
