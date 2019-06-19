@@ -305,8 +305,11 @@ const getState = ({ getStore, setStore }) => {
 				}
 			},
 			lessonUrl: lesson => {
-				let fullLink = `https://content.breatheco.de/${lesson.lang}/lesson/` + lesson.slug.replace(".es","");
-				return fullLink;
+                if(lesson.slug){
+                    let fullLink = `https://content.breatheco.de/${lesson.lang}/lesson/` + lesson.slug.replace(".es","");
+				    return fullLink;
+                }
+
 			},
 			filterRepeated: array => {
 				var uniqueTags = [];
@@ -350,7 +353,14 @@ const getState = ({ getStore, setStore }) => {
 					return [];
 				}
 
-			}
+			},
+            parseObjectInToArray: jsonObject=>{
+                let aux=[]
+                for( let object in jsonObject){
+                      aux.push(jsonObject[object]);
+                }
+                return aux;
+            }
 		}
 	};
 };

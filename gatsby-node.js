@@ -32,16 +32,19 @@ exports.createPages = ({ actions, graphql }) => {
 exports.createPages = ({ actions, graphql }) => {
     const { createPage } = actions;
 
+
     return new Promise((resolve, reject) => {
-        fetch("https://assets.breatheco.de/apis/resources/all")
+        fetch("https://assets.breatheco.de/apis/lesson/all/v2?status=published,draft")
             .then(resp => resp.json())
-            .then(assets => {
-
-
+            .then(lessons => {
+                    aux =[];
+                    for (let lesson in lessons){
+                        aux.push(lessons[lesson]);
+                    };
                     createPage({
                         path: `/lessons`,
                         component: path.resolve("./src/pages/lessons.jsx"),
-                        context: assets,
+                        context: aux,
                     })
 
 

@@ -61,8 +61,9 @@ export class Lessons extends React.Component {
 
     filterByDefaultLag = l => {
 		if (this.state.defaultLanguages.length == 0) return true;
+
 		for (let i = 0; i < this.state.defaultLanguages.length; i++) {
-			if (l.lang.includes(this.state.defaultLanguages[i])) return true;
+			if (l.lang?l.lang.includes(this.state.defaultLanguages[i]):"") return true;
 		}
 		return false;
 	}
@@ -71,14 +72,14 @@ export class Lessons extends React.Component {
 	filterByLang = l => {
 		if (this.state.selectedLanguages.length == 0) return true;
 		for (let i = 0; i < this.state.selectedLanguages.length; i++) {
-			if (l.lang.includes(this.state.selectedLanguages[i].value)) return true;
+			if (l.lang?l.lang.includes(this.state.selectedLanguages[i].value):"") return true;
 		}
 		return false;
 	}
     filterByTags = l => {
 		if (this.state.selectedTags.length == 0) return true;
 		for (let i = 0; i < this.state.selectedTags.length; i++) {
-			if (l.tags.includes(this.state.selectedTags[i].value)) return true;
+			if (l.tags.map(t=>t).includes(this.state.selectedTags[i].value)) return true;
 		}
 		return false;
 	}
@@ -93,13 +94,16 @@ export class Lessons extends React.Component {
 		return false;
 	};
     replaceDraft = lessonLink =>{
-            if (lessonLink.includes("[draft]")&&lessonLink.includes("/en/")){
+            if(lessonLink){
+                 if (lessonLink.includes("[draft]")&&lessonLink.includes("/en/")){
                 let newLink = lessonLink.replace("[draft]","");
                 return newLink;
             }
             else{
                 return lessonLink
             }
+            }
+
     };
     filterByTech = asset => {
 		if (this.state.selectedTechTags.length == 0) return true;
@@ -129,9 +133,10 @@ export class Lessons extends React.Component {
         const {location, pageContext} =this.props;
         console.log(this.props);
         console.log(pageContext);
+        console.log()
         const lessons =(<Context.Consumer>
 					{({ store, actions }) => {
-
+                            console.log(actions.parseObjectInToArray(pageContext))
 						return (
 
 							<div className={`${this.state.displayLesson&&"d-none"}`}>
@@ -248,7 +253,7 @@ export class Lessons extends React.Component {
                                                                 defaultLanguages:""
 
 															});
-                                                            navigate("/lessons" + this.updateQueryStringParameter(location.search,"lang",d.value) );
+                                                            if(d)navigate("/lessons" + this.updateQueryStringParameter(location.search,"lang",d.value));
 
                                                         }}
 														options={store.lessonLanguage ? actions.filterRepeated(store.lessonLanguage).map((lan, index) => {
@@ -289,7 +294,7 @@ export class Lessons extends React.Component {
 									</div>
 								</div>
 
-								{store.lessons == null ? <Loading /> : store.lessons
+								{pageContext == null ? <Loading /> : actions.parseObjectInToArray(pageContext)
                                     .filter(this.filterByDefaultLag)
                                     .filter(this.filterByLang)
 									.filter(this.filterByAuthors)
@@ -324,7 +329,7 @@ export class Lessons extends React.Component {
 																			className="author badge badge-pill badge-light mr-2 text-uppercase">
 																			{lesson.lang} {lesson.lang=="es"?<span><img className="mb-1" style={flag} src="https://ucarecdn.com/6f04f93e-1971-4e14-b730-94fad8254693/-/resize/18x/"/></span>:<span><img className="mb-1" style={flag} src="https://ucarecdn.com/ec2f5da2-1e3d-4a0c-886c-255417a1c529/-/resize/18x/"/></span>}
                                                                     </div>
-																{lesson.tags.map((tag, index) => {
+																{lesson.tags?lesson.tags.map((tag, index) => {
 																	return (
 																		<div
 																			key={index}
@@ -332,7 +337,7 @@ export class Lessons extends React.Component {
 																			{tag}
 																		</div>
 																	);
-																})}
+																}):""}
                                                                 </div>
                                                                 <a href={this.replaceDraft(actions.lessonUrl(lesson))}  className="btn btn-outline-primary ml-auto mr-3">Read lesson</a>
 															</div>
