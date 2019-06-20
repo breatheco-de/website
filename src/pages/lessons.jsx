@@ -12,6 +12,7 @@ import {Link} from "gatsby";
 import queryString  from 'query-string';
 import { Location, navigate } from '@reach/router';
 import withLocation from "../components/withLocation";
+import emoji from 'node-emoji';
 
 
 
@@ -126,6 +127,10 @@ export class Lessons extends React.Component {
 		}
 		return false;
 	}
+    emojify= (tag) => emoji.emojify(tag, (name) => {
+        if(name==='spiral_notepad') return "🗒";
+        return name;
+    });
 
 
 	render() {
@@ -222,7 +227,7 @@ export class Lessons extends React.Component {
                                                             navigate("/lessons" + this.updateQueryStringParameter(location.search,"topic",d.value) );
 
                                                         }}
-															options={ store.tags?actions.filterRepeated(store.tags).map((tag, index) => {
+															options={ pageContext?actions.filterRepeated(actions.parseObjectInToArray(pageContext).map(l => l.tags).flat().map(tag => this.emojify(tag))).map((tag, index) => {
 
 															return {
 																label: tag,
@@ -251,7 +256,6 @@ export class Lessons extends React.Component {
                                                             this.setState({
 																selectedLanguages: d ? [d] : [],
                                                                 defaultLanguages:""
-
 															});
 
                                                             if(d)navigate("/lessons" + this.updateQueryStringParameter(location.search,"lang",d.value));
