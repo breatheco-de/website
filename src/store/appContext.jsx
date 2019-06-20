@@ -19,19 +19,6 @@ const Store = PassedComponent => {
 		}
 
 		componentDidMount() {
-			fetch(HOST+"lesson/all/v2?status=published,draft")
-				.then(res => res.json())
-				.then(lessons => {
-					let { store } = this.state;
-                    store.lessonLanguage=lessons.map(l=>l.lang)
-					store.lessons = lessons;
-					store.tags = lessons.map(l => l.tags).flat().map(tag => this.state.actions.emojify(tag));
-					store.authors = lessons.map(l => l.authors).flat();
-					this.setState({
-						store
-					});
-				})
-				.catch(err => console.error(err));
 
 			fetch(HOST+"event/all?status=published&location=downtown-miami&status=upcoming")
 				.then(res => res.json())

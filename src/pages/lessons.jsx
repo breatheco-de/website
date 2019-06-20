@@ -480,7 +480,7 @@ export class Lessons extends React.Component {
                                                                 label: type,
 																value: type
                                                         }
-                                                    }):[{
+                                                        }):[{
                                                                 label:"loading" ,
 																value: "loading"
                                                         }]}
