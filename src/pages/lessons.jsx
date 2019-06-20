@@ -222,13 +222,13 @@ export class Lessons extends React.Component {
                                                             navigate("/lessons" + this.updateQueryStringParameter(location.search,"topic",d.value) );
 
                                                         }}
-															options={store.tags?actions.filterRepeated(store.tags).map((tag, index) => {
+															options={ store.tags?actions.filterRepeated(store.tags).map((tag, index) => {
 
 															return {
 																label: tag,
 																value: tag
 															};
-														}):<Loading/>}
+														}): <Loading/> }
 
 													/>
 												</div>
@@ -253,6 +253,7 @@ export class Lessons extends React.Component {
                                                                 defaultLanguages:""
 
 															});
+
                                                             if(d)navigate("/lessons" + this.updateQueryStringParameter(location.search,"lang",d.value));
 
                                                         }}
