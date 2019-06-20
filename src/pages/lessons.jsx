@@ -261,7 +261,7 @@ export class Lessons extends React.Component {
                                                             if(d)navigate("/lessons" + this.updateQueryStringParameter(location.search,"lang",d.value));
 
                                                         }}
-														options={store.lessonLanguage ? actions.filterRepeated(store.lessonLanguage).map((lan, index) => {
+														options={pageContext ? actions.filterRepeated(actions.parseObjectInToArray(pageContext).map(l=>l.lang)).map((lan, index) => {
 															return {
 																label:  lan,
 																value: lan
@@ -285,7 +285,7 @@ export class Lessons extends React.Component {
 																selectedAuthors: d
 															})
 														}
-														options={actions.filterRepeated(store.authors).map(author => {
+														options={actions.filterRepeated(actions.parseObjectInToArray(pageContext).map(l => l.authors).flat()).map(author => {
 															return {
 																label: author,
 																value: author
