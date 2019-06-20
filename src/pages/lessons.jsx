@@ -135,13 +135,12 @@ export class Lessons extends React.Component {
 
 	render() {
 
+
         const {location, pageContext} =this.props;
-        console.log(this.props);
-        console.log(pageContext);
-        console.log()
+
         const lessons =(<Context.Consumer>
 					{({ store, actions }) => {
-                            console.log(actions.parseObjectInToArray(pageContext))
+
 						return (
 
 							<div className={`${this.state.displayLesson&&"d-none"}`}>
@@ -227,7 +226,7 @@ export class Lessons extends React.Component {
                                                             navigate("/lessons" + this.updateQueryStringParameter(location.search,"topic",d.value) );
 
                                                         }}
-															options={ pageContext?actions.filterRepeated(actions.parseObjectInToArray(pageContext).map(l => l.tags).flat().map(tag => this.emojify(tag))).map((tag, index) => {
+															options={ pageContext?actions.filterRepeated(actions.parseObjectInToArray(pageContext.lessons).map(l => l.tags).flat().map(tag => this.emojify(tag))).map((tag, index) => {
 
 															return {
 																label: tag,
@@ -261,7 +260,7 @@ export class Lessons extends React.Component {
                                                             if(d)navigate("/lessons" + this.updateQueryStringParameter(location.search,"lang",d.value));
 
                                                         }}
-														options={pageContext ? actions.filterRepeated(actions.parseObjectInToArray(pageContext).map(l=>l.lang)).map((lan, index) => {
+														options={pageContext ? actions.filterRepeated(actions.parseObjectInToArray(pageContext.lessons).map(l=>l.lang)).map((lan, index) => {
 															return {
 																label:  lan,
 																value: lan
@@ -285,7 +284,7 @@ export class Lessons extends React.Component {
 																selectedAuthors: d
 															})
 														}
-														options={actions.filterRepeated(actions.parseObjectInToArray(pageContext).map(l => l.authors).flat()).map(author => {
+														options={actions.filterRepeated(actions.parseObjectInToArray(pageContext.lessons).map(l => l.authors).flat()).map(author => {
 															return {
 																label: author,
 																value: author
@@ -299,7 +298,7 @@ export class Lessons extends React.Component {
 									</div>
 								</div>
 
-								{pageContext == null ? <Loading /> : actions.parseObjectInToArray(pageContext)
+								{pageContext == null ? <Loading /> : actions.parseObjectInToArray(pageContext.lessons)
                                     .filter(this.filterByDefaultLag)
                                     .filter(this.filterByLang)
 									.filter(this.filterByAuthors)
@@ -461,8 +460,8 @@ export class Lessons extends React.Component {
 																value: topic
                                                         }
                                                     }):[{
-                                                                label:"loading" ,
-																value: "loading"
+                                                                label:"loading...",
+																value: "loading..."
                                                         }]}
 												    />
 												</div>

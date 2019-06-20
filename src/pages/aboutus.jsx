@@ -13,6 +13,7 @@ import Helmett from "../components/helmet";
 
 class AboutUs extends React.Component {
 	render() {
+        let {pageContext}= this.props;
 		return (
 			<div>
              <Helmett
@@ -32,7 +33,7 @@ class AboutUs extends React.Component {
 				<div className="px-5 container">
 					<Context.Consumer>
 						{({ store, actions }) => {
-							return <MarkdownParser source={store.markdown==null?<Loading/>:store.markdown} />;
+							return <MarkdownParser source={pageContext.markdown==null?<Loading/>:pageContext.markdown} />;
 						}}
 					</Context.Consumer>
 				</div>

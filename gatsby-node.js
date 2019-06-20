@@ -44,7 +44,9 @@ exports.createPages = ({ actions, graphql }) => {
                     createPage({
                         path: `/lessons`,
                         component: path.resolve("./src/pages/lessons.jsx"),
-                        context: aux,
+                        context:{
+                            lessons:aux
+                        },
                     })
 
 
@@ -54,7 +56,39 @@ exports.createPages = ({ actions, graphql }) => {
                 console.log(error);
                 reject();
             });
+
     });
 
 };
+exports.createPages = ({ actions, graphql }) => {
+    const { createPage } = actions;
+
+
+    return new Promise((resolve, reject) => {
+        fetch("https://raw.githubusercontent.com/breatheco-de/main-documentation/master/README.md")
+            .then(resp => resp.text())
+            .then(m => {
+
+                    createPage({
+                        path: `/aboutus`,
+                        component: path.resolve("./src/pages/aboutus.jsx"),
+                        context:{
+                            markdown:m
+                        },
+                    })
+
+
+                resolve();
+            })
+            .catch(error => {
+                console.log(error);
+                reject();
+            });
+
+    });
+
+};
+
+
+
 
