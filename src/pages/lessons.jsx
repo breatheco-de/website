@@ -137,6 +137,7 @@ export class Lessons extends React.Component {
 
 
         const {location, pageContext} =this.props;
+        console.log(pageContext);
 
         const lessons =(<Context.Consumer>
 					{({ store, actions }) => {
@@ -434,7 +435,7 @@ export class Lessons extends React.Component {
 															selectedTechTags: d
 														})
 													}
-													options={store.assetTechnologieTags?store.assetTechnologieTags.map((tech)=>{
+													options={pageContext.assets?actions.filterRepeated(pageContext.assets.map(a=>a.technologies).flat(1)).map((tech)=>{
                                                         return{
                                                                 label: tech,
 																value: tech
