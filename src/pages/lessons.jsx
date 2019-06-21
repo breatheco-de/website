@@ -16,6 +16,8 @@ import emoji from 'node-emoji';
 
 
 
+
+
 const flag ={
     margin: "1px 0px"
 }
@@ -455,7 +457,7 @@ export class Lessons extends React.Component {
 															selectedTopicTags: d
 														})
 													}
-													options={store.assetTopicTags?store.assetTopicTags.map((topic)=>{
+													options={pageContext.assets?actions.filterRepeated(pageContext.assets.map(a=>a.topics).flat(1)).map((topic)=>{
                                                         return{
                                                                 label: topic,
 																value: topic
@@ -475,7 +477,7 @@ export class Lessons extends React.Component {
 															selectedTypeTags: d
 														})
 													}
-													options={store.assetTypesTags?store.assetTypesTags.map((type)=>{
+													options={pageContext.assets?actions.filterRepeated(pageContext.assets.map(a=>a.types).flat(1)).map((type)=>{
                                                         return{
                                                                 label: type,
 																value: type

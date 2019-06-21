@@ -15,36 +15,36 @@ const { createPage } = actions;
 
 return new Promise((resolve, reject) => {
 fetch("https://assets.breatheco.de/apis/resources/all")
-.then((resourcesResp) => resourcesResp.json())
-.then((resources) => {
-return new Promise((resolve, reject) => {
-fetch('https://assets.breatheco.de/apis/lesson/all/v2')
-.then(function(lessonsResponce){
-return lessonsResponce.json();
-})
-.then(function(lessons){
-resolve({ lessons, resources });
-})
-.catch(pupusito =>reject(pupusito))
-});
-})
-.then(function(data){
-data.resources.forEach(a => {
-createPage({
-path: `/asset/${a.slug}`,
-component: path.resolve("./src/pages/singleAsset.jsx"),
-context:a
-})
-});
+    .then((resourcesResp) => resourcesResp.json())
+    .then((resources) => {
+        return new Promise((resolve, reject) => {
+                    fetch('https://assets.breatheco.de/apis/lesson/all/v2')
+                    .then(function(lessonsResponce){
+                        return lessonsResponce.json();
+                    })
+                    .then(function(lessons){
+                    resolve({ lessons, resources });
+                    })
+                    .catch(pupusito =>reject(pupusito))
+            });
+        })
+  .then(function(data){
+    data.resources.forEach(a => {
+        createPage({
+        path: `/asset/${a.slug}`,
+        component: path.resolve("./src/pages/singleAsset.jsx"),
+        context:a
+        })
+    });
 
-createPage({
-path: `/lessons`,
-component: path.resolve("./src/pages/lessons.jsx"),
-context:{
-lessons:data.lessons,
-assets:data.resources
+    createPage({
+        path: `/lessons`,
+        component: path.resolve("./src/pages/lessons.jsx"),
+        context:{
+        lessons:data.lessons,
+        assets:data.resources
 
-},
+    },
 });
 
 
