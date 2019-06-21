@@ -54,6 +54,16 @@ const Store = PassedComponent => {
 					});
 				})
 				.catch(err => console.error(err));
+            fetch("https://raw.githubusercontent.com/breatheco-de/main-documentation/master/README.md")
+            .then(res => res.text())
+            .then(markdown => {
+                let { store } = this.state;
+                store.markdown = markdown;
+                this.setState({
+                    store
+                });
+            })
+            .catch(err => console.error(err));
 
 
 		}

@@ -33,7 +33,7 @@ class AboutUs extends React.Component {
 				<div className="px-5 container">
 					<Context.Consumer>
 						{({ store, actions }) => {
-							return <MarkdownParser source={pageContext.markdown==null?<Loading/>:pageContext.markdown} />;
+							return <MarkdownParser source={store.markdown==null?<Loading/>:store.markdown} />;
 						}}
 					</Context.Consumer>
 				</div>
