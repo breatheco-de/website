@@ -28,7 +28,7 @@ fetch("https://assets.breatheco.de/apis/resources/all")
                     .catch(pupusito =>reject(pupusito))
             });
         })
-  .then(function(data){
+  .then((data)=>{
     data.resources.forEach(a => {
         createPage({
         path: `/asset/${a.slug}`,
@@ -57,10 +57,12 @@ fetch("https://assets.breatheco.de/apis/resources/all")
 
 
 
-console.log("Lessons: ", data.lessons);
-console.log("Resources: ",data.resources);
+    console.log("Lessons: ", data.lessons);
+    console.log("Resources: ",data.resources);
+    resolve(data);
+
 })
-.catch(pupusito2 => console.log("pupusito 2"), console.log(pupusito2));
+.catch((p) => reject(p))
 
 });
 

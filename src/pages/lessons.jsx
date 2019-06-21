@@ -226,10 +226,10 @@ export class Lessons extends React.Component {
                                                             this.setState({
 																selectedTags: d
 															});
-                                                            navigate("/lessons" + this.updateQueryStringParameter(location.search,"topic",d.value) );
 
+                                                            navigate("/lessons" + this.updateQueryStringParameter(location.search,"topic",d.value) );
                                                         }}
-															options={ pageContext?actions.filterRepeated(actions.parseObjectInToArray(pageContext.lessons).map(l => l.tags).flat().map(tag => this.emojify(tag))).map((tag, index) => {
+															options={ pageContext?actions.filterRepeated(pageContext.lessons.map(l => l.tags).flat().map(tag => this.emojify(tag))).map((tag, index) => {
 
 															return {
 																label: tag,
@@ -263,7 +263,7 @@ export class Lessons extends React.Component {
                                                             if(d)navigate("/lessons" + this.updateQueryStringParameter(location.search,"lang",d.value));
 
                                                         }}
-														options={pageContext ? actions.filterRepeated(actions.parseObjectInToArray(pageContext.lessons).map(l=>l.lang)).map((lan, index) => {
+														options={pageContext ? actions.filterRepeated(pageContext.lessons.map(l=>l.lang)).map((lan, index) => {
 															return {
 																label:  lan,
 																value: lan
@@ -287,7 +287,7 @@ export class Lessons extends React.Component {
 																selectedAuthors: d
 															})
 														}
-														options={actions.filterRepeated(actions.parseObjectInToArray(pageContext.lessons).map(l => l.authors).flat()).map(author => {
+														options={actions.filterRepeated(pageContext.lessons.map(l => l.authors).flat()).map(author => {
 															return {
 																label: author,
 																value: author
@@ -301,7 +301,7 @@ export class Lessons extends React.Component {
 									</div>
 								</div>
 
-								{pageContext == null ? <Loading /> : actions.parseObjectInToArray(pageContext.lessons)
+								{pageContext == null ? <Loading /> : pageContext.lessons
                                     .filter(this.filterByDefaultLag)
                                     .filter(this.filterByLang)
 									.filter(this.filterByAuthors)
