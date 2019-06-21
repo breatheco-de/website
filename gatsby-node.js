@@ -44,8 +44,16 @@ fetch("https://assets.breatheco.de/apis/resources/all")
         lessons:data.lessons,
         assets:data.resources
 
-    },
-});
+        },
+    });
+    createPage({
+            path: `/assets`,
+            component: path.resolve("./src/pages/assets.jsx"),
+            context:{
+             assets:data.resources
+            },
+        });
+
 
 
 

@@ -67,6 +67,7 @@ import withLocation from "../components/withLocation";
 
 
 	render() {
+        const {pageContext} = this.props
 		return (
 			<div>
                 <Helmett
@@ -78,9 +79,6 @@ import withLocation from "../components/withLocation";
 				<Navbar/>
 				<Context.Consumer>
 					{({ store, actions }) => {
-                        console.log(store.assetTypesTags);
-                        console.log(store.assetTechnologieTags);
-                        console.log(store.assetTopicTags);
 						return (
 							<div>
 								<SmallJumbotron
@@ -95,7 +93,7 @@ import withLocation from "../components/withLocation";
 								<div className="row border-top border-bottom sticky-top bg-white">
 									<div className="container">
 										<div className="row">
-											<div className="col  d-flex justify-content-start">
+											<div className="col  d-flex justify-content-start p-0">
 												<div className="px-1 pl-1 py-2">
 													<Filter
 													label="technologie"
@@ -105,7 +103,7 @@ import withLocation from "../components/withLocation";
 															selectedTechTags: d
 														})
 													}
-													options={store.assetTechnologieTags?store.assetTechnologieTags.map((tech)=>{
+													options={pageContext.assets?actions.filterRepeated(pageContext.assets.map(a=>a.technologies).flat(1)).map((tech)=>{
                                                         return{
                                                                 label: tech,
 																value: tech
@@ -125,7 +123,7 @@ import withLocation from "../components/withLocation";
 															selectedTopicTags: d
 														})
 													}
-													options={store.assetTopicTags?store.assetTopicTags.map((topic)=>{
+													options={pageContext.assets?actions.filterRepeated(pageContext.assets.map(a=>a.topics).flat(1)).map((topic)=>{
                                                         return{
                                                                 label: topic,
 																value: topic
@@ -145,7 +143,7 @@ import withLocation from "../components/withLocation";
 															selectedTypeTags: d
 														})
 													}
-													options={store.assetTypesTags?store.assetTypesTags.map((type)=>{
+													options={pageContext.assets?actions.filterRepeated(pageContext.assets.map(a=>a.types).flat(1)).map((type)=>{
                                                         return{
                                                                 label: type,
 																value: type
@@ -161,7 +159,7 @@ import withLocation from "../components/withLocation";
 									</div>
 								</div>
                                  <div className="container">
-                                 {store.assets?store.assets .filter(this.filterByDefaultLag).filter(this.filterByTech).filter(this.filterByTopic).filter(this.filterByType).map((asset)=>{
+                                 {pageContext.assets?pageContext.assets.filter(this.filterByDefaultLag).filter(this.filterByTech).filter(this.filterByTopic).filter(this.filterByType).map((asset)=>{
                                                 const imageStyles = {
                                                     backgroundImage: `url("${asset.preview}")`,
                                                     backgroundPosition: 'center',
@@ -196,7 +194,7 @@ import withLocation from "../components/withLocation";
                                                     <div className="row mx-auto">
                                                         <div className="col-12 d-flex align-items-end">
                                                         <Link to={"/singleAsset/"+asset.slug}>
-                                                            <Link to={"/lesson/"+asset.slug} className="btn btn-outline-primary buttonHeight  px-2 ">
+                                                            <Link to={"/asset/"+asset.slug} className="btn btn-outline-primary buttonHeight  px-2 ">
                                                                     View more
                                                             </Link>
                                                         </Link>

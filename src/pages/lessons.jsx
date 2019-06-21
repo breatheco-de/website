@@ -493,7 +493,7 @@ export class Lessons extends React.Component {
 									</div>
 								</div>
                                   <div className="container">
-                                 {store.assets?store.assets
+                                 {pageContext.assets?pageContext.assets
                                  .filter(this.filterByDefaultLag)
                                  .filter(this.filterByTech)
                                  .filter(this.filterByTopic)
@@ -529,7 +529,7 @@ export class Lessons extends React.Component {
                                                     <div className="col-12 col-md-3 d-flex justify-content-md-end">
                                                         <div className="row mx-auto">
                                                             <div className="col-12 d-flex align-items-end">
-                                                                <Link to={"/lesson/"+ asset.slug } className="btn btn-outline-primary buttonHeight  px-2 ">
+                                                                <Link to={"/asset/"+ asset.slug } className="btn btn-outline-primary buttonHeight  px-2 ">
                                                                     View more
                                                                 </Link>
                                                             </div>
