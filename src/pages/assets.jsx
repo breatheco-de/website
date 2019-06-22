@@ -67,7 +67,8 @@ import withLocation from "../components/withLocation";
 
 
 	render() {
-        const {pageContext} = this.props
+        const {pageContext} = this.props;
+        const assetsData = (Array.isArray(pageContext.assets)) ? pageContext.assets : [];
 		return (
 			<div>
                 <Helmett
@@ -103,7 +104,7 @@ import withLocation from "../components/withLocation";
 															selectedTechTags: d
 														})
 													}
-													options={pageContext.assets?actions.filterRepeated(pageContext.assets.map(a=>a.technologies).flat(1)).map((tech)=>{
+													options={assetsData?[].concat.apply([],actions.filterRepeated(assetsData.map(a=>a.technologies))).map((tech)=>{
                                                         return{
                                                                 label: tech,
 																value: tech
@@ -123,7 +124,7 @@ import withLocation from "../components/withLocation";
 															selectedTopicTags: d
 														})
 													}
-													options={pageContext.assets?actions.filterRepeated(pageContext.assets.map(a=>a.topics).flat(1)).map((topic)=>{
+													options={assetsData?[].concat.apply([],actions.filterRepeated(assetsData.map(a=>a.topics))).map((topic)=>{
                                                         return{
                                                                 label: topic,
 																value: topic
@@ -143,7 +144,7 @@ import withLocation from "../components/withLocation";
 															selectedTypeTags: d
 														})
 													}
-													options={pageContext.assets?actions.filterRepeated(pageContext.assets.map(a=>a.types).flat(1)).map((type)=>{
+													options={assetsData?[].concat.apply([],actions.filterRepeated(assetsData.map(a=>a.types))).map((type)=>{
                                                         return{
                                                                 label: type,
 																value: type
@@ -159,7 +160,7 @@ import withLocation from "../components/withLocation";
 									</div>
 								</div>
                                  <div className="container">
-                                 {pageContext.assets?pageContext.assets.filter(this.filterByDefaultLag).filter(this.filterByTech).filter(this.filterByTopic).filter(this.filterByType).map((asset)=>{
+                                 {assetsData?assetsData.filter(this.filterByDefaultLag).filter(this.filterByTech).filter(this.filterByTopic).filter(this.filterByType).map((asset)=>{
                                                 const imageStyles = {
                                                     backgroundImage: `url("${asset.preview}")`,
                                                     backgroundPosition: 'center',

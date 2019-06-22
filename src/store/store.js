@@ -353,14 +353,7 @@ const getState = ({ getStore, setStore }) => {
 					return [];
 				}
 
-			},
-            parseObjectInToArray: jsonObject=>{
-                let aux=[]
-                for( let object in jsonObject){
-                      aux.push(jsonObject[object]);
-                }
-                return aux;
-            }
+			}
 		}
 	};
 };

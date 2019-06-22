@@ -13,7 +13,7 @@ import queryString  from 'query-string';
 import { Location, navigate } from '@reach/router';
 import withLocation from "../components/withLocation";
 import emoji from 'node-emoji';
-
+import qs from "query-string";
 
 
 
@@ -30,9 +30,10 @@ export class Lessons extends React.Component {
 
 
 		this.state = {
-            defaultLanguages: [location.search.includes("?lang=es")?this.getLanguage(location.search):"en"],
+            defaultLanguages: [location.search.includes("lang=") ? this.getLanguage(location.search) :"en"],
             selectedLanguages:[],
-			selectedTags: [],
+			defaultTags: location.search.includes("topics=") ? [this.getTopics(location.search)] :[],
+            selectedTags: [],
 			selectedAuthors: [],
             changeAsset:false,
             changeLesson:false,
@@ -40,10 +41,13 @@ export class Lessons extends React.Component {
             displayAssets:true,
             selectedTypeTags:[],
             selectedTechTags:[],
-            selectedTopicTags:[]
+            selectedTopicTags:location.search.includes("topics=") ? this.getTopics(location.search) : []
+
 		};
 
+
 	}
+
     updateQueryStringParameter=(uri, key, value)=> {
         var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
         var separator = uri.indexOf('?') !== -1 ? "&" : "?";
@@ -56,17 +60,35 @@ export class Lessons extends React.Component {
     }
 
     getLanguage=(queryString)=>{
-        let splitQuery = queryString.split("=");
-        let lang = splitQuery[1];
+        let params = qs.parse(queryString);
+        let lang = params.lang;
         return lang;
 
     }
 
-    filterByDefaultLag = l => {
+
+    getTopics=(queryString)=>{
+        let params = qs.parse(queryString);
+        let topics = params.topics;
+        console.log("topics: ",topics)
+        return topics;
+    }
+
+
+
+    filterByDefaultLang = l => {
 		if (this.state.defaultLanguages.length == 0) return true;
 
 		for (let i = 0; i < this.state.defaultLanguages.length; i++) {
 			if (l.lang?l.lang.includes(this.state.defaultLanguages[i]):"") return true;
+		}
+		return false;
+	}
+
+    filterByDefaultTags = l => {
+		if (this.state.defaultTags.length == 0) return true;
+		for (let i = 0; i < this.state.defaultTags.length; i++) {
+			if (l.tags.map(t=>t).includes(this.state.defaultTags[i])) return true;
 		}
 		return false;
 	}
@@ -79,6 +101,7 @@ export class Lessons extends React.Component {
 		}
 		return false;
 	}
+
     filterByTags = l => {
 		if (this.state.selectedTags.length == 0) return true;
 		for (let i = 0; i < this.state.selectedTags.length; i++) {
@@ -95,7 +118,7 @@ export class Lessons extends React.Component {
 			if (l.authors.includes(this.state.selectedAuthors[i].value)) return true;
 		}
 		return false;
-	};
+	}
     replaceDraft = lessonLink =>{
             if(lessonLink){
                  if (lessonLink.includes("[draft]")&&lessonLink.includes("/en/")){
@@ -107,7 +130,7 @@ export class Lessons extends React.Component {
             }
             }
 
-    };
+    }
     filterByTech = asset => {
 		if (this.state.selectedTechTags.length == 0) return true;
 		for (let i = 0; i < this.state.selectedTechTags.length; i++) {
@@ -139,7 +162,9 @@ export class Lessons extends React.Component {
 
 
         const {location, pageContext} =this.props;
-        console.log(pageContext);
+
+        const lessonData = (Array.isArray(pageContext.lessons)) ? pageContext.lessons : [];
+        const assetsData = (Array.isArray(pageContext.assets)) ? pageContext.assets : [];
 
         const lessons =(<Context.Consumer>
 					{({ store, actions }) => {
@@ -227,16 +252,23 @@ export class Lessons extends React.Component {
 																selectedTags: d
 															});
 
-                                                            navigate("/lessons" + this.updateQueryStringParameter(location.search,"topic",d.value) );
+                                                            if(d)navigate("/lessons" + this.updateQueryStringParameter(location.search,"topics",d.map(o => o.value).join(',')) );
                                                         }}
-															options={ pageContext?actions.filterRepeated(pageContext.lessons.map(l => l.tags).flat().map(tag => this.emojify(tag))).map((tag, index) => {
-
-															return {
-																label: tag,
-																value: tag
-															};
-														}): <Loading/> }
-
+															options={(() => {
+                                                                if(Array.isArray(lessonData)){
+                                                                    const lessonsTags = lessonData.map(l => l.tags);
+                                                                    const tags = [].concat.apply([], lessonsTags)
+                                                                    return actions.filterRepeated(tags.map(tag => this.emojify(tag))).map((tag, index) => {
+                                                                        return {
+                                                                            label: tag,
+                                                                            value: tag
+                                                                        };
+                                                                    });
+                                                                }
+                                                                else{
+														            return <Loading/>;
+                                                                }
+                                                            })()}
 													/>
 												</div>
                                                 <div className="px-1 py-2">
@@ -263,7 +295,7 @@ export class Lessons extends React.Component {
                                                             if(d)navigate("/lessons" + this.updateQueryStringParameter(location.search,"lang",d.value));
 
                                                         }}
-														options={pageContext ? actions.filterRepeated(pageContext.lessons.map(l=>l.lang)).map((lan, index) => {
+														options={pageContext ? actions.filterRepeated(lessonData.map(l=>l.lang)).map((lan, index) => {
 															return {
 																label:  lan,
 																value: lan
@@ -287,7 +319,7 @@ export class Lessons extends React.Component {
 																selectedAuthors: d
 															})
 														}
-														options={actions.filterRepeated(pageContext.lessons.map(l => l.authors).flat()).map(author => {
+														options={[].concat.apply([],actions.filterRepeated(lessonData.map(l => l.authors))).map(author => {
 															return {
 																label: author,
 																value: author
@@ -301,8 +333,9 @@ export class Lessons extends React.Component {
 									</div>
 								</div>
 
-								{pageContext == null ? <Loading /> : pageContext.lessons
-                                    .filter(this.filterByDefaultLag)
+								{pageContext == null ? <Loading /> : lessonData
+                                    .filter(this.filterByDefaultTags)
+                                    .filter(this.filterByDefaultLang)
                                     .filter(this.filterByLang)
 									.filter(this.filterByAuthors)
 									.filter(this.filterByTags)
@@ -437,15 +470,25 @@ export class Lessons extends React.Component {
 															selectedTechTags: d
 														})
 													}
-													options={pageContext.assets?actions.filterRepeated(pageContext.assets.map(a=>a.technologies).flat(1)).map((tech)=>{
-                                                        return{
-                                                                label: tech,
-																value: tech
+													options={(() => {
+                                                        if (assetsData){
+                                                            const technologies = actions.filterRepeated(assetsData.map(a=>a.technologies));
+                                                            const techs = [].concat.apply([],technologies);
+                                                            return techs.map((tech)=>{
+                                                                return{
+                                                                        label: tech,
+                                                                        value: tech
+                                                                }
+                                                            });
                                                         }
-                                                    }):[{
-                                                                label:"loading" ,
-																value: "loading"
-                                                        }]}
+                                                        else{
+                                                            return [{
+                                                                        label:"loading" ,
+                                                                        value: "loading"
+                                                                }];
+                                                        }
+
+                                                    })()}
 												    />
 												</div>
                                                 <div className="px-1 pl-1 py-2">
@@ -457,7 +500,7 @@ export class Lessons extends React.Component {
 															selectedTopicTags: d
 														})
 													}
-													options={pageContext.assets?actions.filterRepeated(pageContext.assets.map(a=>a.topics).flat(1)).map((topic)=>{
+													options={assetsData? [].concat.apply([],actions.filterRepeated(assetsData.map(a=>a.topics))).map((topic)=>{
                                                         return{
                                                                 label: topic,
 																value: topic
@@ -477,7 +520,7 @@ export class Lessons extends React.Component {
 															selectedTypeTags: d
 														})
 													}
-													options={pageContext.assets?actions.filterRepeated(pageContext.assets.map(a=>a.types).flat(1)).map((type)=>{
+													options={assetsData?[].concat.apply([],actions.filterRepeated(assetsData.map(a=>a.types))).map((type)=>{
                                                         return{
                                                                 label: type,
 																value: type
@@ -493,8 +536,7 @@ export class Lessons extends React.Component {
 									</div>
 								</div>
                                   <div className="container">
-                                 {pageContext.assets?pageContext.assets
-                                 .filter(this.filterByDefaultLag)
+                                 {assetsData?assetsData
                                  .filter(this.filterByTech)
                                  .filter(this.filterByTopic)
                                  .filter(this.filterByType).map((asset)=>{
@@ -550,6 +592,7 @@ export class Lessons extends React.Component {
 					}}
 				</Context.Consumer>
         );
+
 		return (
             <Layout>
                 <Navbar/>

@@ -1,10 +1,9 @@
 import React from "react";
 import { SmallJumbotron } from "../components/smalljumbo.jsx";
-import { Filter, Icon, Loading } from "@breathecode/ui-components";
+import { Filter, Loading } from "@breathecode/ui-components";
 import "@breathecode/ui-components/dist/main.css";
 import { Context } from "../store/appContext.jsx";
 import PropTypes from "prop-types";
-import moment from "moment";
 import Store from "../store/appContext.jsx";
 import Navbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
@@ -80,7 +79,7 @@ export class OpenSource extends React.Component {
 							{({ store, actions }) => {
 								return store.openSource
 									.filter(t => {
-										if (this.state.selectedTechnologies.length == 0) return true;
+										if (this.state.selectedTechnologies.length === 0) return true;
 										for (let i = 0; i < this.state.selectedTechnologies.length; i++) {
 											if (
 												actions
@@ -199,6 +198,7 @@ class IssueFetch extends React.Component {
 			return (
 				<a
 					target="_blank"
+                    rel="noopener noreferrer"
 					href={this.props.issuesFunction(null, this.props.issueLink)}
 					className="btn btnRED text-danger rounded btn-sm mr-0 mr-md-3 mb-4 mb-sm-0  py-2">
 					<i className="fas fa-exclamation-triangle" />

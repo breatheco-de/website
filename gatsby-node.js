@@ -1,14 +1,17 @@
-
-
-
-
-
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const path = require("path");
 const fetch = require('node-fetch');
 const fs = require('fs');
+const log = require('simple-node-logger').createSimpleLogger('project.log');
 const HOST = "https://assets.breatheco.de/apis";
 
+const parseObjectInToArray = jsonObject=>{
+    let aux=[];
+    for( let object in jsonObject){
+            aux.push(jsonObject[object]);
+    }
+    return aux;
+};
 
 exports.createPages = ({ actions, graphql }) => {
 const { createPage } = actions;
@@ -23,12 +26,14 @@ fetch("https://assets.breatheco.de/apis/resources/all")
                         return lessonsResponce.json();
                     })
                     .then(function(lessons){
-                    resolve({ lessons, resources });
+                        //console.log("Lessons antes de parsearse hacia un objeto",lessons)
+                        resolve({ lessons: parseObjectInToArray(lessons), resources });
                     })
-                    .catch(pupusito =>reject(pupusito))
+                    .catch(pupusito => reject(pupusito))
             });
         })
   .then((data)=>{
+    log.info("data after .then ", typeof data.lessons);
     data.resources.forEach(a => {
         createPage({
         path: `/asset/${a.slug}`,
@@ -37,12 +42,13 @@ fetch("https://assets.breatheco.de/apis/resources/all")
         })
     });
 
+    log.info("Array? "+Array.isArray(data.lessons),data.lessons);
     createPage({
         path: `/lessons`,
         component: path.resolve("./src/pages/lessons.jsx"),
         context:{
-        lessons:data.lessons,
-        assets:data.resources
+            lessons: data.lessons || [],
+            assets: data.resources
 
         },
     });
@@ -50,15 +56,9 @@ fetch("https://assets.breatheco.de/apis/resources/all")
             path: `/assets`,
             component: path.resolve("./src/pages/assets.jsx"),
             context:{
-             assets:data.resources
+             assets: data.resources
             },
         });
-
-
-
-
-    console.log("Lessons: ", data.lessons);
-    console.log("Resources: ",data.resources);
     resolve(data);
 
 })

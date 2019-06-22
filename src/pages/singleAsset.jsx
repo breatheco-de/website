@@ -4,6 +4,7 @@ import withLocation from "../components/withLocation";
 import Navbar from "../components/navbar.jsx";
 import {Link} from "gatsby"
 import "../styles/index.css";
+import Helmett from "../components/helmet"
 
 
 class SingleAsset extends React.Component {
@@ -37,6 +38,12 @@ class SingleAsset extends React.Component {
         return (
 
         <React.Fragment>
+        <Helmett
+            title={pageContext.title}
+            description={pageContext.description}
+            url={ `https://breatheco.de/asset/${pageContext.slug}`}
+            image="https://ucarecdn.com/717ad4fe-f186-44aa-872a-dd04584e4da0/logobcode.png"
+        />
         <Navbar/>
             <div className="container" style={singleAsset}>
             {/*main row*/}
