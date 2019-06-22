@@ -32,7 +32,8 @@ export class Lessons extends React.Component {
 		this.state = {
             defaultLanguages: [location.search.includes("lang=") ? this.getLanguage(location.search) :"en"],
             selectedLanguages:[],
-			defaultTags: location.search.includes("topics=") ? [this.getTopics(location.search)] :[],
+			defaultTags: location.search.includes("topics=") ? this.getTopics(location.search) :[],
+            defaultAuthor:location.search.includes("authors=") ? this.getAuthors(location.search) :[],
             selectedTags: [],
 			selectedAuthors: [],
             changeAsset:false,
@@ -42,7 +43,6 @@ export class Lessons extends React.Component {
             selectedTypeTags:[],
             selectedTechTags:[],
             selectedTopicTags:location.search.includes("topics=") ? this.getTopics(location.search) : []
-
 		};
 
 
@@ -69,9 +69,14 @@ export class Lessons extends React.Component {
 
     getTopics=(queryString)=>{
         let params = qs.parse(queryString);
-        let topics = params.topics;
-        console.log("topics: ",topics)
+        let topics = params.topics.split(",");
         return topics;
+    }
+
+    getAuthors=(queryString)=>{
+        let params = qs.parse(queryString);
+        let authors = params.authors.split(",");
+        return authors;
     }
 
 
@@ -89,6 +94,17 @@ export class Lessons extends React.Component {
 		if (this.state.defaultTags.length == 0) return true;
 		for (let i = 0; i < this.state.defaultTags.length; i++) {
 			if (l.tags.map(t=>t).includes(this.state.defaultTags[i])) return true;
+		}
+		return false;
+	}
+
+     filterByDefaultAuthor = l => {
+		if (this.state.defaultAuthor.length == 0) return true;
+		for (let i = 0; i < this.state.defaultAuthor.length; i++) {
+			if (l.authors == null) {
+				return false;
+			}
+			if (l.authors.includes(this.state.defaultAuthor[i])) return true;
 		}
 		return false;
 	}
@@ -121,7 +137,7 @@ export class Lessons extends React.Component {
 	}
     replaceDraft = lessonLink =>{
             if(lessonLink){
-                 if (lessonLink.includes("[draft]")&&lessonLink.includes("/en/")){
+                if (lessonLink.includes("[draft]")&&lessonLink.includes("/en/")){
                 let newLink = lessonLink.replace("[draft]","");
                 return newLink;
             }
@@ -275,6 +291,7 @@ export class Lessons extends React.Component {
 													<Filter
 														label="Language"
 														placeholder="Filter by language"
+                                                        defaultValue={this.state.defaultLanguages}
                                                         className="minWidth languageFilterPosition"
                                                         optionComponent={({ selected, onSelect, onDeselect, data }) =>
                                                         <li className={(selected) ? "selected" : ""} onClick={() => selected ? onDeselect(data) : onSelect(data)}>
@@ -289,7 +306,7 @@ export class Lessons extends React.Component {
 														onChange={d =>  {
                                                             this.setState({
 																selectedLanguages: d ? [d] : [],
-                                                                defaultLanguages:""
+                                                                defaultLanguages: ""
 															});
 
                                                             if(d)navigate("/lessons" + this.updateQueryStringParameter(location.search,"lang",d.value));
@@ -314,16 +331,19 @@ export class Lessons extends React.Component {
 														label="Author"
 														placeholder="Filter by author"
                                                         className="authorFilterPosition"
-														onChange={d =>
-															this.setState({
+														onChange=
+                                                        {d =>  {
+                                                            this.setState({
 																selectedAuthors: d
-															})
-														}
+															});
+                                                            if(d)navigate("/lessons" + this.updateQueryStringParameter(location.search,"authors",d.map(o => o.value).join(',')) );
+                                                        }}
 														options={[].concat.apply([],actions.filterRepeated(lessonData.map(l => l.authors))).map(author => {
 															return {
 																label: author,
 																value: author
 															};
+
 														})}
 														withToggler={false}
 													/>
@@ -334,6 +354,7 @@ export class Lessons extends React.Component {
 								</div>
 
 								{pageContext == null ? <Loading /> : lessonData
+                                    .filter(this.filterByDefaultAuthor)
                                     .filter(this.filterByDefaultTags)
                                     .filter(this.filterByDefaultLang)
                                     .filter(this.filterByLang)
