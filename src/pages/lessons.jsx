@@ -31,9 +31,9 @@ export class Lessons extends React.Component {
 
 		this.state = {
             defaultLanguages: [location.search.includes("lang=") ? this.getLanguage(location.search) :"en"],
-            selectedLanguages:[],
 			defaultTags: location.search.includes("topics=") ? this.getTopics(location.search) :[],
             defaultAuthor:location.search.includes("authors=") ? this.getAuthors(location.search) :[],
+            selectedLanguages:[],
             selectedTags: [],
 			selectedAuthors: [],
             changeAsset:false,
@@ -42,10 +42,22 @@ export class Lessons extends React.Component {
             displayAssets:true,
             selectedTypeTags:[],
             selectedTechTags:[],
-            selectedTopicTags:location.search.includes("topics=") ? this.getTopics(location.search) : []
+            selectedTopicTags:[],
+            assetDefaultTechTags:location.search.includes("technologies=") ? this.getTechnologies(location.search) :[],
 		};
 
 
+	}
+    filterByDefaultTech = asset => {
+		if (this.state.assetDefaultTechTags.length == 0) return true;
+
+		for (let i = 0; i < this.state.assetDefaultTechTags.length; i++) {
+
+			if (asset.technologies.includes(this.state.assetDefaultTechTags[i])) return true;
+
+		}
+
+		return false;
 	}
 
     updateQueryStringParameter=(uri, key, value)=> {
@@ -77,6 +89,11 @@ export class Lessons extends React.Component {
         let params = qs.parse(queryString);
         let authors = params.authors.split(",");
         return authors;
+    }
+    getTechnologies=(queryString)=>{
+        let params = qs.parse(queryString);
+        let technologies = params.technologies.split(",");
+        return technologies;
     }
 
 
@@ -486,11 +503,13 @@ export class Lessons extends React.Component {
 													label="technology"
 
 													placeholder="Filter By Technology"
-													onChange={d =>
-														this.setState({
-															selectedTechTags: d
-														})
-													}
+													onChange={d =>  {
+                                                            this.setState({
+																selectedTechTags: d
+															});
+
+                                                            if(d)navigate("/lessons" + this.updateQueryStringParameter(location.search,"technologies",d.map(o => o.value).join(',')) );
+                                                        }}
 													options={(() => {
                                                         if (assetsData){
                                                             const technologies = actions.filterRepeated(assetsData.map(a=>a.technologies));
@@ -558,6 +577,7 @@ export class Lessons extends React.Component {
 								</div>
                                   <div className="container">
                                  {assetsData?assetsData
+                                 .filter(this.filterByDefaultTech)
                                  .filter(this.filterByTech)
                                  .filter(this.filterByTopic)
                                  .filter(this.filterByType).map((asset)=>{
