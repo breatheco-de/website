@@ -44,9 +44,17 @@ export class Lessons extends React.Component {
             selectedTechTags:[],
             selectedTopicTags:[],
             assetDefaultTechTags:location.search.includes("technologies=") ? this.getTechnologies(location.search) :[],
+            assetByDefaultTopicTags:location.search.includes("assetTopics=") ? this.getAssetTopics(location.search) :[],
 		};
 
 
+	}
+    filterByDefaultTopic = asset => {
+		if (this.state.assetByDefaultTopicTags.length == 0) return true;
+		for (let i = 0; i < this.state.assetByDefaultTopicTags.length; i++) {
+			if (asset.topics.includes(this.state.assetByDefaultTopicTags[i])) return true;
+		}
+		return false;
 	}
     filterByDefaultTech = asset => {
 		if (this.state.assetDefaultTechTags.length == 0) return true;
@@ -59,6 +67,11 @@ export class Lessons extends React.Component {
 
 		return false;
 	}
+    getTechnologies=(queryString)=>{
+        let params = qs.parse(queryString);
+        let technologies = params.technologies.split(",");
+        return technologies;
+    }
 
     updateQueryStringParameter=(uri, key, value)=> {
         var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
@@ -77,7 +90,11 @@ export class Lessons extends React.Component {
         return lang;
 
     }
-
+    getAssetTopics=(queryString)=>{
+        let params = qs.parse(queryString);
+        let topics = params.assetTopics.split(",");
+        return topics;
+    }
 
     getTopics=(queryString)=>{
         let params = qs.parse(queryString);
@@ -535,11 +552,13 @@ export class Lessons extends React.Component {
 													<Filter
 													label="Topic"
 													placeholder="Filter By Topic"
-													onChange={d =>
-														this.setState({
-															selectedTopicTags: d
-														})
-													}
+													onChange={d =>  {
+                                                            this.setState({
+																selectedTopicTags: d
+															});
+
+                                                            if(d)navigate("/lessons" + this.updateQueryStringParameter(location.search,"assetTopics",d.map(o => o.value).join(',')) );
+                                                        }}
 													options={assetsData? [].concat.apply([],actions.filterRepeated(assetsData.map(a=>a.topics))).map((topic)=>{
                                                         return{
                                                                 label: topic,
@@ -577,6 +596,7 @@ export class Lessons extends React.Component {
 								</div>
                                   <div className="container">
                                  {assetsData?assetsData
+                                 .filter(this.filterByDefaultTopic)
                                  .filter(this.filterByDefaultTech)
                                  .filter(this.filterByTech)
                                  .filter(this.filterByTopic)
