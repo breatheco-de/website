@@ -45,9 +45,17 @@ export class Lessons extends React.Component {
             selectedTopicTags:[],
             assetDefaultTechTags:location.search.includes("technologies=") ? this.getTechnologies(location.search) :[],
             assetByDefaultTopicTags:location.search.includes("assetTopics=") ? this.getAssetTopics(location.search) :[],
+            assetsByDefaultType: location.search.includes("assetType=") ? this.getAssetType(location.search) :[],
 		};
 
 
+	}
+    filterByDefaultType = asset => {
+		if (this.state.assetsByDefaultType.length == 0) return true;
+		for (let i = 0; i < this.state.assetsByDefaultType.length; i++) {
+			if (asset.types!==null?asset.types.includes(this.state.assetsByDefaultType[i]):"") return true;
+		}
+		return false;
 	}
     filterByDefaultTopic = asset => {
 		if (this.state.assetByDefaultTopicTags.length == 0) return true;
@@ -71,6 +79,11 @@ export class Lessons extends React.Component {
         let params = qs.parse(queryString);
         let technologies = params.technologies.split(",");
         return technologies;
+    }
+    getAssetType=(queryString)=>{
+        let params = qs.parse(queryString);
+        let assetType = params.assetType.split(",");
+        return assetType;
     }
 
     updateQueryStringParameter=(uri, key, value)=> {
@@ -572,13 +585,15 @@ export class Lessons extends React.Component {
 												</div>
                                                 <div className="px-1 pl-1 py-2">
 													<Filter
-													label="Topic"
+													label="Type"
 													placeholder="Filter By Type"
-													onChange={d =>
-														this.setState({
-															selectedTypeTags: d
-														})
-													}
+													onChange={d =>  {
+                                                            this.setState({
+																selectedTypeTags: d
+															});
+
+                                                            if(d)navigate("/lessons" + this.updateQueryStringParameter(location.search,"assetType",d.map(o => o.value).join(',')) );
+                                                        }}
 													options={assetsData?[].concat.apply([],actions.filterRepeated(assetsData.map(a=>a.types))).map((type)=>{
                                                         return{
                                                                 label: type,
@@ -596,6 +611,7 @@ export class Lessons extends React.Component {
 								</div>
                                   <div className="container">
                                  {assetsData?assetsData
+                                 .filter(this.filterByDefaultType)
                                  .filter(this.filterByDefaultTopic)
                                  .filter(this.filterByDefaultTech)
                                  .filter(this.filterByTech)
