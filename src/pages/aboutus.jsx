@@ -13,6 +13,7 @@ import Helmett from "../components/helmet";
 
 class AboutUs extends React.Component {
 	render() {
+        let {pageContext}= this.props;
 		return (
 			<div>
              <Helmett

@@ -19,19 +19,6 @@ const Store = PassedComponent => {
 		}
 
 		componentDidMount() {
-			fetch(HOST+"lesson/all/v2?status=published,draft")
-				.then(res => res.json())
-				.then(lessons => {
-					let { store } = this.state;
-                    store.lessonLanguage=lessons.map(l=>l.lang)
-					store.lessons = lessons;
-					store.tags = lessons.map(l => l.tags).flat().map(tag => this.state.actions.emojify(tag));
-					store.authors = lessons.map(l => l.authors).flat();
-					this.setState({
-						store
-					});
-				})
-				.catch(err => console.error(err));
 
 			fetch(HOST+"event/all?status=published&location=downtown-miami&status=upcoming")
 				.then(res => res.json())
@@ -44,16 +31,7 @@ const Store = PassedComponent => {
 				})
 				.catch(err => console.error(err));
 
-			fetch("https://raw.githubusercontent.com/breatheco-de/main-documentation/master/README.md")
-				.then(res => res.text())
-				.then(markdown => {
-					let { store } = this.state;
-					store.markdown = markdown;
-					this.setState({
-						store
-					});
-				})
-				.catch(err => console.error(err));
+
 			fetch("https://assets.breatheco.de/apis/github/issues/all")
 				.then(res => res.json())
 				.then(issues => {
@@ -76,19 +54,17 @@ const Store = PassedComponent => {
 					});
 				})
 				.catch(err => console.error(err));
-             fetch(HOST+"resources/all")
-				.then(res => res.json())
-				.then(assets => {
-					let { store } = this.state;
-					store.assets = assets;
-                    store.assetTypesTags = this.state.actions.filterRepeated(assets.map(a=>a.types).flat(1));
-                    store.assetTechnologieTags=this.state.actions.filterRepeated(assets.map(a=>a.technologies).flat(1));
-                    store.assetTopicTags = this.state.actions.filterRepeated(assets.map(a=>a.topics).flat(1));
-					this.setState({
-						store
-					});
-				})
-				.catch(err => console.error(err));
+            fetch("https://raw.githubusercontent.com/breatheco-de/main-documentation/master/README.md")
+            .then(res => res.text())
+            .then(markdown => {
+                let { store } = this.state;
+                store.markdown = markdown;
+                this.setState({
+                    store
+                });
+            })
+            .catch(err => console.error(err));
+
 
 		}
 
