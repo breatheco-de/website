@@ -21,7 +21,7 @@ fetch("https://assets.breatheco.de/apis/resources/all")
     .then((resourcesResp) => resourcesResp.json())
     .then((resources) => {
         return new Promise((resolve, reject) => {
-                    fetch('https://assets.breatheco.de/apis/lesson/all/v2')
+                    fetch('https://assets.breatheco.de/apis/lesson/all/v2?status=draft,published')
                     .then(function(lessonsResponce){
                         return lessonsResponce.json();
                     })
