@@ -1,5 +1,6 @@
 ports:
     - port: 8080
+    - port: 8000
 tasks:
     - init: >
         npm i now -g;

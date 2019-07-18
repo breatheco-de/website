@@ -14,56 +14,55 @@ const parseObjectInToArray = jsonObject=>{
 };
 
 exports.createPages = ({ actions, graphql }) => {
-const { createPage } = actions;
+    const { createPage } = actions;
 
-return new Promise((resolve, reject) => {
-fetch("https://assets.breatheco.de/apis/resources/all")
-    .then((resourcesResp) => resourcesResp.json())
-    .then((resources) => {
-        return new Promise((resolve, reject) => {
-                    fetch('https://assets.breatheco.de/apis/lesson/all/v2?status=draft,published')
-                    .then(function(lessonsResponce){
-                        return lessonsResponce.json();
+    return new Promise((resolve, reject) => {
+        fetch("https://assets.breatheco.de/apis/resources/all")
+            .then((resourcesResp) => resourcesResp.json())
+            .then((resources) => {
+                return new Promise((resolve, reject) => {
+                            fetch('https://assets.breatheco.de/apis/lesson/all/v2?status=draft,published')
+                            .then(function(lessonsResponce){
+                                return lessonsResponce.json();
+                            })
+                            .then(function(lessons){
+                                //console.log("Lessons antes de parsearse hacia un objeto",lessons)
+                                resolve({ lessons: parseObjectInToArray(lessons), resources });
+                            })
+                            .catch(pupusito => reject(pupusito))
+                    });
+                })
+            .then((data)=>{
+                log.info("data after .then ", typeof data.lessons);
+                data.resources.forEach(a => {
+                    createPage({
+                        path: `/asset/${a.slug}`,
+                        component: path.resolve("./src/pages/singleAsset.jsx"),
+                        context:a
                     })
-                    .then(function(lessons){
-                        //console.log("Lessons antes de parsearse hacia un objeto",lessons)
-                        resolve({ lessons: parseObjectInToArray(lessons), resources });
-                    })
-                    .catch(pupusito => reject(pupusito))
-            });
-        })
-  .then((data)=>{
-    log.info("data after .then ", typeof data.lessons);
-    data.resources.forEach(a => {
-        createPage({
-        path: `/asset/${a.slug}`,
-        component: path.resolve("./src/pages/singleAsset.jsx"),
-        context:a
-        })
+                });
+
+                log.info("Array? "+Array.isArray(data.lessons),data.lessons);
+                createPage({
+                    path: `/lessons`,
+                    component: path.resolve("./src/components/types/lessons.js"),
+                    context:{
+                        lessons: data.lessons || [],
+                        assets: data.resources
+                    },
+                });
+                createPage({
+                        path: `/assets`,
+                        component: path.resolve("./src/components/types/assets.js"),
+                        context:{
+                        assets: data.resources
+                        },
+                    });
+                resolve(data);
+
+            })
+            .catch((p) => reject(p))
+
     });
-
-    log.info("Array? "+Array.isArray(data.lessons),data.lessons);
-    createPage({
-        path: `/lessons`,
-        component: path.resolve("./src/pages/lessons.jsx"),
-        context:{
-            lessons: data.lessons || [],
-            assets: data.resources
-
-        },
-    });
-    createPage({
-            path: `/assets`,
-            component: path.resolve("./src/pages/assets.jsx"),
-            context:{
-             assets: data.resources
-            },
-        });
-    resolve(data);
-
-})
-.catch((p) => reject(p))
-
-});
 
 };

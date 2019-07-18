@@ -1,20 +1,20 @@
 import React from "react";
-import { SmallJumbotron } from "../components/smalljumbo.jsx";
+import { SmallJumbotron } from "../smalljumbo.jsx";
 import { Filter, Loading, Icon } from "@breathecode/ui-components";
-import { Context } from "../store/appContext.jsx";
-import Store from "../store/appContext.jsx";
-import Navbar from "../components/navbar.jsx";
-import Footer from "../components/footer.jsx";
+import { Context } from "../../store/appContext.jsx";
+import Store from "../../store/appContext.jsx";
+import Navbar from "../navbar.jsx";
+import Footer from "../footer.jsx";
 import "@breathecode/ui-components/dist/main.css";
-import Layout from "../components/layout";
-import Helmett from "../components/helmet";
+import Layout from "../layout";
+import Helmett from "../helmet";
 import {Link} from "gatsby";
 import queryString  from 'query-string';
 import { Location, navigate } from '@reach/router';
-import withLocation from "../components/withLocation";
+import withLocation from "../withLocation";
 import emoji from 'node-emoji';
 import qs from "query-string";
-
+import { useLocalStorage } from "../../utils/useLocalStorage.js";
 
 
 
@@ -26,8 +26,6 @@ export class Lessons extends React.Component {
 	constructor(props) {
 		super(props);
         const { location } = props;
-
-
 
 		this.state = {
             defaultLanguages: [location.search.includes("lang=") ? this.getLanguage(location.search) :"en"],
@@ -237,7 +235,7 @@ export class Lessons extends React.Component {
 							<div className={`${this.state.displayLesson&&"d-none"}`}>
                                 <Helmett
                                     title="BreatheCode | Lessons"
-                                    description="the following lessons explain different programing concepts and have been published by breathe code members, search for a partiulars lesson using the filters bellow"
+                                    description="the following lessons explain different programing concepts and have been published by BreatheCode members, use the filters bellow to narrow your search:"
                                     url="https://breatheco.de/lessons"
                                     image="https://ucarecdn.com/717ad4fe-f186-44aa-872a-dd04584e4da0/logobcode.png"
                                 />

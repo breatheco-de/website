@@ -3,7 +3,15 @@ import getState from "./store.js";
 
 export const Context = React.createContext(null);
 
-const HOST = 'https://assets.breatheco.de/apis/';
+const HOST = 'https://assets.breatheco.de/apis';
+
+const parseObjectInToArray = jsonObject=>{
+    let aux=[];
+    for( let object in jsonObject){
+            aux.push(jsonObject[object]);
+    }
+    return aux;
+};
 
 const Store = PassedComponent => {
 	class StoreWrapper extends React.Component {
@@ -20,7 +28,7 @@ const Store = PassedComponent => {
 
 		componentDidMount() {
 
-			fetch(HOST+"event/all?status=published&location=downtown-miami&status=upcoming")
+			fetch(HOST+"/event/all?status=published&location=downtown-miami&status=upcoming")
 				.then(res => res.json())
 				.then(events => {
 					let { store } = this.state;
@@ -32,7 +40,7 @@ const Store = PassedComponent => {
 				.catch(err => console.error(err));
 
 
-			fetch("https://assets.breatheco.de/apis/github/issues/all")
+			fetch(HOST+"/github/issues/all")
 				.then(res => res.json())
 				.then(issues => {
 					let { store } = this.state;
@@ -64,6 +72,29 @@ const Store = PassedComponent => {
                 });
             })
             .catch(err => console.error(err));
+
+            // fetch("https://assets.breatheco.de/apis/resources/all")
+            //     .then((resourcesResp) => resourcesResp.json())
+            //     .then((resources) => {
+            //         return new Promise((resolve, reject) => {
+            //                     fetch('https://assets.breatheco.de/apis/lesson/all/v2?status=draft,published')
+            //                     .then(function(lessonsResponce){
+            //                         return lessonsResponce.json();
+            //                     })
+            //                     .then(function(lessons){
+            //                         //console.log("Lessons antes de parsearse hacia un objeto",lessons)
+            //                         resolve({ lessons: parseObjectInToArray(lessons), resources });
+            //                     })
+            //                     .catch(pupusito => reject(pupusito))
+            //             });
+            //         })
+            // .then((data)=>{
+            //         let { store } = this.state;
+            //         this.setState({
+            //             store: {...store, lessons: data.lessons, resources: data.resources }
+            //         });
+            // })
+            // .catch(err => console.error('There was a problem fetching the lessons', err));
 
 
 		}

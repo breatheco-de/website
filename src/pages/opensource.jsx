@@ -23,7 +23,7 @@ export class OpenSource extends React.Component {
 			<div>
             <Helmett
                 title="BreatheCode | Open Source"
-                description="The following projects is the list of the most important projects breatheco.de is working right now"
+                description="The following is the list of the most important projects BreatheCode is working right now"
                 url="https://breatheco.de/opensource"
                 image="https://ucarecdn.com/717ad4fe-f186-44aa-872a-dd04584e4da0/logobcode.png"
             />

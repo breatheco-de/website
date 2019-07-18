@@ -1,18 +1,18 @@
 import React from "react";
-import Store from "../store/appContext.jsx";
-import { SmallJumbotron } from "../components/smalljumbo.jsx";
+import Store from "../../store/appContext.jsx";
+import { SmallJumbotron } from "../smalljumbo.jsx";
 import { Filter, Loading } from "@breathecode/ui-components";
-import { Context } from "../store/appContext.jsx";
+import { Context } from "../../store/appContext.jsx";
 import moment from "moment";
 import "bootstrap/dist/css/bootstrap.css";
 import "@breathecode/ui-components/dist/main.css";
-import Navbar from "../components/navbar.jsx";
-import Footer from "../components/footer.jsx";
+import Navbar from "../navbar.jsx";
+import Footer from "../footer.jsx";
 import { Link } from "gatsby";
-import Helmett from "../components/helmet";
+import Helmett from "../helmet";
 import queryString  from 'query-string';
 import { Location, navigate } from '@reach/router';
-import withLocation from "../components/withLocation";
+import withLocation from "../withLocation";
 
 
  class Contributing extends React.Component {
