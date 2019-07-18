@@ -1,10 +1,10 @@
 import React from 'react';
 import { Icon } from "@breathecode/ui-components";
-import withLocation from "../components/withLocation";
-import Navbar from "../components/navbar.jsx";
+import withLocation from "../withLocation";
+import Navbar from "../navbar.jsx";
 import {Link} from "gatsby"
-import "../styles/index.css";
-import Helmett from "../components/helmet"
+import "../../styles/index.css";
+import Helmett from "../helmet"
 
 
 class SingleAsset extends React.Component {

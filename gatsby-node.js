@@ -37,7 +37,7 @@ exports.createPages = ({ actions, graphql }) => {
                 data.resources.forEach(a => {
                     createPage({
                         path: `/asset/${a.slug}`,
-                        component: path.resolve("./src/pages/singleAsset.jsx"),
+                        component: path.resolve("./src/components/types/single-asset.js"),
                         context:a
                     })
                 });
