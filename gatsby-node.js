@@ -26,7 +26,6 @@ exports.createPages = ({ actions, graphql }) => {
                                 return lessonsResponce.json();
                             })
                             .then(function(lessons){
-                                //console.log("Lessons antes de parsearse hacia un objeto",lessons)
                                 resolve({ lessons: parseObjectInToArray(lessons), resources });
                             })
                             .catch(pupusito => reject(pupusito))
