@@ -1,7 +1,6 @@
 import React from "react"
 import "bootstrap/dist/css/bootstrap.css";
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import "../styles/index.css";
 import "@breathecode/ui-components/dist/main.css";
 
@@ -14,7 +13,7 @@ const NotFoundPage = () => (
           <div className="display-1 mb-5">
           Sorry i think you are lost
           </div>
-          <img className="rounded mx-auto img-fluid" src="https://github.com/breatheco-de/assets/blob/master/apis/img/funny/scared-baby.jpg?raw=true"/>
+          <img className="rounded mx-auto img-fluid" alt="Lost baby" src="https://github.com/breatheco-de/assets/blob/master/apis/img/funny/scared-baby.jpg?raw=true"/>
         </div>
        </div>
   </div>

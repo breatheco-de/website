@@ -6,10 +6,10 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@breathecode/ui-components": "^1.1.63",
-    "gatsby": "^2.3.31",
+    "gatsby": "^2.19.43",
     "gatsby-image": "^2.0.40",
     "gatsby-plugin-google-tagmanager": "^2.0.13",
-    "gatsby-plugin-manifest": "^2.0.29",
+    "gatsby-plugin-manifest": "^2.2.47",
     "gatsby-plugin-offline": "^2.0.25",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-sharp": "^2.0.35",

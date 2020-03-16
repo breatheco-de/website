@@ -2,7 +2,9 @@
     background-color: #DFEDD5;
 
 }
-
+.pointer:hover{
+    cursor: pointer;
+}
 .blueButton{
     background-color: #D4E3FC;
 }

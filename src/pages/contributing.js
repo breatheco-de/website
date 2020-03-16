@@ -21,7 +21,7 @@ import Helmett from "../components/helmet";
 	}
 
 	filterByTags = issue => {
-		if(this.state.selectedLabels.length == 0) return true;
+		if(this.state.selectedLabels.length === 0) return true;
 		const issueLabels = issue.labels.map(l => l.name);
 		for(let i = 0; i<this.state.selectedLabels.length;i++){
 			if(issueLabels.includes(this.state.selectedLabels[i].value)) return true;
@@ -90,7 +90,7 @@ import Helmett from "../components/helmet";
 													return (
 														<div key={index} className="col-12 py-3 ">
 															<a
-																target="_blank"
+																target="_blank" rel="noopener noreferrer"
 																href={issue["html_url"] ? issue["html_url"] : ""}
 																className="h2 text-dark  text-left">
 																{issue.title}
@@ -121,7 +121,7 @@ import Helmett from "../components/helmet";
                                                                         })
                                                                         : <Loading/>}
 															    </div>
-                                                                <a href={issue["html_url"] ? issue["html_url"] : ""} target="_blank"  className="btn btn-outline-primary mr-3">Solve issue</a>
+                                                                <a href={issue["html_url"] ? issue["html_url"] : ""} target="_blank" rel="noopener noreferrer"  className="btn btn-outline-primary mr-3">Solve issue</a>
                                                             </div>
 															<hr className="my-4" />
 														</div>
