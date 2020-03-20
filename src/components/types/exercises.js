@@ -1,5 +1,7 @@
 import React from "react";
 import Helmett from "../helmet";
+import Navbar from "../navbar.jsx";
+import Footer from "../footer.jsx";
 import { SmallJumbotron } from "../smalljumbo.jsx";
 import {Link} from "gatsby"
 
@@ -13,6 +15,7 @@ const Exercises = ({ pageContext }) => {
             url="https://breatheco.de/interactive-exercises"
             image="https://ucarecdn.com/717ad4fe-f186-44aa-872a-dd04584e4da0/logobcode.png"
         />
+        <Navbar/>
         <SmallJumbotron
             jumboClass="jumbotron jumbotron-fluid mt-5 mb-0 bg-white"
             containerClass="pl-4  container"
@@ -39,6 +42,7 @@ const Exercises = ({ pageContext }) => {
             })}
             </div>
         </div>
+        <Footer/>
     </div>
 }
 

@@ -1,0 +1,5 @@
+.exercise .card .btn svg{
+    filter: invert(100%);
+    width: 20px !important;
+    height: 20px !important;
+}
