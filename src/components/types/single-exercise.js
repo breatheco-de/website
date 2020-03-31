@@ -23,7 +23,7 @@ const SingleExercise = ({ pageContext }) => {
             title={pageContext.title}
             description={pageContext.description}
             url={ `https://breatheco.de/asset/${pageContext.slug}`}
-            image="https://ucarecdn.com/717ad4fe-f186-44aa-872a-dd04584e4da0/logobcode.png"
+            image={ pageContext.preview || "https://ucarecdn.com/d9be5fe8-6319-4260-afef-0063fad2ae28/"}
         />
         <Navbar/>
         <div className="container">
