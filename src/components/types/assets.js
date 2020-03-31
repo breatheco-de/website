@@ -73,7 +73,7 @@ import withLocation from "../withLocation";
 			<div>
                 <Helmett
                     title="BreatheCode | Assets"
-                    description="BreatheCode's mission is to accelerate the way junior developers learn and evolve using technology."
+                    description="Recomended books, courses, videos and other assets to accelerate your learning."
                     url="https://breatheco.de/assets/"
                     image="https://ucarecdn.com/717ad4fe-f186-44aa-872a-dd04584e4da0/logobcode.png"
                 />
@@ -88,6 +88,7 @@ import withLocation from "../withLocation";
 									headerClass="headerSizeResponsive display-4  font-weight-bold  text-left"
 									headerText="Assets"
 									pClass="lead  text-left"
+                                    pContent="The following list of assets has been hand picked and it is 100% recomended by BreatheCode as learning asset during your coding journey."
 									spanClass="h3 text-secondary"
 									spanContent="md"
 								/>

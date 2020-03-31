@@ -55,31 +55,38 @@ class Navbar extends React.Component {
 						className={`navbar-collapse collapse ${this.state.change && "show"}`}
 						id="navbarSupportedContent">
 						<ul className="navbar-nav mr-auto text-center">
+							<li className="nav-item mt-3 ">
+								<Link to="/aboutus" className="nav-link">
+									<p className={`nav-link ${this.state.change && "border-bottom"}`}>
+										About Us
+									</p>
+								</Link>
+							</li>
 							<li className="nav-item mt-3">
 								<Link to="/interactive-exercises" className="nav-link">
 									<p className={`nav-link ${this.state.change && "border-bottom"}`} >
-										Interactive Exercises
+										Practice
 									</p>
 								</Link>
 							</li>
 							<li className="nav-item mt-3">
 								<Link to="/lessons" className="nav-link">
 									<p className={`nav-link ${this.state.change && "border-bottom"}`} >
-										Lessons
+										Read
 									</p>
 								</Link>
+							</li>
+							<li className="nav-item mt-3">
+								<a href="https://projects.breatheco.de" className="nav-link">
+									<p className={`nav-link ${this.state.change && "border-bottom"}`} >
+										Build
+									</p>
+								</a>
 							</li>
 							<li className="nav-item mt-3">
 								<Link to="/assets" className="nav-link">
 									<p className={`nav-link ${this.state.change && "border-bottom"}`} >
 										Assets
-									</p>
-								</Link>
-							</li>
-							<li className="nav-item mt-3 ">
-								<Link to="/aboutus" className="nav-link">
-									<p className={`nav-link ${this.state.change && "border-bottom"}`}>
-										About Us
 									</p>
 								</Link>
 							</li>
