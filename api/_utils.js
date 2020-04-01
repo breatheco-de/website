@@ -102,6 +102,7 @@ export const addorUpdateContact = async (contact) => {
     payload = setOptional(payload, contact, "utm_source");
     payload = setOptional(payload, contact, "utm_location");
     payload = setOptional(payload, contact, "utm_medium");
+    payload = setOptional(payload, contact, "current_download");
     payload = setOptional(payload, contact, "utm_campaign");
     payload = setOptional(payload, contact, "utm_content");
     payload = setOptional(payload, contact, "utm_language");
