@@ -109,6 +109,7 @@ export const addorUpdateContact = async (contact) => {
     payload = setOptional(payload, contact, "gclid");
     payload = setOptional(payload, contact, "referral_key");
 
+    console.log("Host V1: ",HOST_V1);
     console.log("Payload: ",payload);
     const result = await fetch(`${HOST_V1}/admin/api.php?${serialize(query)}`, {
         method: "POST",
@@ -121,12 +122,13 @@ export const addorUpdateContact = async (contact) => {
         const data = await result.json();
         console.log("Result: ", data);
         if(typeof(data.subscriber_id) === "undefined")
-            throw new Error("Unexpected error, try again later.");
-
+        throw new Error("Unexpected error, try again later.");
+        
         const payload2 = { contactAutomation: { 
             contact: data.subscriber_id, 
             automation: acp_constants.auto_bc_download
         }};
+        console.log("Host: ",HOST);
         console.log("Adding to automation: ",payload2);
         const result2 = await fetch(`${HOST}/contactAutomations`, {
             method: "POST",
