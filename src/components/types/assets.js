@@ -1,8 +1,7 @@
 import React from "react";
-import Store from "../../store/appContext.jsx";
 import { SmallJumbotron } from "../smalljumbo.jsx";
 import { Filter, Loading } from "@breathecode/ui-components";
-import { Context } from "../../store/appContext.jsx";
+import { Context, Store } from "../../store/context.js";
 import moment from "moment";
 import "bootstrap/dist/css/bootstrap.css";
 import "@breathecode/ui-components/dist/main.css";

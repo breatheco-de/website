@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Helmett from "../helmet";
 import Navbar from "../navbar.jsx";
 import Footer from "../footer.jsx";
@@ -7,7 +7,6 @@ import {Link} from "gatsby"
 
 const Exercises = ({ pageContext }) => {
     const { exercises } = pageContext;
-    console.log("Exercises", pageContext);
     return <div>
         <Helmett
             title="BreatheCode | Interactive Exercises and Tutorials"
@@ -17,7 +16,7 @@ const Exercises = ({ pageContext }) => {
         />
         <Navbar/>
         <SmallJumbotron
-            jumboClass="jumbotron jumbotron-fluid mt-5 mb-0 bg-white"
+            jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
             containerClass="pl-4  container"
             headerClass="headerSizeResponsive display-4  font-weight-bold  text-left"
             headerText="Interactive Exercises and Tutorials"
@@ -34,9 +33,10 @@ const Exercises = ({ pageContext }) => {
             { Object.keys(exercises).map(slug => {
                 const e = exercises[slug];
                 return <Link className="card pointer" to={`/interactive-exercise/${slug}`}>
+                    { e.preview && <img src={e.preview} className="card-image mb-0" alt={`Preview for ${e.title}`} />}
                     <div className="card-body">
                         <h5 className="card-title">{e.title}</h5>
-                        <p className="card-text">{e.description}</p>
+                        <p className="card-text text-dark">{e.description}</p>
                     </div>
                 </Link>;
             })}

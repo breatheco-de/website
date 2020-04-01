@@ -1,9 +1,8 @@
 import React from "react";
 import { Jumbotron } from "../components/jumbotron.jsx";
 import "../styles/index.css";
-import { Context } from "../store/appContext.jsx";
+import { Context, Store } from "../store/context.js";
 import moment from "moment";
-import Store from "../store/appContext.jsx";
 import "bootstrap/dist/css/bootstrap.css";
 import "@breathecode/ui-components/dist/main.css";
 import Navbar from "../components/navbar.jsx";
@@ -50,7 +49,7 @@ class Home extends React.Component {
 					linksClassSecondCol="blueLinks"
 					firstLinkColTwoText="Lessons, videos and assets"
 					secondLinkColTwoText="Do interactive tutorials"
-					thirdLinkColTwoText="Code a real life project"
+					thirdLinkColTwoText="Code a real life projects"
 					smallDescriptionsecondTextCol="All of our contents, videos and interactive tutorials are published and open sourced to the web, but by being a sponsor you will be able to track your progress and receive guided learning and much more"
 					buttonColTwoClass="btn btn-outline-primary btn-lg  text-dark px-3 px-md-5 blueButton"
 					buttonColTwoText="Login"
@@ -99,7 +98,8 @@ class Home extends React.Component {
 						<div className="col-12">
 							<Context.Consumer>
 								{({ store, actions }) => {
-									return <p className="h2">{store.events.length > 0 ? "Upcoming Events" : ""}</p>;
+									const events = store.events ? store.events : [];
+									return <p className="h2">{events.length > 0 ? "Upcoming Events" : ""}</p>;
 								}}
 							</Context.Consumer>
 						</div>
@@ -107,7 +107,8 @@ class Home extends React.Component {
 					<div className="row w-75">
 						<Context.Consumer>
 							{({ store, actions }) => {
-								return store.events.map((event, index) => {
+								const events = store.events ? store.events : [];
+								return events.map((event, index) => {
 									return (
 										<div key={index} className="col-12 d-flex">
 											<div className="pr-3">

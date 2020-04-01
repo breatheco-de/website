@@ -55,7 +55,7 @@ export class Jumbotron extends React.Component {
 						</p>
 						<hr className={this.props.hrLineClass} />
 						<p className={this.props.linksClassSecondCol}>
-							<a>{this.props.secondLinkColTwoText}</a>
+							<Link to="/interactive-exercises">{this.props.secondLinkColTwoText}</Link>
 						</p>
 						<hr className={this.props.hrLineClass} />
 						<p className={this.props.linksClassSecondCol}>

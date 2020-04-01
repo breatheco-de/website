@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Store from "../store/appContext.jsx";
+import { Store } from "../store/context.js";
 
 
 export class Footer extends Component {

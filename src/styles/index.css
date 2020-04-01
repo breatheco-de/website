@@ -1,28 +1,10 @@
-.greenButton{
-    background-color: #DFEDD5;
+.greenButton{ background-color: #DFEDD5;}
+.pointer:hover{ cursor: pointer; }
+.blueButton{ background-color: #D4E3FC; }
+.blueLinks{ color:#007bff; }
+.buttonHeight{ height: 42px }
 
-}
-.pointer:hover{
-    cursor: pointer;
-}
-.blueButton{
-    background-color: #D4E3FC;
-}
-
-.blueLinks{
-    color:#007bff;
-}
-
-
-.buttonHeight{
-    height: 42px
-}
-
-a{
-  background-image: none;
-  cursor: pointer;
-
-}
+a{ background-image: none; cursor: pointer;}
 
 .textDecorationGreen{
     color: #28A745 !important;

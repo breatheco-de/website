@@ -1,275 +1,96 @@
 import emoji from 'node-emoji';
+import publicIp from 'public-ip';
+const HOST = 'https://assets.breatheco.de/apis';
 
-const getState = ({ getStore, setStore }) => {
+const getState = ({ getStore, setStore, getActions }) => {
 	return {
 		store: {
-            lessonLanguage:null,
             assets:null,
-            assetTechnologieTags:null,
-            assetTopicTags:null,
-            assetTypesTags:null,
 		    allIssues:null,
 		    issueLabels:null,
-			issues: null,
 			authors: [],
 			tags: [],
 			lessons: null,
-			events: [],
+			events: null,
 			markdown: null,
-			openSource: [
-				{
-					gitIssueUrl: "https://github.com/breatheco-de/breathecode-cli",
-					cardClass: "card bg-light w-100 h-100 ",
-					icon: "fas fa-terminal fa-7x d-flex justify-content-center pt-3 learningGreen",
-					title: "BreatheCode CLI ",
-					description:
-						"Command Line interface to connect with lots of useful stuff like access to boilerplates, exercises, builders, etc",
-					technologies: [
-						{
-							tech: "Nodejs",
-							color: "col-1.5 px-2 mx-1  rounded tagsCol1"
-						},
-						{
-							tech: "Bash",
-							color: "col-1.5 px-2 mx-1  rounded tagsCol2"
-						},
-						{
-							tech: "JSON",
-							color: "col-1.5 px-2 mx-1  rounded tagsCol3"
-						}
-					]
-				},
-				{
-					gitIssueUrl: "https://github.com/breatheco-de/c9-plugin",
-					cardClass: "card bg-light w-100 h-100",
-					icon: "fas fa-cloud fa-7x d-flex justify-content-center pt-3 blueB",
-					title: "C9 Plugin",
-					description:
-						"Cloud 9 is a great IDE for junior developers because it allows you to work with very few configurations on an isolated machine. We have created a plugin to enhance the Cloud 9 coding IDE as well as the integragtion with all the other BreatheCode projects.",
-					technologies: [
-						{
-							tech: "Nodejs",
-							color: "col-1.5 px-2 mx-1  rounded tagsCol1"
-						},
-						{
-							tech: "Bash",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol2"
-						},
-						{
-							tech: "JSON",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
-						}
-					]
-				},
-				{
-					gitIssueUrl: "https://github.com/breatheco-de/api",
-					cardClass: "card bg-light w-100 h-100",
-					icon: "fas fa-user-graduate fa-7x d-flex justify-content-center pt-3 learningGreen",
-					title: "Platform API",
-					description: "The API for the LMS, it manages students, courses, etc.",
-					subtTitle: "Technologies",
-
-					technologies: [
-						{
-							tech: "EloquentCRM",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol1"
-						},
-						{
-							tech: "Bash",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol2"
-						},
-						{
-							tech: "PHP",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
-						},
-						{
-							tech: "SlimPHP",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol4"
-						},
-						{
-							tech: "MySQL",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol1"
-						},
-						{
-							tech: "JSON",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol2"
-						},
-						{
-							tech: "REST",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
-						}
-					]
-				},
-				{
-					gitIssueUrl: "https://github.com/breatheco-de/assets",
-					cardClass: "card bg-light w-100 h-100 ",
-					icon: "fas fa-file-alt fa-7x d-flex justify-content-center pt-3 blueB",
-					title: "Assets API",
-					description:
-						"Amazing resources for students (infographics, lessons, cheat-sheets, mock api's, etc).",
-					technologies: [
-						{
-							tech: "Markdown",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol1"
-						},
-						{
-							tech: "PHP",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol2"
-						},
-						{
-							tech: "MySQL",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
-						},
-						{
-							tech: "SQLite",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol4"
-						},
-						{
-							tech: "SlimPHP",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol1"
-						},
-						{
-							tech: "Static Files",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol2"
-						},
-						{
-							tech: "REST",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
-						}
-					]
-				},
-				{
-					gitIssueUrl: "https://github.com/breatheco-de/react-session",
-					cardClass: "card bg-light w-100 h-100",
-					icon: "fab fa-react fa-7x d-flex justify-content-center pt-3 learningGreen",
-					title: "React Session",
-					description: "Allows persistent sessions in react, compatible with react router.",
-					technologies: [
-						{
-							tech: "React.js",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol1"
-						}
-					]
-				},
-				{
-					gitIssueUrl: "https://github.com/breatheco-de/react-notifier",
-					cardClass: "card bg-light w-100 h-100",
-					icon: "fab fa-react fa-7x d-flex justify-content-center pt-3 blueB",
-					title: "React Notifier",
-					description: "Notification library for React Applications.",
-					subtTitle: "Technologies",
-					technologies: [
-						{
-							tech: "React.js",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol1"
-						}
-					]
-				},
-				{
-					gitIssueUrl: "https://github.com/breatheco-de/content",
-					cardClass: "card bg-light w-100 h-100",
-					icon: "fas fa-sitemap fa-7x d-flex justify-content-center pt-3 learningGreen",
-					title: "CMS",
-					description:
-						"This is were most of the community content is being published: Lessons, Error Explanations and How to's.",
-					technologies: [
-						{
-							tech: "React.js",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol1"
-						},
-						{
-							tech: "Gatsby.js",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol2"
-						},
-						{
-							tech: "CSS",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
-						},
-						{
-							tech: "Markdown",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
-						}
-					]
-				},
-				{
-					gitIssueUrl: "https://github.com/breatheco-de/desktop-client",
-					cardClass: "card bg-light w-100 h-100",
-					icon: "fas fa-home fa-7x d-flex justify-content-center pt-3 blueB",
-					title: "Student Web Client",
-					description: "BreatheCode's main website for displaying the courses.",
-					technologies: [
-						{
-							tech: "React.js",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol1"
-						},
-						{
-							tech: "Sass",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol2"
-						},
-						{
-							tech: "CSS",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
-						},
-						{
-							tech: "HTML",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
-						}
-					]
-				},
-				{
-					gitIssueUrl: "https://github.com/breatheco-de/teacher-client",
-					cardClass: "card bg-light w-100 h-100",
-					icon: "fas fa-chalkboard-teacher fa-7x d-flex justify-content-center pt-3 blueM",
-					title: "Teacher Web Client",
-					description:
-						"Teachers are able to manage the pace of their cohorts, review students deliverables, etc.",
-					technologies: [
-						{
-							tech: "React.js",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol1"
-						},
-						{
-							tech: "Sass",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol2"
-						},
-						{
-							tech: "CSS",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
-						},
-						{
-							tech: "HTML",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
-						}
-					]
-				},
-				{
-					gitIssueUrl: "https://github.com/breatheco-de/admin-client",
-					cardClass: "card bg-light w-100 h-100",
-					icon: "fas fa-users fa-7x d-flex justify-content-center pt-3 learningGreen2",
-					title: "Admin Web Client",
-					description: "Manage BreathCode students, teachers, etc.",
-					technologies: [
-						{
-							tech: "React.js",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol1"
-						},
-						{
-							tech: "Sass",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol2"
-						},
-						{
-							tech: "CSS",
-							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
-						},
-						{
-							tech: "HTML",
-							color: "col-1.5 px-2 mx-1 mx-1 rounded tagsCol3"
-						}
-					]
-				}
-			]
+			session: {
+				v6: null,
+				v4: null,
+				latitude: null,
+				longitude: null,
+				course_type: null,
+				email: null,
+				location: null,
+				utm_language: null,
+				utm_location: "other",
+				gclid: null,
+				utm_campaign: null,
+				utm_source: null,
+				utm_medium: null,
+				referral_code: null,
+				active: false,
+			}
 		},
 		actions: {
+			getStore: () => getStore(),
+			getQueryString: (url) => {
+				const vars = {};
+				var parts = url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+					vars[key] = value;
+				});
+				return vars;
+			},
+			startSession: async ({ location }) => {
+
+				const actions = getActions();
+				const store = getStore();
+                const v4 = await publicIp.v4();
+                const v6 = "v6";
+                const response = await fetch(`https://api.ipstack.com/${v4}?access_key=73822e5a584c041268f0e78a3253cf0d`);
+                const data = response.status === 200 ? await response.json() : null;
+                console.log("IP Data",data);
+                // const location = data ? closestLoc(locationsArray, data.latitude, data.longitude) : null;
+                // const location = "Santiago de Chile"
+                let utm_language = "en";
+                if(typeof(data.location) === "object" && Array.isArray(data.location.languages) && data.location.languages.length > 0){
+                    if(data.location.languages[0].code === "en" || data.location.languages[0].code == "es"){
+                        utm_language = data.location.languages[0].code;
+                    }
+                }
+                const urlParams = actions.getQueryString(location.href);
+				const session = { ...store.session, v4, v6, country: data.country_code, region: data.region_name, utm_language, ...urlParams };
+                setStore({ session });
+			},
+			loadEvents: () => {
+				fetch(HOST+"/event/all?status=published&location=downtown-miami&status=upcoming")
+					.then(res => res.json())
+					.then(events => {
+						setStore({events});
+					})
+					.catch(err => console.error(err))
+			},
+			loadIssues: () => {
+				const actions = getActions();
+
+				fetch(HOST+"/github/issues/all")
+					.then(res => res.json())
+					.then(issues => {
+						let issueLabels =  [];
+						let allIssues = [];
+						for(let key in issues){
+							allIssues = allIssues.concat(issues[key].map(i => ({
+								...i,
+								labels: i.labels.map(l => actions.emojify(l.name))
+							})));
+							issueLabels = issueLabels.concat(issues[key].map(i => 
+								i.labels.map(l => actions.emojify(l.name))
+							));
+							issueLabels = actions.filterRepeated([].concat.apply([], issueLabels));
+						}
+						setStore({ issueLabels, allIssues })
+					})
+					.catch(err => console.error(err));
+			},
 			issuesFeed(urlIssue, issueLink, readmeLink, projectLink) {
 				if (projectLink) {
 					let splitUrl = projectLink.split("/");
@@ -342,17 +163,35 @@ const getState = ({ getStore, setStore }) => {
 				if(name==='spiral_notepad') return "🗒";
 				return name;
 			}),
-			getLabels: function(arrayOfIssues){
-				var labels = [];
-				if(arrayOfIssues){
-					arrayOfIssues.forEach((issue)=>{
-						labels = labels.concat(issue.labels.map(l => this.emojify(l.name)));
-					});
-					return labels;
-				}else{
-					return [];
-				}
+			signupCourse: async (data) => {
+				const { session } = getStore();
 
+				if(!Array.isArray(data.tags)) data.tags = [];
+				const resp = await fetch('/api/acp_apply.js', {
+					headers: new Headers({'content-type': 'application/json'}),
+					method: "POST",
+					body: JSON.stringify({ 
+						...data, 
+						tags: data.tags.concat(['breathecode-soft']),
+						utm_language: session.utm_language || undefined,
+						utm_location: session.utm_location || undefined,
+						utm_campaign: session.utm_campaign || undefined,
+						gclid: session.gclid || undefined,
+						utm_source: session.utm_source || undefined,
+						utm_medium: session.utm_medium || undefined,
+						referral_code: session.referral_code || undefined,
+						utm_url: data.utm_url
+					}),
+				});
+				
+				if (resp.status >= 200 && resp.status < 400){
+					return resp.json();
+				}else if(resp.status >= 400 < 500){
+					const error = await resp.json();
+					throw Error(error.message);
+				}else{
+					throw Error('Unexpected error');
+				}
 			}
 		}
 	};

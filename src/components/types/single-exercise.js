@@ -1,29 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { MarkdownParser, Loading, Icon } from "@breathecode/ui-components";
 import Navbar from "../navbar.jsx";
+import { Context, Store } from "../../store/context.js";
 import ExerciseDetails from "../ExerciseDetails.js";
-import Helmett from "../helmet"
+import Helmett from "../helmet";
+import YouTube from 'react-youtube';
 import "../../styles/exercise.css";
 
 const Tags = ({ details }) => <p>
-    {details["language"] && <span class="badge badge-secondary p-2 mr-1">{details["language"]}</span>}
-    {<span class="badge badge-secondary p-2 mr-1"><Icon type="graduate" />{" "}interactive</span>}
-    {details["grading"] && <span>✅ auto-grading available</span>}
-    {details["difficulty"] && <span class="badge badge-secondary p-2 mr-1"> 💪{" "+details["difficulty"]}</span>}
-    {details["video-solutions"] && <span class="badge badge-secondary p-2 mr-1"><Icon type="youtube" className="text-danger"/> video solution</span>}
-    {details["duration"] && <span class="badge badge-secondary p-2 mr-1">⏱{" "+details["duration"]} hrs</span>}
+    {details["language"] && <span class="badge badge-secondary p-2 mr-1 mb-1">{details["language"]}</span>}
+    {<span class="badge badge-secondary p-2 mr-1 mb-1"><Icon type="graduate" />{" "}interactive</span>}
+    {details["graded"] && <span class="badge badge-secondary p-2 mr-1 mb-1">✅ auto-grading</span>}
+    {details["difficulty"] && <span class="badge badge-secondary p-2 mr-1 mb-1"> 💪{" "+details["difficulty"]}</span>}
+    {details["video-solutions"] && <span class="badge badge-secondary p-2 mr-1 mb-1"><Icon type="youtube" className="text-danger"/> video solution</span>}
+    {details["duration"] && <span class="badge badge-secondary p-2 mr-1 mb-1">⏱{" "+details["duration"]} hrs</span>}
 </p>;
 
 const SingleExercise = ({ pageContext }) => {
     const [ content, setContent ] = useState(null);
-
     useEffect(() => {
         fetch(pageContext.readme)
             .then(res => res.text())
             .then(markdown => setContent(markdown.replace(/(\[\!\[.+\]\(.+open-in-gitpod\.svg.+\.git\))/g, (whole, a, b) => {
-                console.log("Whole", whole);
-                console.log("a",a);
-                console.log("b",b);
                 return "";
             })))
             .catch(err => console.error(err));
@@ -50,10 +48,14 @@ const SingleExercise = ({ pageContext }) => {
                                 <Tags details={pageContext} />
                             </div>
                         </div>
-
-                        { pageContext.preview && <div className="col-12 col-sm-6">
-                            {pageContext.preview && <img src={pageContext.preview} className="w-100 rounded" />}
-                        </div>}
+                        <div className="col-12 col-sm-6">
+                        { typeof(pageContext.intro) == "string" ?
+                            <YouTube videoId={pageContext.intro.replace("https://www.youtube.com/watch?v=","")} opts={{ width: "100%"}}  />
+                            :
+                            pageContext.preview && 
+                                <img src={pageContext.preview} className="w-100 rounded" />
+                            }
+                        </div>
                         <div className="col-12 d-lg-none mb-3">
                             <h5 className="card-title font-weight-bold lead h4 mt-3">Goal</h5>
                             <p className="card-subtitle mb-2 text-muted font-italic mb-3">
@@ -83,4 +85,4 @@ const SingleExercise = ({ pageContext }) => {
     </div>);
 }
 
-export default SingleExercise
+export default Store(SingleExercise)

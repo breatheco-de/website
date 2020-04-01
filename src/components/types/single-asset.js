@@ -1,6 +1,7 @@
 import React from 'react';
 import { Icon } from "@breathecode/ui-components";
 import withLocation from "../withLocation";
+import { Context, Store } from "../../store/context.js";
 import Navbar from "../navbar.jsx";
 import {Link} from "gatsby"
 import "../../styles/index.css";
@@ -30,10 +31,6 @@ class SingleAsset extends React.Component {
     const title={
         color:"black"
     }
-    console.log("page context"+pageContext);
-
-    console.log(pageContext);
-
 
         return (
 
@@ -69,7 +66,7 @@ class SingleAsset extends React.Component {
                         <div className="row p-1 sticky-top  mt-lg-0">
                             <div className="col text-right px-lg-1">
                                 <Link  className="btn btn-outline-secondary btn-lg d-none d-md-block  mt-lg-3" to="/assets">
-                                        Browse all assets
+                                    Browse all assets
                                 </Link>
                             </div>
                         </div>
@@ -141,4 +138,4 @@ class SingleAsset extends React.Component {
 }
 
 
-export default withLocation(SingleAsset);
+export default Store(withLocation(SingleAsset));

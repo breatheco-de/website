@@ -1,8 +1,7 @@
 import React from "react";
 import { SmallJumbotron } from "../smalljumbo.jsx";
 import { Filter, Loading, Icon } from "@breathecode/ui-components";
-import { Context } from "../../store/appContext.jsx";
-import Store from "../../store/appContext.jsx";
+import { Context, Store } from "../../store/context.js";
 import Navbar from "../navbar.jsx";
 import Footer from "../footer.jsx";
 import "@breathecode/ui-components/dist/main.css";
