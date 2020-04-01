@@ -61,7 +61,7 @@ const ExerciseDetails = ({ data, location }) => {
                                             setStatus("loading");
                                             actions.signupCourse({ 
                                                 ...formData, 
-                                                current_download: data["slug"], 
+                                                current_download: data["repository"], 
                                                 utm_url: location.href,
                                                 tags: [data["slug"]] 
                                             })

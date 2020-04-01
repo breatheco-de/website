@@ -7,12 +7,15 @@ export const Context = createContext(null);
 export const Store = Component => {
     const SessionComponent = (props) => {
         const [state, _setState] = useState(getState({
-            getStore: () => JSON.parse(localStorage.getItem("bc-website-store")) || state.store,
+            getStore: () => typeof window !== 'undefined' ?
+                JSON.parse(localStorage.getItem("bc-website-store")) || state.store
+                :
+                state.store,
             getActions: () => state.actions,
             setStore: updatedStore => {
                 const oldStore = state.actions.getStore();
                 const newStore = {...oldStore, ...updatedStore };
-                localStorage.setItem("bc-website-store", JSON.stringify(newStore));
+                if(typeof window !== 'undefined') localStorage.setItem("bc-website-store", JSON.stringify(newStore));
                 _setState({ ...state, store: newStore });
             }
         }));
