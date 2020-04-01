@@ -13,5 +13,12 @@
     "builds": [
         { "src": "package.json", "use": "@now/static-build", "config": {"distDir": "public"} },
         { "src": "api/*.js", "use": "@now/node" }
-    ]
+    ],
+    "build": {
+        "env": {
+            "ACP_TOKEN": "@acp_token",
+            "ACP_HOST": "@acp_host",
+            "ACP_HOST_V1": "@acp_host_v1"
+        }
+    }
 }
