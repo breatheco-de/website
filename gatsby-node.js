@@ -6,68 +6,99 @@ const log = require('simple-node-logger').createSimpleLogger('project.log');
 const HOST = "https://assets.breatheco.de/apis";
 // const HOST = "https://8080-f0d8e861-4b22-40c7-8de2-e2406c72dbc6.ws-us02.gitpod.io/apis";
 
-const parseObjectInToArray = jsonObject=>{
-    let aux=[];
-    for( let object in jsonObject){
-            aux.push(jsonObject[object]);
-    }
-    return aux;
-};
+exports.createPages = async (params) =>
+    await createLessons(params) &&
+    await createAssets(params) &&
+    await createExercises(params) &&
+    await createQuizzes(params) &&
+    true;
 
-exports.createPages = async ({ actions, graphql }) => {
-    const { createPage } = actions;
-    
-    const resourcesResp = await fetch(HOST+"/resources/all")
-    const resources = await resourcesResp.json();
-    const lessonsResp = await fetch('https://content.breatheco.de/static/api/lessons.json');
-    let lessons = await lessonsResp.json();
-    lessons = lessons.filter(l => (l.status === "draft" || l.status === "published"));
-    const exercisesResp = await fetch(HOST+'/registry/all');
-    const exercises = await exercisesResp.json();
+const createLessons = async ({ actions, graphql }) => {
+  const { createPage } = actions;
+  const lessonsResp = await fetch('https://content.breatheco.de/static/api/lessons.json');
+  let lessons = await lessonsResp.json();
+  lessons = lessons.filter(l => (l.status === "draft" || l.status === "published"));
 
-    const authors = [...new Set([].concat.apply([],lessons.map(l => l.authors)))];
-    createPage({
-        path: `/lessons`,
-        component: path.resolve("./src/components/types/lessons.js"),
-        context:{
-            lessons: lessons || [],
-            assets: resources,
-            authors: authors.filter(a => a !== null)
-        },
-    });
-    
-    createPage({
-        path: `/assets`,
-        component: path.resolve("./src/components/types/assets.js"),
-        context:{
-            assets: resources
-        },
-    });
-    
-    resources.forEach(a => {
-        createPage({
-            path: `/asset/${a.slug}`,
-            component: path.resolve("./src/components/types/single-asset.js"),
-            context:a
-        })
-    });
+  const authors = [...new Set([].concat.apply([],lessons.map(l => l.authors)))];
+  createPage({
+      path: `/lessons`,
+      component: path.resolve("./src/components/types/lessons.js"),
+      context:{
+          lessons: lessons || [],
+          authors: authors.filter(a => a !== null)
+      },
+  });
+  return true;
+}
 
-    createPage({
-        path: `/interactive-exercises`,
-        component: path.resolve("./src/components/types/exercises.js"),
-        context: { exercises },
-    });
+const createAssets = async ({ actions, graphql }) => {
+  const { createPage } = actions;
+  const resourcesResp = await fetch(HOST+"/resources/all")
+  const resources = await resourcesResp.json();
+  createPage({
+      path: `/assets`,
+      component: path.resolve("./src/components/types/assets.js"),
+      context:{
+          assets: resources
+      },
+  });
+  
+  resources.forEach(a => {
+      createPage({
+          path: `/asset/${a.slug}`,
+          component: path.resolve("./src/components/types/single-asset.js"),
+          context:a
+      })
+  });
 
-    Object.keys(exercises).forEach(slug => {
-        const _path = `/interactive-exercise/${slug}`;
-        createPage({
-            path: _path, context: exercises[slug],
-            component: path.resolve("./src/components/types/single-exercise.js")
-        })
-    });
+  return true;
+}
+
+const createExercises = async ({ actions, graphql }) => {
+  const { createPage } = actions;
     
-    return true;
-};
+  const exercisesResp = await fetch(HOST+'/registry/all');
+  const exercises = await exercisesResp.json();
+
+  createPage({
+      path: `/interactive-exercises`,
+      component: path.resolve("./src/components/types/exercises.js"),
+      context: { exercises },
+  });
+
+  Object.keys(exercises).forEach(slug => {
+      const _path = `/interactive-exercise/${slug}`;
+      createPage({
+          path: _path, context: exercises[slug],
+          component: path.resolve("./src/components/types/single-exercise.js")
+      })
+  });
+
+  return true;
+}
+
+const createQuizzes = async ({ actions, graphql }) => {
+  const { createPage } = actions;
+    
+  const quizzesResp = await fetch(HOST+'/quiz/all');
+  const quizzes = await quizzesResp.json();
+
+  createPage({
+      path: `/quizzes`,
+      component: path.resolve("./src/components/types/quizzes.js"),
+      context: { quizzes },
+  });
+
+  // quizzes.forEach(q => {
+  //     const _path = `/coding-quiz-assessment/${q.info.slug}`;
+  //     createPage({
+  //         path: _path, context: q,
+  //         component: path.resolve("./src/components/types/single-quiz.js")
+  //     })
+  // });
+
+  return true;
+}
 
 exports.onCreateWebpackConfig = ({
     stage,

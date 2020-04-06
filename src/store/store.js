@@ -35,7 +35,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 			getStore: () => getStore(),
 			getQueryString: (url) => {
 				const vars = {};
-				var parts = url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+				url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
 					vars[key] = value;
 				});
 				return vars;
@@ -53,7 +53,7 @@ const getState = ({ getStore, setStore, getActions }) => {
                 // const location = "Santiago de Chile"
                 let utm_language = "en";
                 if(typeof(data.location) === "object" && Array.isArray(data.location.languages) && data.location.languages.length > 0){
-                    if(data.location.languages[0].code === "en" || data.location.languages[0].code == "es"){
+                    if(data.location.languages[0].code === "en" || data.location.languages[0].code === "es"){
                         utm_language = data.location.languages[0].code;
                     }
                 }
@@ -186,7 +186,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 				
 				if (resp.status >= 200 && resp.status < 400){
 					return resp.json();
-				}else if(resp.status >= 400 < 500){
+				}else if(resp.status >= 400 &&  resp.status < 500){
 					const error = await resp.json();
 					throw Error(error.message);
 				}else{
