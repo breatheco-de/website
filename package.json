@@ -8,7 +8,7 @@
   "version": "0.1.0",
   "author": "Alejandro Sanchez <aalejo@gmail.com>",
   "dependencies": {
-    "@breathecode/ui-components": "^1.1.63",
+    "@breathecode/ui-components": "^1.1.70",
     "gatsby": "^2.19.43",
     "gatsby-image": "^2.0.40",
     "gatsby-plugin-google-tagmanager": "^2.0.13",

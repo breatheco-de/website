@@ -39,7 +39,7 @@ class SingleAsset extends React.Component {
             title={pageContext.title}
             description={pageContext.description}
             url={ `https://breatheco.de/asset/${pageContext.slug}`}
-            image="https://ucarecdn.com/717ad4fe-f186-44aa-872a-dd04584e4da0/logobcode.png"
+            image={pageContext.preview}
         />
         <Navbar/>
             <div className="container" style={singleAsset}>

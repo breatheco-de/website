@@ -90,11 +90,11 @@ const ExerciseDetails = ({ data, location }) => {
                             <div className="col-6 d-flex justify-content-end ">{data["video-solutions"]?"Available":"Not available"}</div>
                         </div>
                         <div className="row border-bottom p-1 m-0 no-gutters small">
-                            <div className="col-7 "><span ><Icon type="play" className="text-danger font-size" /></span><span className="ml-2">Auto grading:</span></div>
+                            <div className="col-7 "><span ><Icon type="check" className="font-size" /></span><span className="ml-2">Auto grading:</span></div>
                             <div className="col-5 d-flex justify-content-end ">{data["graded"]?"Available":"Not available"}</div>
                         </div>
                         <div className="row border-bottom p-1 m-0 no-gutters small">
-                            <div className="col-8 "><span><Icon type="circle" /></span><span className="ml-1">Average duration:</span></div>
+                            <div className="col-8 "><span><Icon type="clock" /></span><span className="ml-1">Average duration:</span></div>
                             <div className="col-4 d-flex justify-content-end">{data.duration} hr</div>
                         </div>
                         <div className="row border-bottom p-1 m-0 no-gutters small">

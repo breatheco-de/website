@@ -217,9 +217,9 @@ export class Lessons extends React.Component {
 
 	render() {
 
-        const {location, pageContext} =this.props;
+        const {location, pageContext } =this.props;
         const lessonData = (Array.isArray(pageContext.lessons)) ? pageContext.lessons : [];
-
+        
 		return (
             <Layout>
                 <Navbar/>
@@ -299,7 +299,7 @@ export class Lessons extends React.Component {
                                                         multiselect={false}
                                                         onChange={d =>  {
                                                             this.setState({
-                                                                selectedLanguages: d ? [d] : [],
+                                                                selectedLanguages: d,
                                                                 defaultLanguages: ""
                                                             });
 
@@ -332,7 +332,7 @@ export class Lessons extends React.Component {
                                                             });
                                                             if(d)navigate("/lessons" + this.updateQueryStringParameter(location.search,"authors",d.map(o => o.value).join(',')) );
                                                         }}
-                                                        options={[].concat.apply([],actions.filterRepeated(lessonData.map(l => l.authors))).map(author => {
+                                                        options={pageContext.authors.map(author => {
                                                             return {
                                                                 label: author,
                                                                 value: author

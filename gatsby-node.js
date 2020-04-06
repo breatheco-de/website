@@ -24,13 +24,15 @@ exports.createPages = async ({ actions, graphql }) => {
     lessons = lessons.filter(l => (l.status === "draft" || l.status === "published"));
     const exercisesResp = await fetch(HOST+'/registry/all');
     const exercises = await exercisesResp.json();
-    
+
+    const authors = [...new Set([].concat.apply([],lessons.map(l => l.authors)))];
     createPage({
         path: `/lessons`,
         component: path.resolve("./src/components/types/lessons.js"),
         context:{
             lessons: lessons || [],
-            assets: resources
+            assets: resources,
+            authors: authors.filter(a => a !== null)
         },
     });
     
