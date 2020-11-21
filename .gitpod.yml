@@ -3,5 +3,5 @@ ports:
     - port: 8000
 tasks:
     - init: >
-        npm i now -g;
+        npm i vercel gatsby-cli -g;
         npm install;
