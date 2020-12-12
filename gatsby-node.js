@@ -59,14 +59,14 @@ const createExercises = async ({ actions, graphql }) => {
     
   const exercisesResp = await fetch(HOST+'/registry/all');
   const exercises = await exercisesResp.json();
-
   createPage({
       path: `/interactive-exercises`,
       component: path.resolve("./src/components/types/exercises.js"),
       context: { exercises },
-  });
-
-  Object.keys(exercises).forEach(slug => {
+    });
+    
+    Object.keys(exercises).forEach(slug => {
+        console.log("exercises", slug, exercises[slug]);
       const _path = `/interactive-exercise/${slug}`;
       createPage({
           path: _path, context: exercises[slug],

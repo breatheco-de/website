@@ -18,7 +18,7 @@ class Home extends React.Component {
                 title="BreatheCode"
                 description="Are you here to contribute? We have organized all our needs on 'github issues', browse the following list and pick anything to start contributing!"
                 url="https://breatheco.de/"
-                image="https://ucarecdn.com/717ad4fe-f186-44aa-872a-dd04584e4da0/logobcode.png"
+                image="https://breathecode.herokuapp.com/static/assets/logo.png"
             />
 			<Navbar/>
 				<Jumbotron
