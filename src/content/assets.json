@@ -1,0 +1,799 @@
+[
+    {
+        "types": [
+            "Youtube Channel"
+        ],
+        "preview": "https://ucarecdn.com/30b28e71-7994-44b4-ad4d-447a36444b4e/codecadey.png",
+        "slug": "learn-to-code-academy",
+        "title": "LearnCode.academy",
+        "description": "100% FREE Web Development tutorials, web site design tutorials and more.Including, but not limited to: HTML, CSS, JavaScript, CSS Layouts, Responsive Design, React.js, Node.js, Angular.js, Docker, Dev Ops, Server Administration, Deployment Strategies.",
+        "url": "https://www.youtube.com/user/learncodeacademy",
+        "topics": [
+            "programming",
+            "Responsive Design",
+            "Dev Ops"
+        ],
+        "technologies": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "CSS",
+            "React.js",
+            "Node.js",
+            "Angular.js",
+            "Docker"
+        ],
+        "created_at": "12/20/2012",
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "video"
+        ],
+        "preview": "https://ucarecdn.com/21b0db28-1d4c-4d84-9fe4-c0df8e096f63/postman.png",
+        "slug": "how-to-use-postman",
+        "title": "How to use postman",
+        "description": "Postman is a great tool for testing APIs. Wether you are writing the client-side or server-side of an API, use Postman to test that your API is accepting and responding with the appropriate Headers, Methods, and Data.",
+        "url": "https://www.youtube.com/watch?v=t5n07Ybz7yI",
+        "topics": [
+            "programming",
+            "back-end"
+        ],
+        "technologies": [
+            "postman"
+        ],
+        "created_at": "08/03/2017",
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "video"
+        ],
+        "preview": "https://ucarecdn.com/e36293d1-c905-4e16-8435-0860d8216799/ScreenShot20190517at33544PM.png",
+        "slug": "fetch-api-introduction",
+        "title": "How to use the fetch function",
+        "description": "In this video we are going to take a look at the fetch API for making requests and fetching resources. This is an introductory based tutorial. We will create a fetch API sandbox to get data from local resources as well as a remote API",
+        "url": "https://www.youtube.com/watch?v=Oive66jrwBs",
+        "technologies": [
+            "fetch",
+            "http",
+            "javascript"
+        ],
+        "topics": [
+            "programming"
+        ],
+        "created_at": "08/31/2017",
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "article"
+        ],
+        "preview": "https://ucarecdn.com/6b85d26f-fc2a-4cc1-90d1-36777a4425a7/ScreenShot20190517at33942PM.png",
+        "slug": "fetch-api-explanation",
+        "title": "Using Fetch (jQuery AJAX comparison)",
+        "description": "Whenever we send or retrieve information with JavaScript, we initiate a thing known as an Ajax call. Ajax is a technique to send and retrieve information",
+        "url": "https://css-tricks.com/using-fetch/",
+        "technologies": [
+            "fetch",
+            "http",
+            "javascript",
+            "ajax",
+            "jquery-ajax"
+        ],
+        "topics": [
+            "programming"
+        ],
+        "created_at": "05/02/2017",
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "infographic"
+        ],
+        "preview": "https://ucarecdn.com/ea11ab89-8001-455b-b912-0b2969e2d1b2/ScreenShot20190517at34703PM.png",
+        "slug": "git-guide-rogerdudler",
+        "title": "How to use git",
+        "description": "So, what is GIT in a nutshell? this is just a simple guide for getting started with git. no deep shit ;) ",
+        "url": "http://rogerdudler.github.io/git-guide/",
+        "technologies": [
+            "git"
+        ],
+        "topics": [
+            "programming"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "challenge"
+        ],
+        "preview": "https://ucarecdn.com/1afe3177-feb1-49f2-a581-e8853d7a6bc7/ScreenShot20190517at34927PM.png",
+        "slug": "javascript-30",
+        "title": "30 day vanilla js challenge",
+        "description": "Build 30 things with vanilla JS in 30 days with 30 tutorials",
+        "url": "https://javascript30.com",
+        "technologies": [
+            "js",
+            "vanilla-js"
+        ],
+        "topics": [
+            "programming"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Cheat Sheet"
+        ],
+        "preview": "https://ucarecdn.com/faeb1e63-46ca-4a5d-8339-da7b60c8e8aa/commandlinecheatsheet.png",
+        "slug": "command-line-or-bash-cheat-sheet",
+        "title": "Command Line or Bash Cheat Sheet",
+        "description": "Our cheat sheet explains the essential tasks on the command line. Download it for free.",
+        "url": "https://ucarecdn.com/61c6474b-5760-43db-9a2c-dfbea2ccdd76/Comandlinecheatsheet.pdf",
+        "topics": [
+            "programming"
+        ],
+        "technologies": [
+            "bash",
+            "command line"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": "https://ucarecdn.com/61c6474b-5760-43db-9a2c-dfbea2ccdd76/Comandlinecheatsheet.pdf",
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Replit Solution"
+        ],
+        "preview": "https://ucarecdn.com/191c6cb1-df6c-4773-9349-3131368d2d96/cssreplit.png",
+        "slug": "repl-it-solutions-css",
+        "title": "Repl.it Solutions: CSS",
+        "description": "missisng",
+        "url": "http://assets.breatheco.de/video/?v=apis/replit/css.json",
+        "technologies": [
+            "CSS",
+            "replit"
+        ],
+        "topics": [
+            "programming",
+            "replit exercise"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Replit Solution"
+        ],
+        "preview": "https://ucarecdn.com/b884e6f0-03b6-40cf-9f1b-90cbe48ee6d9/htmlreplit.png",
+        "slug": "repl-it-solutions-html",
+        "title": "Repl.it Solutions: HTML",
+        "description": "missisng",
+        "url": "http://assets.breatheco.de/video/?v=apis/replit/html.json",
+        "technologies": [
+            "HTML",
+            "replit"
+        ],
+        "topics": [
+            "programming",
+            "replit exercise"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Youtube Channel"
+        ],
+        "preview": "http://breatheco.de/wp-content/uploads/2018/01/webconcepts-logo.jpg",
+        "slug": "web-concepts-video-explanations",
+        "title": "Web Concepts video explanations",
+        "description": "Videos introducing concepts in modern web development. With the goal of providing enough background for small business owners and those interested in learning web development to ask the right questions going forward.",
+        "url": "https://www.youtube.com/channel/UCV4-mrR8UZh6AsWZbmW5uhQ",
+        "technologies": [
+            "AJAX",
+            "API",
+            "http",
+            "javascript",
+            "REST"
+        ],
+        "topics": [
+            "programming",
+            "web development"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Replit Solution"
+        ],
+        "preview": "https://ucarecdn.com/fff26c6c-4acc-4b57-8f44-b9c0d4462253/javascriptajax.png",
+        "slug": "repl-it-solutions-ajax-with-vanilla-js",
+        "title": "Repl.it Solutions: Ajax with Vanilla JS",
+        "description": "missisng",
+        "url": "http://assets.breatheco.de/video/?v=apis/replit/ajax.json",
+        "technologies": [
+            "AJAX",
+            "javascript"
+        ],
+        "topics": [
+            "programming"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Youtube Channel"
+        ],
+        "preview": "https://ucarecdn.com/692c028b-0575-4191-b8d3-c358de5625fe/thenewbostonlogo.png",
+        "slug": "the-new-boston",
+        "title": "The New Boston Video-Tutorials",
+        "description": "Tons of sweet computer related tutorials and some other awesome videos too!",
+        "url": "https://www.youtube.com/channel/UCJbPGzawDH1njbqV-D5HqKw",
+        "technologies": [
+            "python"
+        ],
+        "topics": [
+            "programming",
+            "web development"
+        ],
+        "created_at": "01/04/2008",
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Cheat Sheet"
+        ],
+        "preview": "https://ucarecdn.com/c3ebe39c-c122-4a86-bf89-684666e213bb/ScreenShot20170810at23949AM.png",
+        "slug": "ebook-wordpress-theme-development",
+        "title": "eBook: WordPress Theme Development",
+        "description": "Our cheat sheet explains the essential tasks on WordPress Theme Development. Download it for free.",
+        "url": "https://ucarecdn.com/91ad61e4-ff4d-44d9-b1ca-de54ac7f5655/WORDPRESSINFOGRAFIA.pdf",
+        "technologies": [
+            "php",
+            "WordPress"
+        ],
+        "topics": [
+            "programming",
+            "web development"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": "https://ucarecdn.com/91ad61e4-ff4d-44d9-b1ca-de54ac7f5655/WORDPRESSINFOGRAFIA.pdf",
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Books"
+        ],
+        "preview": "https://ucarecdn.com/7b3f5c33-e25f-4919-a900-8b0cea646c01/modernphp.png",
+        "slug": "modern-php",
+        "title": "Book: Modern PHP",
+        "description": "PHP is experiencing a renaissance, though it may be difficult to tell with all of the outdated PHP tutorials online. With this practical guide, you’ll learn how PHP has become a full-featured, mature language with object-orientation, namespaces, and a growing collection of reusable component libraries.",
+        "url": "https://www.amazon.com/dp/B00TKVLL26/",
+        "technologies": [
+            "php"
+        ],
+        "topics": [
+            "programming"
+        ],
+        "created_at": "02/01/2015",
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Youtube Channel"
+        ],
+        "preview": "https://ucarecdn.com/a364424b-56fc-49ae-bd07-9b70b2a4754f/netninja1.jpg",
+        "slug": "the-net-ninja",
+        "title": "The Net Ninja Video-Tutorials",
+        "description": "Black-belt your development skills. Tutorials on Node.js, JavaScript, CSS, HTML, Vue.js, React and much more...",
+        "url": "https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg",
+        "topics": [
+            "programming",
+            "web development"
+        ],
+        "technologies": [
+            "Bootstrap",
+            "GIT",
+            "javascript"
+        ],
+        "created_at": "04/08/2015",
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Books"
+        ],
+        "preview": "https://ucarecdn.com/61e6d728-aed1-43b4-bf04-e2c12e76b94f/eloquentjavascript.png",
+        "slug": "eloquent-javascript",
+        "title": "FREE eBook: Eloquent Javascript",
+        "description": "Eloquent JavaScript3rd edition This is a book about JavaScript, programming, and the wonders of the digital. You can read it online here, or get your own paperback copy. Written by Marjin Haverbeke",
+        "url": "http://eloquentjavascript.net/",
+        "topics": [
+            "programming"
+        ],
+        "technologies": [
+            "javascript"
+        ],
+        "created_at": "01/01/2011",
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Cheat Sheet"
+        ],
+        "preview": "https://ucarecdn.com/1c97ee7e-9694-4303-b670-c40dccb9102e/MOD_REWRITE.jpg",
+        "slug": "working-with-apache-htaccess-cheat-sheet",
+        "title": "Working with Apache .htaccess (Cheat Sheet)",
+        "description": "When you want to override the default way the Apache server handles the HTTP requests you can create an .htaccess file in the root of your project (first, remember to <a href=`http://lmgtfy.com/?q=enable+apache+mod_rewrite`> enable MOD_REWRITE in the apache configuration file</a>.Here is a cheat sheet with the most used syntax to create an .htaccess that works for you.",
+        "url": "https://ucarecdn.com/0570692d-364b-47a6-99b9-7c75361cc624/MOD_REWRITE.jpg",
+        "topics": [
+            "programming"
+        ],
+        "technologies": [
+            "apache",
+            "http"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Cheat Sheet"
+        ],
+        "preview": "https://ucarecdn.com/89e44a99-c926-40cb-8e4e-1c555f8e8f44/RegularExpressions01.jpg",
+        "slug": "regular-expressions-cheat-sheet",
+        "title": "Regular Expressions Cheat Sheet",
+        "description": "Regular expressions are hard, but they are extremely powerful and broadly used them to search patterns in strings, bulk replace, validations, etc. Print this sheet when building regex and your life will become just a little bit easier.",
+        "url": "https://ucarecdn.com/225fd615-06c7-498b-b9ff-3a86f9bbcd83/RegularExpressions01.jpg",
+        "topics": [
+            "programming"
+        ],
+        "technologies": [
+            "javascript",
+            "php"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Cheat Sheet"
+        ],
+        "preview": "https://ucarecdn.com/3ccddd31-0dce-4146-93dc-23c054244995/mimetypes.jpg",
+        "slug": "mime-types",
+        "title": "Mime Types",
+        "description": "Mime Types are important when during any type of HTTP Request: API calls, AJAX, HTML Forms, etc. There are hundreds of Mime Types, but here is a list of the most used ones.",
+        "url": "https://ucarecdn.com/3ccddd31-0dce-4146-93dc-23c054244995/-/resize/60x/",
+        "topics": [
+            "programming"
+        ],
+        "technologies": [
+            "AJAX",
+            "API's",
+            "http",
+            "php"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Cheat Sheet"
+        ],
+        "preview": "https://ucarecdn.com/10d3cb2e-e8f9-41c9-a472-8dea39ecfd44/keycodes.jpg",
+        "slug": "javascript-keyboard-event-scan-codes",
+        "title": "Javascript Keyboard Event Scan Codes",
+        "description": "How is going to remember all those keyboard codes? Is imposible! In this image you will find an actual keyboard representation with all the correspondent codes on top of each keyboard key.",
+        "url": "https://ucarecdn.com/10d3cb2e-e8f9-41c9-a472-8dea39ecfd44/keycodes.jpg",
+        "topics": [
+            "programming"
+        ],
+        "technologies": [
+            "events",
+            "javascript",
+            "jQuery"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Cheat Sheet"
+        ],
+        "preview": "https://ucarecdn.com/6eb4d19b-cfc4-468d-8ea0-81b94137b8b2/JQueryTheDOMCheatSheet.jpg",
+        "slug": "using-jquery-to-work-with-the-dom-cheat-sheet",
+        "title": "Using jQuery to work with The DOM - Cheat Sheet",
+        "description": "Using jQuery you have a lot more power when working with The DOM, this is a summarized cheat sheet to help you work with the DOM during your first days as a developer.",
+        "url": "https://ucarecdn.com/6eb4d19b-cfc4-468d-8ea0-81b94137b8b2/JQueryTheDOMCheatSheet.jpg",
+        "topics": [
+            "programming",
+            "web development"
+        ],
+        "technologies": [
+            "The DOM",
+            "javascript",
+            "jQuery"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Cheat Sheet"
+        ],
+        "preview": "https://ucarecdn.com/15f4cf29-8bf4-466b-86ab-034eba4dc96d/JQueryEffectsCheatSheet.jpg",
+        "slug": "jquery-ajax-cheat-sheet-2",
+        "title": "jQuery Effects Cheat Sheet",
+        "description": "You use effects are less useful every day because now CSS has a lot of transitions, but still, here is a small Cheat Sheet about making cool transitions with jQuery only.",
+        "url": "https://ucarecdn.com/15f4cf29-8bf4-466b-86ab-034eba4dc96d/JQueryEffectsCheatSheet.jpg",
+        "topics": [
+            "programming"
+        ],
+        "technologies": [
+            "javascript",
+            "jQuery"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Cheat Sheet"
+        ],
+        "preview": "https://ucarecdn.com/1c050280-3e5e-46ae-a105-d45f0f1f9b17/JQuerySelectorsCheatSheet.jpg",
+        "slug": "jquery-selectors-cheat-sheet",
+        "title": "jQuery Selectors Cheat Sheet",
+        "description": "How to select any HTML tag and/or DOM element to start working with them.",
+        "url": "https://ucarecdn.com/1c050280-3e5e-46ae-a105-d45f0f1f9b17/JQuerySelectorsCheatSheet.jpg",
+        "topics": [
+            "programming",
+            "web-development"
+        ],
+        "technologies": [
+            "javascript",
+            "jQuery",
+            "The DOM"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Cheat Sheet"
+        ],
+        "preview": "https://ucarecdn.com/77e06db0-4ee2-4fb3-b1b8-1f8293669e49/JQueryCSSCheatSheet.jpg",
+        "slug": "jquery-css-cheat-sheet",
+        "title": "jQuery + CSS Cheat Sheet",
+        "description": "How to work with CSS rules and properties from jQuery to dynamically update everything in your Stylesheet.",
+        "url": "https://ucarecdn.com/77e06db0-4ee2-4fb3-b1b8-1f8293669e49/JQueryCSSCheatSheet.jpg",
+        "topics": [
+            "programming",
+            "web development"
+        ],
+        "technologies": [
+            "javascript",
+            "jQuery",
+            "CSS"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Cheat Sheet"
+        ],
+        "preview": "https://ucarecdn.com/c27303a0-3c15-4f72-ade9-540fc667f51b/JQuertEvents.jpg",
+        "slug": "jquery-events-cheat-sheet",
+        "title": "jQuery Events Cheat Sheet",
+        "description": "Working with events is the only way to make a website really interactive. This is a summarized collection (Cheat Sheet) of all the functions jQuery has available to work with Events.",
+        "url": "https://ucarecdn.com/c27303a0-3c15-4f72-ade9-540fc667f51b/JQuertEvents.jpg",
+        "topics": [
+            "programming",
+            "web development"
+        ],
+        "technologies": [
+            "javascript",
+            "jQuery"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Cheat Sheet"
+        ],
+        "preview": "https://ucarecdn.com/e5cdc42e-1a2e-47ea-8363-54364bc66792/JQuertCore.jpg",
+        "slug": "jquery-core-cheat-sheet",
+        "title": "jQuery Core Cheat Sheet",
+        "description": "Summerize collection of all the functions you need to work the very core of jQuery.",
+        "url": "https://ucarecdn.com/e5cdc42e-1a2e-47ea-8363-54364bc66792/JQuertCore.jpg",
+        "topics": [
+            "programming"
+        ],
+        "technologies": [
+            "javascript",
+            "jQuery"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Cheat Sheet"
+        ],
+        "preview": "https://ucarecdn.com/c880859b-dc50-4c50-a298-ae27a975356b/JQuertAjax.jpg",
+        "slug": "jquery-ajax-cheat-sheet",
+        "title": "jQuery Ajax Cheat Sheet",
+        "description": "Summerize collection of all the functions you will need to work with Javascript and jQuery.",
+        "url": "https://ucarecdn.com/c880859b-dc50-4c50-a298-ae27a975356b/JQuertAjax.jpg",
+        "topics": [
+            "programming"
+        ],
+        "technologies": [
+            "AJAX",
+            "javascript",
+            "jQuery"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Cheat Sheet"
+        ],
+        "preview": "https://ucarecdn.com/63f956c8-63ed-44b9-b0a9-6a2ff01b0498/JAVASCRIPTDOM.jpg",
+        "slug": "working-with-the-dom-in-javascript-cheat-sheet",
+        "title": "Working with the DOM in Javascript Cheat Sheet",
+        "description": "This is a collection of the most used Javascript functions to add, update or delete elements in the DOM. Working with the DOM is the most important skill for a front-end web developer. This Cheat Sheet will help you become familiar with the syntax very fast.",
+        "url": "https://ucarecdn.com/63f956c8-63ed-44b9-b0a9-6a2ff01b0498/JAVASCRIPTDOM.jpg",
+        "topics": [
+            "programming",
+            "web development"
+        ],
+        "technologies": [
+            "javascript",
+            "The DOM"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Cheat Sheet"
+        ],
+        "preview": "https://ucarecdn.com/e2f3f547-23ee-4af0-937d-7dfce757600b/SQL1.jpg",
+        "slug": "sql-syntaxis-cheat-sheet",
+        "title": "SQL Syntaxis Cheat Sheet",
+        "description": "Working with SQL? This sheet will help you struggle with the Syntaxis for the most typical operations: INSERT, SELECT, DELETE, GROUP, ORDER and JOINTS.",
+        "url": "https://ucarecdn.com/e2f3f547-23ee-4af0-937d-7dfce757600b/SQL1.jpg",
+        "topics": [
+            "programming"
+        ],
+        "technologies": [
+            "SQL"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Cheat Sheet"
+        ],
+        "preview": "https://ucarecdn.com/5eba6cb6-c405-4735-a959-f782c848a2ab/JAVA.jpg",
+        "slug": "javascript-syntax-cheat-sheet",
+        "title": "Javascript Syntax Cheat Sheet",
+        "description": "Handy collection of the most used functions in Javascript to work with Strings, Numbers, Regular Expressions, Event Handlers, etc.",
+        "url": "https://ucarecdn.com/5eba6cb6-c405-4735-a959-f782c848a2ab/JAVA.jpg",
+        "topics": [
+            "programming"
+        ],
+        "technologies": [
+            "javascript"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Cheat Sheet"
+        ],
+        "preview": "https://ucarecdn.com/7a7a93ba-f9de-408b-bf7a-c74ba0cdc28b/Bootstrap.jpg",
+        "slug": "bootstrap-css-and-layout-cheat-sheet",
+        "title": "Bootstrap CSS and Layout Cheat Sheet",
+        "description": "Here you will find everything you need to remember how to create layouts with bootstrap (scaffolding) and also the most basic CSS classes to help you with your website. Bootstrap components are going to be summarized in another cheat sheet.",
+        "url": "https://ucarecdn.com/7a7a93ba-f9de-408b-bf7a-c74ba0cdc28b/Bootstrap.jpg",
+        "topics": [
+            "programming",
+            "web development"
+        ],
+        "technologies": [
+            "Bootstrap",
+            "CSS",
+            "HTML"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Cheat Sheet"
+        ],
+        "preview": "https://ucarecdn.com/d56f6b58-e4f6-4395-bff8-85c62436d44a/GITCheatSheet.jpg",
+        "slug": "git-cheat-sheet",
+        "title": "GIT Cheat Sheet",
+        "description": "A great coder is not the one that remembers every single command. Use this Cheat Sheet to search for the right GIT command according to your needs!",
+        "url": "https://ucarecdn.com/d56f6b58-e4f6-4395-bff8-85c62436d44a/GITCheatSheet.jpg",
+        "topics": [
+            "programming"
+        ],
+        "technologies": [
+            "GIT"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Cheat Sheet"
+        ],
+        "preview": "https://ucarecdn.com/77176e02-daa8-46fb-8757-450cf260ac92/CheatSheetHTML.jpg",
+        "slug": "html5-cheat-sheet",
+        "title": "HTML5 Cheat Sheet",
+        "description": "This is all you need to know about HTML &lt;tags&gt;... 99% of the tags you will ever use summarized in a simple infographic. HTML5, Inputs, Boxes, frames, tables, footer, header and more.",
+        "url": "https://ucarecdn.com/77176e02-daa8-46fb-8757-450cf260ac92/CheatSheetHTML.jpg",
+        "topics": [
+            "programming"
+        ],
+        "technologies": [
+            "HTML"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Cheat Sheet"
+        ],
+        "preview": "https://ucarecdn.com/0c3ba060-a785-4f46-9bb2-0f2f72eb8d84/CheatSheetCSS.jpg",
+        "slug": "css3-cheat-sheet",
+        "title": "CSS3 Cheat Sheet",
+        "description": "In this infographic you will find 90% of the most used CSS selectors, pseudo-selectors, the box model explanation, the position CSS Rule that needs to be applied to boxed containers, tables and other attributes available for boxes.",
+        "url": "https://ucarecdn.com/0c3ba060-a785-4f46-9bb2-0f2f72eb8d84/-/resize/90x/",
+        "topics": [
+            "programming"
+        ],
+        "technologies": [
+            "CSS"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    },
+    {
+        "types": [
+            "Cheat Sheet"
+        ],
+        "preview": "https://ucarecdn.com/e65b1c52-8e17-49ba-a7fe-e9031d2ae434/es6.jpg",
+        "slug": "es6-cheat-sheet",
+        "title": "ES6 Cheat Sheet",
+        "description": "Handy collection of the most used functions in Javascript to work with Strings, Numbers, Regular Expressions, Event Handlers, etc.",
+        "url": "https://devhints.io/es6",
+        "topics": [
+            "programming"
+        ],
+        "technologies": [
+            "CSS",
+            "javascript"
+        ],
+        "created_at": null,
+        "up_votes": 0,
+        "download": null,
+        "lang": "en",
+        "referrer": null
+    }
+]

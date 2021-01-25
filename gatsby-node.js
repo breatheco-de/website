@@ -57,8 +57,10 @@ const createAssets = async ({ actions, graphql }) => {
 const createExercises = async ({ actions, graphql }) => {
   const { createPage } = actions;
     
-  const exercisesResp = await fetch(HOST+'/registry/all');
-  const exercises = await exercisesResp.json();
+  const dirPath = path.join(__dirname, '/src/content');
+  const content = fs.readFileSync(dirPath+"/assets.json");
+  const exercises = JSON.parse(content);
+  
   createPage({
       path: `/interactive-exercises`,
       component: path.resolve("./src/components/types/exercises.js"),

@@ -4,6 +4,7 @@ import "../styles/index.css";
 import { Context, Store } from "../store/context.js";
 import moment from "moment";
 import "bootstrap/dist/css/bootstrap.css";
+import imageURL from "../images/breathecode.45.png";
 import "@breathecode/ui-components/dist/main.css";
 import Navbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
@@ -31,7 +32,7 @@ class Home extends React.Component {
 					pHeaderFirstCol="Here to help us?"
 					pClassSecondCol="h2 bold"
 					pHeaderSecondCol="Here to learn code?"
-					imgSrc="https://ucarecdn.com/dbe55247-376b-4b81-988e-7dd95f4233b5/-/resize/90x/"
+					imgSrc={imageURL}
 					imgClass="mx-auto d-flex"
 					pTexClassColOne="lead"
 					pTextFirstCol="you can write documentation, write code, fix bugs or join current projects"

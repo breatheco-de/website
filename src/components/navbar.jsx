@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+import imageURL from "../images/breathecode.45.png";
 import withLocation from "./withLocation";
 
 class Navbar extends React.Component {
@@ -74,13 +75,13 @@ class Navbar extends React.Component {
 									</p>
 								</a>
 							</li>
-							<li className="nav-item mt-3">
+							{/* <li className="nav-item mt-3">
 								<Link to="/assets" className="nav-link">
 									<p className={`nav-link ${this.state.change && "border-bottom"}`} >
 										Assets
 									</p>
 								</Link>
-							</li>
+							</li> */}
 						</ul>
 						<form className="form-inline my-2 my-lg-0  d-flex justify-content-center">
 							<Link to="/contributing" className="nav-link btn btn-outline-success buttonHeight mr-2">

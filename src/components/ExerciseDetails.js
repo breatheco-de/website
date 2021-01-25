@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Icon } from "@breathecode/ui-components";
 import { Context } from "../store/context";
-import GitpodIcon from "../images/gitpod-icon.svg";
+import GitpodIcon from "../images/svg/gitpod-icon.svg";
 import withLocation from "./withLocation";
 
 const ExerciseDetails = ({ data, location }) => {
