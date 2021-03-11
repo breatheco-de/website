@@ -75,6 +75,15 @@ class Navbar extends React.Component {
 									</p>
 								</a>
 							</li>
+							<li className="nav-item mt-3">
+								<a href="https://4geeksacademy.com/" className="nav-link">
+									<p className={`nav-link ${this.state.change && "border-bottom"}`} >
+										Cooding Bootcamp
+										<span className="position-relative d-none d-lg-inline" style={{color: '#007bff', top: "20px", left: "-66px", fontSize: "14px", fontStyle: "italic"}}
+										>sponsored</span>
+									</p>
+								</a>
+							</li>
 							{/* <li className="nav-item mt-3">
 								<Link to="/assets" className="nav-link">
 									<p className={`nav-link ${this.state.change && "border-bottom"}`} >
