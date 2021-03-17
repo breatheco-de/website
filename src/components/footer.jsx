@@ -14,8 +14,13 @@ export class Footer extends Component {
 						<div className="row text-center">
 							<div className="col-12">
 								© {new Date().getFullYear()}, Built By
-            {` `}
-            <a href="https://www.breatheco.de">BreatheCode</a>
+								{` `}
+								<a href="https://www.breatheco.de">BreatheCode</a>
+								{` `}
+								in collaboration with
+								{` `}
+								<a href="https://4geeksacademy.com/">4geeks Academy</a>
+
 							</div>
 						</div>
 					</div>
