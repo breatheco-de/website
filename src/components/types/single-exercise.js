@@ -17,15 +17,8 @@ const Tags = ({ details }) => <p>
 </p>;
 
 const SingleExercise = ({ pageContext }) => {
-    const [ content, setContent ] = useState(null);
-    useEffect(() => {
-        fetch(pageContext.readme)
-            .then(res => res.text())
-            .then(markdown => setContent(markdown.replace(/(\[\!\[.+\]\(.+open-in-gitpod\.svg.+\.git\))/g, (whole, a, b) => {
-                return "";
-            })))
-            .catch(err => console.error(err));
-    },[]);
+    const content = pageContext.readme && typeof(pageContext.readme) === "string" ? atob(pageContext.readme) : null;
+
     return (<div className="exercise">
         <Helmett
             title={pageContext.title}
