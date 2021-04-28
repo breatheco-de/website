@@ -1,20 +1,18 @@
 import React, { useContext } from "react";
 import Helmett from "../helmet";
-import Navbar from "../navbar.jsx";
-import Footer from "../footer.jsx";
 import { SmallJumbotron } from "../smalljumbo.jsx";
 import {Link} from "gatsby"
+import Layout from "../layout";
 
 const Exercises = ({ pageContext }) => {
     const { exercises } = pageContext;
-    return <div>
+    return <Layout>
         <Helmett
             title="BreatheCode | Interactive Exercises and Tutorials"
             description="All exercises are incremental and come with explanations video solutions and automatic grading"
             url="https://breatheco.de/interactive-exercises"
             image="https://ucarecdn.com/717ad4fe-f186-44aa-872a-dd04584e4da0/logobcode.png"
         />
-        <Navbar/>
         <SmallJumbotron
             jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
             containerClass="pl-4  container"
@@ -42,8 +40,7 @@ const Exercises = ({ pageContext }) => {
             })}
             </div>
         </div>
-        <Footer/>
-    </div>
+    </Layout>
 }
 
 export default Exercises;

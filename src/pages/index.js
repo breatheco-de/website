@@ -6,22 +6,20 @@ import moment from "moment";
 import "bootstrap/dist/css/bootstrap.css";
 import imageURL from "../images/breathecode.45.png";
 import "@breathecode/ui-components/dist/main.css";
-import Navbar from "../components/navbar.jsx";
-import Footer from "../components/footer.jsx";
 import Helmett from "../components/helmet";
+import Layout from "../components/layout";
 
 
 class Home extends React.Component {
 	render() {
 		return (
-			<div>
+			<Layout >
             <Helmett
                 title="BreatheCode"
                 description="Are you here to contribute? We have organized all our needs on 'github issues', browse the following list and pick anything to start contributing!"
                 url="https://breatheco.de/"
                 image="https://breathecode.herokuapp.com/static/assets/logo.png"
             />
-			<Navbar/>
 				<Jumbotron
 					jumbotronClass="jumbotron bg-white bold container "
 					jumbotronTitle={() => <h1 className="headerSizeResponsive display-4 text-center mb-sm-5">Welcome to BreatheCo<span className="text-primary">.</span>de</h1>}
@@ -136,8 +134,7 @@ class Home extends React.Component {
 						</Context.Consumer>
 					</div>
 				</div>
-				<Footer/>
-			</div>
+			</Layout>
 		);
 	}
 }

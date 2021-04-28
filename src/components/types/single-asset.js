@@ -2,10 +2,10 @@ import React from 'react';
 import { Icon } from "@breathecode/ui-components";
 import withLocation from "../withLocation";
 import { Context, Store } from "../../store/context.js";
-import Navbar from "../navbar.jsx";
 import {Link} from "gatsby"
 import "../../styles/index.css";
 import Helmett from "../helmet"
+import Layout from "../layout"
 
 
 class SingleAsset extends React.Component {
@@ -34,14 +34,13 @@ class SingleAsset extends React.Component {
 
         return (
 
-        <React.Fragment>
+        <Layout>
         <Helmett
             title={pageContext.title}
             description={pageContext.description}
             url={ `https://breatheco.de/asset/${pageContext.slug}`}
             image={pageContext.preview}
         />
-        <Navbar/>
             <div className="container" style={singleAsset}>
             {/*main row*/}
                  <div className="row">
@@ -132,7 +131,7 @@ class SingleAsset extends React.Component {
                     </div>
                  </div>
             </div>
-        </React.Fragment>
+        </Layout>
         )
     }
 }

@@ -2,8 +2,6 @@ import React from "react";
 import { SmallJumbotron } from "../smalljumbo.jsx";
 import { Filter, Loading, Icon } from "@breathecode/ui-components";
 import { Context, Store } from "../../store/context.js";
-import Navbar from "../navbar.jsx";
-import Footer from "../footer.jsx";
 import "@breathecode/ui-components/dist/main.css";
 import Layout from "../layout";
 import Helmett from "../helmet";
@@ -222,7 +220,6 @@ export class Lessons extends React.Component {
         
 		return (
             <Layout>
-                <Navbar/>
                 <Context.Consumer>
                     {({ store, actions }) => {
 
@@ -407,7 +404,6 @@ export class Lessons extends React.Component {
                         );
                     }}
                 </Context.Consumer>
-                <Footer/>
             </Layout>
 
 		);

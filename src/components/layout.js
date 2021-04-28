@@ -12,9 +12,11 @@ import { Link } from "gatsby"
 import "../styles/index.css";
 
 import Header from "./header"
+import Navbar from "./navbar"
+import Footer from "./footer"
 import "./layout.css"
 
-const Layout = ({ children }) => (
+const Layout = ({ className, children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -30,8 +32,11 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-
-          <main>{children}</main>
+        <Navbar/>
+          <main className={className} style={{marginTop: "102.65px"}}>
+              {children}
+          </main>
+        <Footer/>
 
       </>
     )}

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { MarkdownParser, Loading, Icon } from "@breathecode/ui-components";
-import Navbar from "../navbar.jsx";
 import { Context, Store } from "../../store/context.js";
 import ExerciseDetails from "../ExerciseDetails.js";
 import Helmett from "../helmet";
 import YouTube from 'react-youtube';
 import "../../styles/exercise.css";
+import Layout from "../layout"
 
 const Tags = ({ details }) => <p>
     {details["language"] && <span class="badge badge-secondary p-2 mr-1 mb-1">{details["language"]}</span>}
@@ -26,14 +26,13 @@ const SingleExercise = ({ pageContext }) => {
             })))
             .catch(err => console.error(err));
     },[]);
-    return (<div className="exercise">
+    return (<Layout className="exercise">
         <Helmett
             title={pageContext.title}
             description={pageContext.description}
             url={ `https://breatheco.de/asset/${pageContext.slug}`}
             image={ pageContext.preview || "https://ucarecdn.com/d9be5fe8-6319-4260-afef-0063fad2ae28/"}
         />
-        <Navbar/>
         <div className="container">
             <div className="row mt-5">
                 <div className="col-12">
@@ -82,7 +81,7 @@ const SingleExercise = ({ pageContext }) => {
                 </div>
             </div>
         </div>
-    </div>);
+    </Layout>);
 }
 
 export default Store(SingleExercise)

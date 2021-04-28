@@ -20,7 +20,7 @@ class Navbar extends React.Component {
         const fromIframe = (search.iframe === 'true');
 
 		return (
-				<nav className="navbar navbar-expand-lg navbar-light bg-light gradient">
+				<nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light gradient">
 					<Link to="/">
 						<img
 							className="navbar-brand mb-0"

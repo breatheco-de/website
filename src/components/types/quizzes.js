@@ -5,10 +5,9 @@ import { Context, Store } from "../../store/context.js";
 import moment from "moment";
 import "bootstrap/dist/css/bootstrap.css";
 import "@breathecode/ui-components/dist/main.css";
-import Navbar from "../navbar.jsx";
-import Footer from "../footer.jsx";
 import { Link } from "gatsby";
 import Helmett from "../helmet";
+import Layout from "../layout"
 import queryString  from 'query-string';
 import { Location, navigate } from '@reach/router';
 import withLocation from "../withLocation";
@@ -19,14 +18,13 @@ const Quizzes = (props) => {
 	const {pageContext} = props;
 	const list = (Array.isArray(pageContext.quizzess)) ? pageContext.quizzess : [];
 	return (
-		<div>
+		<Layout>
 			<Helmett
 				title="BreatheCode | Quizzes"
 				description="Recomended books, courses, videos and other assets to accelerate your learning."
 				url="https://breatheco.de/assets/"
 				image="https://ucarecdn.com/717ad4fe-f186-44aa-872a-dd04584e4da0/logobcode.png"
 			/>
-			<Navbar/>
 			<SmallJumbotron
 				jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
 				containerClass="pl-4  container"
@@ -56,8 +54,7 @@ const Quizzes = (props) => {
 			<div className="container">
 				{list && list.map((item)=> <div>{item.info.name}</div>)}
 			</div>
-			<Footer/>
-		</div>
+		</Layout>
 	);
 }
 
