@@ -4,6 +4,7 @@ import Navbar from "../navbar.jsx";
 import { Context, Store } from "../../store/context.js";
 import ExerciseDetails from "../ExerciseDetails.js";
 import Helmett from "../helmet";
+import atob from "atob";
 import YouTube from 'react-youtube';
 import "../../styles/exercise.css";
 
