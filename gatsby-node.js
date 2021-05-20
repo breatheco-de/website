@@ -4,6 +4,7 @@ const fetch = require('node-fetch');
 const fs = require('fs');
 const log = require('simple-node-logger').createSimpleLogger('project.log');
 const HOST = "https://assets.breatheco.de/apis";
+const NEW_HOST = "https://breathecode.herokuapp.com/v1";
 // const HOST = "https://8080-f0d8e861-4b22-40c7-8de2-e2406c72dbc6.ws-us02.gitpod.io/apis";
 
 exports.createPages = async (params) =>
@@ -58,9 +59,8 @@ const createAssets = async ({ actions, graphql }) => {
 const createExercises = async ({ actions, graphql }) => {
   const { createPage } = actions;
     
-  const dirPath = path.join(__dirname, '/src/content');
-  const content = fs.readFileSync(dirPath+"/assets.json");
-  const exercises = JSON.parse(content);
+  const resourcesResp = await fetch(NEW_HOST+"/registry/asset?type=exercise&big=true", { headers: {"Cache-Control": "no-store"}})
+  const exercises = await resourcesResp.json();
   
   createPage({
       path: `/interactive-exercises`,
@@ -68,11 +68,11 @@ const createExercises = async ({ actions, graphql }) => {
       context: { exercises },
     });
     
-    Object.keys(exercises).forEach(slug => {
-        console.log("exercises", slug, exercises[slug]);
-      const _path = `/interactive-exercise/${slug}`;
+    exercises.forEach(ex => {
+        console.log("exercises", ex.slug, ex);
+      const _path = `/interactive-exercise/${ex.slug}`;
       createPage({
-          path: _path, context: exercises[slug],
+          path: _path, context: ex,
           component: path.resolve("./src/components/types/single-exercise.js")
       })
   });
@@ -83,8 +83,8 @@ const createExercises = async ({ actions, graphql }) => {
 const createQuizzes = async ({ actions, graphql }) => {
   const { createPage } = actions;
     
-  const quizzesResp = await fetch(HOST+'/quiz/all');
-  const quizzes = await quizzesResp.json();
+  const resourcesResp = await fetch(NEW_HOST+"/registry/asset?type=quiz&big=true", { headers: {"Cache-Control": "no-store"}})
+  const quizzes = await resourcesResp.json();
 
   createPage({
       path: `/quizzes`,

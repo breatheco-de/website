@@ -3,6 +3,7 @@ import { MarkdownParser, Loading, Icon } from "@breathecode/ui-components";
 import { Context, Store } from "../../store/context.js";
 import ExerciseDetails from "../ExerciseDetails.js";
 import Helmett from "../helmet";
+import atob from "atob";
 import YouTube from 'react-youtube';
 import "../../styles/exercise.css";
 import Layout from "../layout";
@@ -17,15 +18,8 @@ const Tags = ({ details }) => <p>
 </p>;
 
 const SingleExercise = ({ pageContext }) => {
-    const [ content, setContent ] = useState(null);
-    useEffect(() => {
-        fetch(pageContext.readme)
-            .then(res => res.text())
-            .then(markdown => setContent(markdown.replace(/(\[\!\[.+\]\(.+open-in-gitpod\.svg.+\.git\))/g, (whole, a, b) => {
-                return "";
-            })))
-            .catch(err => console.error(err));
-    },[]);
+    const content = pageContext.readme && typeof(pageContext.readme) === "string" ? atob(pageContext.readme) : null;
+
     return (<div className="exercise">
         <Helmett
             title={pageContext.title}
