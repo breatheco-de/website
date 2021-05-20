@@ -67,11 +67,7 @@ import Layout from "../layout";
 	render() {
         const {pageContext} = this.props;
         const assetsData = (Array.isArray(pageContext.assets)) ? pageContext.assets : [];
-		return (
-			<div>
-				<Layout>
-
-
+		return (<Layout>
 					<Helmett
 						title="BreatheCode | Assets"
 						description="Recomended books, courses, videos and other assets to accelerate your learning."
@@ -216,7 +212,6 @@ import Layout from "../layout";
 						}}
 					</Context.Consumer>
 				</Layout>
-			</div>
 		);
 	}
 }
