@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { MarkdownParser, Loading } from "@breathecode/ui-components";
-import Navbar from "../components/navbar.jsx";
-import Footer from "../components/footer.jsx";
 import Helmett from "../components/helmet";
+import Layout from "../components/layout";
 
 const AboutUs = () => {
 	const [ content, setContent ] = useState(null);
@@ -21,7 +20,7 @@ const AboutUs = () => {
 				url="https://breatheco.de/aboutus"
 				image="https://ucarecdn.com/717ad4fe-f186-44aa-872a-dd04584e4da0/logobcode.png"
 			/>
-		<Navbar/>
+			<Layout>
 			<p align="center">
 				<img alt="breathecode logo" src="https://assets.breatheco.de/apis/img/images.php?blob&random&cat=icon&tags=breathecode,128" />
 			</p>
@@ -32,7 +31,7 @@ const AboutUs = () => {
 			<div className="px-5 container">
 				<MarkdownParser source={content == null ? <Loading/> : content} />
 			</div>
-			<Footer/>
+			</Layout>
 		</div>
 	);
 }

@@ -16,7 +16,7 @@ import Navbar from "../components/navbar";
 import Footer from "../components/footer"
 
 
-const Layout = ({ children }) => (
+const Layout = ({ className, children }) => (
   <StaticQuery
     query={graphql`
       query ProjectSiteTitleQuery {
@@ -33,7 +33,9 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         <Navbar/>
-          <main>{children}</main>
+          <main className={className} style={{marginTop: "102.65px"}}>
+            {children}
+          </main>
         <Footer/>
       </>
     )}
