@@ -13,7 +13,7 @@ import Helmett from "../components/helmet";
 
 class Home extends React.Component {
 	render() {
-		return (
+		return ( 
 			<div>
             <Helmett
                 title="BreatheCode"
