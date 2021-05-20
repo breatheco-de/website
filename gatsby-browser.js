@@ -6,3 +6,7 @@
 
 // You can delete this file if you're not using it
 
+
+// Files for Projects sub domain
+import "./src/styles/home.css";
+import "bootstrap/dist/css/bootstrap.css";

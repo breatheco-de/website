@@ -20,11 +20,11 @@ class Navbar extends React.Component {
         const fromIframe = (search.iframe === 'true');
 
 		return (
-				<nav className="navbar navbar-expand-lg navbar-light bg-light gradient">
+				<nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light gradient">
 					<Link to="/">
 						<img
 							className="navbar-brand mb-0"
-							src="https://ucarecdn.com/dbe55247-376b-4b81-988e-7dd95f4233b5/-/resize/45x/"
+							src={imageURL}
 						/>
 					</Link>
 					<button
@@ -78,7 +78,7 @@ class Navbar extends React.Component {
 							<li className="nav-item mt-3">
 								<a href="https://4geeksacademy.com/" className="nav-link">
 									<p className={`nav-link ${this.state.change && "border-bottom"}`} >
-										Cooding Bootcamp
+										Coding Bootcamp
 										<span className="position-relative d-none d-lg-inline" style={{color: '#007bff', top: "20px", left: "-66px", fontSize: "14px", fontStyle: "italic"}}
 										>sponsored</span>
 									</p>
