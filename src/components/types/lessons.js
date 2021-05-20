@@ -8,7 +8,6 @@ import Helmett from "../helmet";
 import { navigate } from '@reach/router';
 import emoji from 'node-emoji';
 import qs from "query-string";
-import { useLocalStorage } from "../../utils/useLocalStorage.js";
 
 
 
