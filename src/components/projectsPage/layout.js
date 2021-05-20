@@ -9,7 +9,7 @@
  import PropTypes from "prop-types"
  import { StaticQuery, graphql } from "gatsby"
  import Helmet from "react-helmet";
- import Header from "../header"
+//  import Header from "../header"
  import "../layout.css"
  import Navbar from "../navbar";
  import Footer from "../footer";
@@ -50,7 +50,11 @@
              <meta name="twitter:card" content="summary_large_image" />
              <meta name="twitter:site" content="@alesanchezr" />
          </Helmet>
-         <Header />
+         {/*
+         I think it is not necessary to have 
+         it when it does not return anything
+         
+         <Header /> */}
          <Navbar/>
          <div>
            <main className={className} style={{marginTop: "102.65px"}}>{children}</main>

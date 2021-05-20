@@ -8,9 +8,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import "../styles/index.css";
-import Header from "./header"
+// import Header from "./header"
 import "./layout.css"
 import Navbar from "../components/navbar";
 import Footer from "../components/footer"

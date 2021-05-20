@@ -44,7 +44,7 @@ const Projects = ({ pageContext }) => {
                         pContent="Practice and develop your coding skills by building real live interactive autograded projects with solutions and video tutorials"
                         pClass="lead text-left"
                     />
-                    <div className="row sticky-top bg-white border-top border-bottom">
+                    <div className="sticky-top bg-white border-top border-bottom">
                         <div className="container">
                             <div className="row">
                                 <div className="col d-flex justify-content-start pl-1  py-1">
