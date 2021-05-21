@@ -19,7 +19,7 @@ export class Footer extends Component {
 								{` `}
 								in collaboration with
 								{` `}
-								<a href="https://4geeksacademy.com/">4geeks Academy</a>
+								<a href="https://4geeksacademy.com/">4Geeks Academy</a>
 
 							</div>
 						</div>

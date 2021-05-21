@@ -24,23 +24,22 @@ const Exercises = ({ pageContext }) => {
                 concepts and have been published by breathe code
                 members, search for a partiulars lesson using the
                 filters bellow"
-                spanClass="h3 text-secondary"
-                spanContent="md"
-            />
-            <div className="container">
-                <div className="card-columns">
-                    {Object.keys(exercises).map(slug => {
-                        const e = exercises[slug];
-                        return <Link className="card pointer" to={`/interactive-exercise/${slug}`}>
-                            {e.preview && <img src={e.preview} className="card-image mb-0" alt={`Preview for ${e.title}`} />}
-                            <div className="card-body">
-                                <h5 className="card-title">{e.title}</h5>
-                                <p className="card-text text-dark">{e.description}</p>
-                            </div>
-                        </Link>;
-                    })}
-                </div>
+            spanClass="h3 text-secondary"
+            spanContent="md"
+        />
+        <div className="container">
+            <div className="card-columns">
+            { exercises.map(ex => {
+                return <Link className="card pointer" to={`/interactive-exercise/${ex.slug}`}>
+                    { ex.preview && <img src={ex.preview} className="card-image mb-0" alt={`Preview for ${ex.title}`} />}
+                    <div className="card-body">
+                        <h5 className="card-title">{ex.title}</h5>
+                        <p className="card-text text-dark">{ex.description}</p>
+                    </div>
+                </Link>;
+            })}
             </div>
+        </div>
         </Layout>
     </div>
 }
