@@ -50,7 +50,6 @@ export const Store = Component => {
             .catch(err => Notify.error(err.message || "There was a problem"));
         })
 
-        // TODO: is the same but in diferent words
         return <Context.Provider value={state}>
             <Component {...props} />
         </Context.Provider>

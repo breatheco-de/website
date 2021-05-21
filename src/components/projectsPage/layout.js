@@ -14,7 +14,7 @@
  import Navbar from "../navbar";
  import Footer from "../footer";
  
- const Layout = ({ className, children, meta }) => (
+ const Layout = ({ disableNavbar, className, children, meta }) => (
    <StaticQuery
      query={graphql`
        query SiteTitleQuery {
@@ -50,28 +50,12 @@
              <meta name="twitter:card" content="summary_large_image" />
              <meta name="twitter:site" content="@alesanchezr" />
          </Helmet>
-         {/*
-         I think it is not necessary to have 
-         it when it does not return anything
-         
-         <Header /> */}
-         <Navbar/>
-         <div>
-           <main className={className} style={{marginTop: "102.65px"}}>{children}</main>
-         </div>
+
+         {disableNavbar ? null : <Navbar/>}
+          <main className={className} style={{marginTop: "125px"}}>
+            {children}
+          </main>
          <Footer />
-          {/* <footer className="gradientFooter mt-5 p-5 text-center">
-             <div className="col-12">
-               © {new Date().getFullYear()}, Built By
-               {` `}
-               <a href="https://www.breatheco.de">BreatheCode</a>
-               {` `}
-               in collaboration with
-               {` `}
-               <a href="https://4geeksacademy.com/">4Geeks Academy</a>
- 
-             </div>
-           </footer> */}
        </>
      )}
    />

@@ -3,6 +3,7 @@ import { Icon } from "@breathecode/ui-components";
 import { Link } from "gatsby";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 export const ProjectCard = ({ project, mode,  defaultPreview, target }) => {
+
     const previewUrl = typeof(project.preview) !== "undefined" ? 
         project.preview.indexOf('http') > -1 ? project.preview : "https://projects.breatheco.de/"+project.preview
         :

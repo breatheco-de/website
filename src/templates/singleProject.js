@@ -22,10 +22,8 @@ class Single extends React.Component{
         const { pageContext } = this.props;
 
         _lang = _lang || this.state.lang || this.props.search.lang || "us";
-        const readmeURL = pageContext.readme.indexOf("../") === 0 ?
-        "https://projects.breatheco.de/json/?slug="+pageContext.slug+"&lang="+_lang+"&readme&size=big"
-        :
-        pageContext["readme"+(["us","en"].includes(_lang) ? "" : "-"+_lang)];
+        // TODO: SOLO falta añadir funcionalidad de cambiar idioma, probablemente deba usar estados o localStorage
+        const readmeURL = `${pageContext.readme_url.substr(0, pageContext.readme_url.lastIndexOf('.'))}${_lang === "es" ? ".es.md" : ".md"}`
 
         fetch(readmeURL)
             .then(resp => resp.text())
@@ -37,8 +35,6 @@ class Single extends React.Component{
     }
 
     componentDidMount(){
-        const { pageContext } = this.props;
-        console.log("Context: ", pageContext);
 
         if(typeof(markdown) !== 'string'){
             this.getReadme();
@@ -64,7 +60,7 @@ class Single extends React.Component{
                         height="60vh"
                     />
                 }
-                <Layout meta={pageContext}>
+                <Layout disableNavbar meta={pageContext}>
                     <div className="container fontFamily single-project">
                         <div className="row">
                             <article className="col-12 col-md-6 col-lg-6 col-xl-7 order-2 order-md-1">
@@ -74,8 +70,8 @@ class Single extends React.Component{
                             { !fromIframe &&
                                 <div className="row p-1 sticky-top mt-2">
                                     <div className="col text-right">
-                                        <Link  className="btn btn-outline-secondary btn-lg d-none d-lg-block " to="/">
-                                                Browse all projects
+                                        <Link  className="btn btn-outline-secondary btn-lg d-none d-lg-block " to="/projects">
+                                            Browse all projects
                                         </Link>
                                     </div>
                                 </div>

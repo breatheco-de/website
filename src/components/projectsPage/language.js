@@ -12,19 +12,12 @@ Icon.defaultProps = {
   className: '',
 };
 
-// const isBrowser = typeof window !== "undefined"
 
-// TODO: Add property ?plain=true 
 const LanguageSwitcher = ({ current, translations, onClick }) => {
     return (<div className="language-switcher">
         <ul>
         {
             translations.filter(lang => lang !== current).map( lang => {
-                // let plain = () => {
-                //     if(isBrowser){
-                //         return window.localStorage.getItem("plain")
-                //     }
-                // }
                 return (<li><span onClick={() => onClick(lang)}><Icon lang={lang === "en" ? "us" : lang} /></span></li>);
             })
         }

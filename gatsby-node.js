@@ -109,7 +109,8 @@ const createProjects = async ({ actions, graphql }) => {
   const { createPage } = actions;
   let projects = []; //filtered projects after removing repeated
   let _projects = []; //incoming projects
-  const resp = await fetch(`https://assets.breatheco.de/apis/project/registry/all`);
+  const resp = await fetch(`https://breathecode.herokuapp.com/v1/registry/asset?type=project`);
+  // const resp = await fetch(`https://assets.breatheco.de/apis/project/registry/all`);
   if (resp.status >= 200 && resp.status < 400) {
     _projects = Object.values(await resp.json());
     console.log("Original projects: " + _projects)
@@ -136,6 +137,7 @@ const createProjects = async ({ actions, graphql }) => {
       difficulties.push(_projects[i].difficulty)
     }
   }
+
   technologyTags = [...new Set(technologyTags)];
   difficulties = [...new Set(difficulties)];
 
@@ -147,7 +149,8 @@ const createProjects = async ({ actions, graphql }) => {
     context: {
       technologyTags,
       difficulties,
-      projects: projects.filter(p => !p.visibility || p.visibility === "public")
+      projects: projects.filter(p => !p.visibility || p.visibility === "PUBLIC")
+      // changed public to PUBLIC
     },
   })
 
