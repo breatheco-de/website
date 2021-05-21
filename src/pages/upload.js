@@ -24,7 +24,6 @@ const projectURL = (url) => {
         slug: m[2]
     });
 }
-console.log("Assets url: ",process.env.ASSETS_URL);
 const uploadProject = async (location, project) => {
     const params = new URLSearchParams(location.search);
     const token = params.get('assets_token');

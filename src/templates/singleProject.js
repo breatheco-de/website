@@ -22,7 +22,6 @@ class Single extends React.Component{
         const { pageContext } = this.props;
 
         _lang = _lang || this.state.lang || this.props.search.lang || "us";
-        // TODO: SOLO falta añadir funcionalidad de cambiar idioma, probablemente deba usar estados o localStorage
         const readmeURL = `${pageContext.readme_url.substr(0, pageContext.readme_url.lastIndexOf('.'))}${_lang === "es" ? ".es.md" : ".md"}`
 
         fetch(readmeURL)
@@ -40,11 +39,15 @@ class Single extends React.Component{
             this.getReadme();
         }
     }
-
+    
     render(){
+        console.log("VIDEO_URL MUST null::", this.props.pageContext.solution_video_url === null)
+
         const { pageContext, search } = this.props;
 
         const fromIframe = (search.iframe === 'true');
+
+        console.log("PAGECONTEXT::::::", pageContext)
         return(
             <React.Fragment>
             <LanguageSwitcher 
@@ -88,12 +91,12 @@ class Single extends React.Component{
                                                     <div className="col-7 d-flex justify-content-end">{pageContext.difficulty}</div>
                                                 </div>
                                                 <div className="row border-bottom p-1 m-0 no-gutters small">
-                                                    <div className="col-6 "><span className="colorRed"><Icon type="github"/></span><span className="ml-1">Repository:</span></div>
-                                                    <div className="col-6 d-flex justify-content-end ">{pageContext["repository"]? <a target="_blank" href={pageContext["repository"]} rel="noopener noreferrer">Click to open</a>:"Not available"}</div>
+                                                    <div className="col-6 "><span ><Icon type="github"/></span><span className="ml-1">Repository:</span></div>
+                                                    <div className="col-6 d-flex justify-content-end ">{pageContext["url"]? <a target="_blank" href={pageContext["url"]} rel="noopener noreferrer">Click to open</a>:"Not available"}</div>
                                                 </div>
                                                 <div className="row border-bottom p-1 m-0 no-gutters small">
                                                     <div className="col-6 "><span className="colorRed"><Icon type="youtube" className="text-danger"/></span><span className="ml-1">Video available:</span></div>
-                                                    <div className="col-6 d-flex justify-content-end ">{pageContext["video-id"]?"Available":"Not available"}</div>
+                                                    <div className="col-6 d-flex justify-content-end ">{pageContext["solution_video_url"]?"Available":"Not available"}</div>
                                                 </div>
                                                 <div className="row border-bottom p-1 m-0 no-gutters small">
                                                     <div className="col-7 "><span ><Icon type="play" className="text-danger font-size" /></span><span className="ml-2">Live demo available:</span></div>
@@ -105,7 +108,11 @@ class Single extends React.Component{
                                                 </div>
                                                 <div className="row border-bottom p-1 m-0 no-gutters small">
                                                     <div className="col-5"><span><Icon type="code" /></span><span className="ml-1">Technologies:</span></div>
-                                                    <div className="col-7 d-flex justify-content-end ">{pageContext.technology}</div>
+                                                    
+                                                    <div className="pl-3 pt-2 pb-2 col-12 row d-flex ">{pageContext.technologies.map((technology) => {
+                                                        return <p className="font-weight-bold p-0 mt-0 mb-1 col-4">{`${technology}`}</p>
+                                                    } )}</div>
+                                                    {/* <div className="col-7 d-flex justify-content-end ">{pageContext.technology}</div> */}
                                                 </div>
                                                 <div className="row p-1 m-0 no-gutters small">
                                                     <div className="col-5"><span role="img" aria-label="Earth">🌎</span><span className="ml-1">Translations:</span></div>
@@ -140,26 +147,28 @@ class Single extends React.Component{
                                                             </a>
                                                         </div>
                                                     }
-                                                    {pageContext["video-id"] &&
+                                        {/* TODO: SHOWVIDEO deberia ser un <anchor href="" class/> */}
+                                                    {pageContext["solution_video_url"] &&
                                                         <div className="col">
                                                             <button
-                                                                onClick={() => {
-                                                                    if (pageContext["video-id"].match(/http(s?):\/\/.+/)){
-                                                                        window.open(pageContext["video-id"]);
-                                                                    }
-                                                                    else{
-                                                                        this.setState({ showVideo: true });
-                                                                    }
-                                                                }}
+                                                                onClick={() => window.open(pageContext["solution_video_url"])}
+                                                                // onClick={() => {
+                                                                //     if (pageContext["solution_video_url"].match(/http(s?):\/\/.+/)){
+                                                                //         window.open(pageContext["solution_video_url"]);
+                                                                //     }
+                                                                //     else{
+                                                                //         this.setState({ showVideo: true });
+                                                                //     }
+                                                                // }}
                                                                 className="btn btn-outline-success btn-md px-4 w-100 ">
                                                                 Watch Video Tutorial
                                                             </button>
                                                         </div>
                                                     }
-                                                    {pageContext["repository"] &&
+                                                    {pageContext["url"] &&
                                                         <div className="col">
                                                             <button
-                                                                onClick={() => window.open(pageContext["repository"])}
+                                                                onClick={() => window.open(pageContext["url"])}
                                                                 className="btn btn-light btn-md px-4 w-100 ">
                                                                 <Icon type="github"/> Contribute
                                                             </button>

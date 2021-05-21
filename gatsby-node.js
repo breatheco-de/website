@@ -170,7 +170,7 @@ const createProjects = async ({ actions, graphql }) => {
     else {
       p.canonicalPath = `/project/${p.slug}`;
     }
-    p.url = `https://projects.breatheco.de${p.canonicalPath}`;
+    p.url = `${p.url}`;
 
     if (!Array.isArray(p.translations)) p.translations = ["us"];
     else p.translations = p.translations.filter(t => !["us", "en"].includes(t)).concat(["us"]);
