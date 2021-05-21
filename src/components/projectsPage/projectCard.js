@@ -43,7 +43,6 @@ const Card = ({ project, preview }) => {
 
 const Row = ({ project, preview, defaultPreview, target }) => {
     const p = project;
-    console.log("defaultPreview", defaultPreview);
     return <div className="row text-center text-md-left mt-2  p-3 paddingLeftZero">
         { preview ? <div className="col-12 col-md-2 d-flex justify-content-center align-items-center">
             <LazyLoadImage

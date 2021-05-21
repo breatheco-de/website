@@ -43,7 +43,6 @@ class Single extends React.Component{
 
     render(){
         const { pageContext, search } = this.props;
-        console.log(pageContext.translations)
 
         const fromIframe = (search.iframe === 'true');
         return(
