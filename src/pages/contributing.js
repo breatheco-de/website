@@ -35,7 +35,6 @@ const Contributing = () => {
 				image="https://ucarecdn.com/717ad4fe-f186-44aa-872a-dd04584e4da0/logobcode.png"
 			/>
 			<Layout>
-				<Navbar/>
 				<div>
 						<Helmett
 						title="BreatheCode|Contributing"
@@ -119,7 +118,6 @@ const Contributing = () => {
 						</div>
 					</div>
 				</div>
-				<Footer/>
 			</Layout>
 		</div>
 	);

@@ -8,16 +8,18 @@ import "bootstrap/dist/css/bootstrap.css";
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import "../styles/index.css";
-
-import Header from "./header"
+// import Header from "./header"
 import "./layout.css"
+import Navbar from "../components/navbar";
+import Footer from "../components/footer"
 
-const Layout = ({ children }) => (
+
+const Layout = ({ className, children }) => (
   <StaticQuery
     query={graphql`
-      query SiteTitleQuery {
+      query ProjectSiteTitleQuery {
         site {
           siteMetadata {
             title
@@ -30,9 +32,11 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-
-          <main>{children}</main>
-
+        <Navbar/>
+          <main className={className} style={{marginTop: "102.65px"}}>
+            {children}
+          </main>
+        <Footer/>
       </>
     )}
   />

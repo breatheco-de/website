@@ -2,15 +2,12 @@ import React from "react";
 import { SmallJumbotron } from "../smalljumbo.jsx";
 import { Filter, Loading, Icon } from "@breathecode/ui-components";
 import { Context, Store } from "../../store/context.js";
-import Navbar from "../navbar.jsx";
-import Footer from "../footer.jsx";
 import "@breathecode/ui-components/dist/main.css";
 import Layout from "../layout";
 import Helmett from "../helmet";
 import { navigate } from '@reach/router';
 import emoji from 'node-emoji';
 import qs from "query-string";
-import { useLocalStorage } from "../../utils/useLocalStorage.js";
 
 
 
@@ -215,20 +212,19 @@ export class Lessons extends React.Component {
     });
 
 
-	render() {
+    render() {
 
-        const {location, pageContext } =this.props;
+        const { location, pageContext } = this.props;
         const lessonData = (Array.isArray(pageContext.lessons)) ? pageContext.lessons : [];
-        
-		return (
+
+        return (
             <Layout>
-                <Navbar/>
                 <Context.Consumer>
                     {({ store, actions }) => {
 
                         return (
 
-                            <div className={`${this.state.displayLesson&&"d-none"}`}>
+                            <div className={`${this.state.displayLesson && "d-none"}`}>
                                 <Helmett
                                     title="BreatheCode | Lessons"
                                     description="the following lessons explain different programing concepts and have been published by BreatheCode members, use the filters bellow to narrow your search:"
@@ -257,28 +253,28 @@ export class Lessons extends React.Component {
                                                         label="Tags"
                                                         placeholder="Filter by topic"
                                                         className="minWidth topicFilterPostion"
-                                                        onChange={d =>  {
+                                                        onChange={d => {
                                                             this.setState({
                                                                 selectedTags: d
                                                             });
 
-                                                            if(d)navigate("/lessons" + this.updateQueryStringParameter(location.search,"topics",d.map(o => o.value).join(',')) );
+                                                            if (d) navigate("/lessons" + this.updateQueryStringParameter(location.search, "topics", d.map(o => o.value).join(',')));
                                                         }}
-                                                            options={(() => {
-                                                                if(Array.isArray(lessonData)){
-                                                                    const lessonsTags = lessonData.map(l => l.tags);
-                                                                    const tags = [].concat.apply([], lessonsTags)
-                                                                    return actions.filterRepeated(tags.map(tag => this.emojify(tag))).map((tag, index) => {
-                                                                        return {
-                                                                            label: tag,
-                                                                            value: tag
-                                                                        };
-                                                                    });
-                                                                }
-                                                                else{
-                                                                    return <Loading/>;
-                                                                }
-                                                            })()}
+                                                        options={(() => {
+                                                            if (Array.isArray(lessonData)) {
+                                                                const lessonsTags = lessonData.map(l => l.tags);
+                                                                const tags = [].concat.apply([], lessonsTags)
+                                                                return actions.filterRepeated(tags.map(tag => this.emojify(tag))).map((tag, index) => {
+                                                                    return {
+                                                                        label: tag,
+                                                                        value: tag
+                                                                    };
+                                                                });
+                                                            }
+                                                            else {
+                                                                return <Loading />;
+                                                            }
+                                                        })()}
                                                     />
                                                 </div>
                                                 <div className="px-1 py-2">
@@ -288,35 +284,35 @@ export class Lessons extends React.Component {
                                                         defaultValue={this.state.defaultLanguages}
                                                         className="minWidth languageFilterPosition"
                                                         optionComponent={({ selected, onSelect, onDeselect, data }) =>
-                                                        <li className={(selected) ? "selected" : ""} onClick={() => selected ? onDeselect(data) : onSelect(data)}>
-                                                            { (data.value === "es") ?
-                                                                <span>ES <img className="mb-1" style={flag} src="https://ucarecdn.com/6f04f93e-1971-4e14-b730-94fad8254693/-/resize/18x/"/></span>
-                                                                :
-                                                                <span>EN <img className="mb-1" style={flag} src="https://ucarecdn.com/ec2f5da2-1e3d-4a0c-886c-255417a1c529/-/resize/18x/"/></span>
-                                                            }
-                                                            { selected && <Icon type="times" />}
-                                                        </li>}
+                                                            <li className={(selected) ? "selected" : ""} onClick={() => selected ? onDeselect(data) : onSelect(data)}>
+                                                                {(data.value === "es") ?
+                                                                    <span>ES <img className="mb-1" style={flag} src="https://ucarecdn.com/6f04f93e-1971-4e14-b730-94fad8254693/-/resize/18x/" /></span>
+                                                                    :
+                                                                    <span>EN <img className="mb-1" style={flag} src="https://ucarecdn.com/ec2f5da2-1e3d-4a0c-886c-255417a1c529/-/resize/18x/" /></span>
+                                                                }
+                                                                {selected && <Icon type="times" />}
+                                                            </li>}
                                                         multiselect={false}
-                                                        onChange={d =>  {
+                                                        onChange={d => {
                                                             this.setState({
                                                                 selectedLanguages: d,
                                                                 defaultLanguages: ""
                                                             });
 
-                                                            if(d)navigate("/lessons" + this.updateQueryStringParameter(location.search,"lang",d.value));
+                                                            if (d) navigate("/lessons" + this.updateQueryStringParameter(location.search, "lang", d.value));
 
                                                         }}
-                                                        options={pageContext ? actions.filterRepeated(lessonData.map(l=>l.lang)).map((lan, index) => {
+                                                        options={pageContext ? actions.filterRepeated(lessonData.map(l => l.lang)).map((lan, index) => {
                                                             return {
-                                                                label:  lan,
+                                                                label: lan,
                                                                 value: lan
                                                             };
                                                         })
-                                                        :
-                                                        [{
-                                                            label: <Loading/>,
-                                                            value: null
-                                                        }]}
+                                                            :
+                                                            [{
+                                                                label: <Loading />,
+                                                                value: null
+                                                            }]}
 
                                                     />
                                                 </div>
@@ -326,11 +322,11 @@ export class Lessons extends React.Component {
                                                         placeholder="Filter by author"
                                                         className="authorFilterPosition"
                                                         onChange=
-                                                        {d =>  {
+                                                        {d => {
                                                             this.setState({
                                                                 selectedAuthors: d
                                                             });
-                                                            if(d)navigate("/lessons" + this.updateQueryStringParameter(location.search,"authors",d.map(o => o.value).join(',')) );
+                                                            if (d) navigate("/lessons" + this.updateQueryStringParameter(location.search, "authors", d.map(o => o.value).join(',')));
                                                         }}
                                                         options={pageContext.authors.map(author => {
                                                             return {
@@ -366,10 +362,10 @@ export class Lessons extends React.Component {
                                                                 href={this.replaceDraft(actions.lessonUrl(lesson))}>
                                                                 {lesson.title}
                                                             </a>
-                                                            <div className={`row ${!lesson.authors&&"mb-2"}`}>
-                                                                {lesson.authors&&<div className="col py-2 text-dark">
+                                                            <div className={`row ${!lesson.authors && "mb-2"}`}>
+                                                                {lesson.authors && <div className="col py-2 text-dark">
                                                                     {lesson.authors && "Contributors: "}
-                                                                    {lesson.authors && lesson.authors.map((a,k) => (<a
+                                                                    {lesson.authors && lesson.authors.map((a, k) => (<a
                                                                         href={`https://github.com/${a}`}
                                                                         target="_blank"
                                                                         key={k}
@@ -380,21 +376,21 @@ export class Lessons extends React.Component {
                                                             <div className="row ">
                                                                 <div className="col pl-1">
                                                                     <div
-                                                                            key={index}
-                                                                            className="author badge badge-pill badge-light mr-2 text-uppercase">
-                                                                            {lesson.lang} {lesson.lang==="es"?<span><img className="mb-1" style={flag} src="https://ucarecdn.com/6f04f93e-1971-4e14-b730-94fad8254693/-/resize/18x/"/></span>:<span><img className="mb-1" style={flag} src="https://ucarecdn.com/ec2f5da2-1e3d-4a0c-886c-255417a1c529/-/resize/18x/"/></span>}
+                                                                        key={index}
+                                                                        className="author badge badge-pill badge-light mr-2 text-uppercase">
+                                                                        {lesson.lang} {lesson.lang === "es" ? <span><img className="mb-1" style={flag} src="https://ucarecdn.com/6f04f93e-1971-4e14-b730-94fad8254693/-/resize/18x/" /></span> : <span><img className="mb-1" style={flag} src="https://ucarecdn.com/ec2f5da2-1e3d-4a0c-886c-255417a1c529/-/resize/18x/" /></span>}
                                                                     </div>
-                                                                {lesson.tags?lesson.tags.map((tag, index) => {
-                                                                    return (
-                                                                        <div
-                                                                            key={index}
-                                                                            className="author badge badge-pill badge-light mr-2">
-                                                                            {tag}
-                                                                        </div>
-                                                                    );
-                                                                }):""}
+                                                                    {lesson.tags ? lesson.tags.map((tag, index) => {
+                                                                        return (
+                                                                            <div
+                                                                                key={index}
+                                                                                className="author badge badge-pill badge-light mr-2">
+                                                                                {tag}
+                                                                            </div>
+                                                                        );
+                                                                    }) : ""}
                                                                 </div>
-                                                                <a href={this.replaceDraft(actions.lessonUrl(lesson))}  className="btn btn-outline-primary ml-auto mr-3">Read lesson</a>
+                                                                <a href={this.replaceDraft(actions.lessonUrl(lesson))} className="btn btn-outline-primary ml-auto mr-3">Read lesson</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -407,9 +403,7 @@ export class Lessons extends React.Component {
                         );
                     }}
                 </Context.Consumer>
-                <Footer/>
             </Layout>
-
 		);
 	}
 }

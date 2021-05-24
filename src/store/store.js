@@ -5,9 +5,9 @@ const HOST = 'https://assets.breatheco.de/apis';
 const getState = ({ getStore, setStore, getActions }) => {
 	return {
 		store: {
-            assets:null,
-		    allIssues:null,
-		    issueLabels:null,
+			assets:null,
+			allIssues:null,
+			issueLabels:null,
 			authors: [],
 			tags: [],
 			lessons: null,
@@ -29,7 +29,23 @@ const getState = ({ getStore, setStore, getActions }) => {
 				utm_medium: null,
 				referral_code: null,
 				active: false,
-			}
+			},
+			// Projects Page
+			technologiesTags:null,
+			project: null,
+			show: false,
+			demo: [
+				{
+					title: "FIRST",
+					background: "white",
+					initial: "white"
+				},
+				{
+					title: "SECOND",
+					background: "white",
+					initial: "white"
+				}
+			]
 		},
 		actions: {
 			getStore: () => getStore(),
@@ -192,6 +208,21 @@ const getState = ({ getStore, setStore, getActions }) => {
 				}else{
 					throw Error('Unexpected error');
 				}
+			},
+			// Projects page
+			changeColor: (index, color) => {
+				//get the store
+				const store = getStore();
+
+				//we have to loop the entire demo array to look for the respective index
+				//and change its color
+				const demo = store.demo.map((elm, i) => {
+					if (i === index) elm.background = color;
+					return elm;
+				});
+
+				//reset the global store
+				setStore({ demo: demo });
 			}
 		}
 	};
