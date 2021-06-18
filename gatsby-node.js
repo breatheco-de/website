@@ -113,7 +113,7 @@ const createProjects = async ({ actions, graphql }) => {
   // const resp = await fetch(`https://assets.breatheco.de/apis/project/registry/all`);
   if (resp.status >= 200 && resp.status < 400) {
     _projects = Object.values(await resp.json());
-    console.log("Original projects: " + _projects)
+    //console.log("Original projects: " + _projects)
   }
   else {
     console.error(`Error fetching projects with ${resp.status}`)
@@ -155,7 +155,7 @@ const createProjects = async ({ actions, graphql }) => {
   })
 
   projects.forEach(p => {
-    console.log("Creating page for project " + p.title)
+
     if (typeof (p.title) === "string" && p.title !== "")
       p.title = "Coding Tutorial - " + p.title;
 
@@ -176,7 +176,7 @@ const createProjects = async ({ actions, graphql }) => {
     else p.translations = p.translations.filter(t => !["us", "en"].includes(t)).concat(["us"]);
 
 
-    console.log("Create page for project: " + p.canonicalPath);
+    if(p.canonicalPath.includes("jest")) console.log("Create page for project: " + p.canonicalPath);
     createPage({
       path: p.canonicalPath,
       component: path.resolve("./src/templates/singleProject.js"),
