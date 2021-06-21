@@ -18,7 +18,7 @@ const LanguageSwitcher = ({ current, translations, onClick }) => {
         <ul>
         {
             translations.filter(lang => lang !== current).map( lang => {
-                return (<li><span onClick={() => onClick(lang)}><Icon lang={lang === "en" ? "us" : lang} /></span></li>);
+                return (<li key={lang}><span onClick={() => onClick(lang)}><Icon lang={lang === "en" ? "us" : lang} /></span></li>);
             })
         }
         </ul>

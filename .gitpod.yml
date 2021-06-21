@@ -5,3 +5,4 @@ tasks:
     - init: >
         npm i vercel gatsby-cli -g;
         npm install;
+        cp .env.example .env.development

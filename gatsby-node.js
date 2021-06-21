@@ -3,10 +3,9 @@ const path = require("path");
 const fetch = require('node-fetch');
 const fs = require('fs');
 const log = require('simple-node-logger').createSimpleLogger('project.log');
-const HOST = "https://assets.breatheco.de/apis";
-const NEW_HOST = "https://breathecode.herokuapp.com/v1";
+const HOST = process.env.GATSBY_ASSETS_URL+"/apis";
+const NEW_HOST = process.env.GATSBY_API_URL;
 // const HOST = "https://8080-f0d8e861-4b22-40c7-8de2-e2406c72dbc6.ws-us02.gitpod.io/apis";
-
 exports.createPages = async (params) =>
     await createLessons(params) &&
     await createAssets(params) &&
