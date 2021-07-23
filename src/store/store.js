@@ -189,7 +189,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					body: JSON.stringify({ 
 						...data, 
 						tags: data.tags.concat(['breathecode-soft']),
-						utm_language: session.utm_language || undefined,
+						utm_language: data.utm_language || session.utm_language || undefined,
 						utm_location: session.utm_location || undefined,
 						utm_campaign: session.utm_campaign || undefined,
 						gclid: session.gclid || undefined,
