@@ -63,7 +63,7 @@ const ExerciseDetails = ({ data, location }) => {
                                                 ...formData, 
                                                 current_download: data["url"], 
                                                 utm_url: location.href,
-                                                utm_language: store.session.utm_language,
+                                                utm_language: store.session.utm_language || "en",
                                                 tags: [data["slug"]] 
                                             })
                                                 .then(data => setStatus("done"))
