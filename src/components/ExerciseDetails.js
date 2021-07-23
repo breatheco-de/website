@@ -16,15 +16,15 @@ const ExerciseDetails = ({ data, location }) => {
                     { store.session.active ? 
                         <div className="row text-center">
                             <div className="col-12">
-                                {data["repository"] && <button
-                                    onClick={() => window.open(`https://www.gitpod.io/#${data["repository"]}`)}
+                                {data["url"] && <button
+                                    onClick={() => window.open(`https://www.gitpod.io/#${data["url"]}`)}
                                     className="btn btn-primary btn-md px-4 w-100 ">
                                     <GitpodIcon height="30px" width="30px" className="text-white" /> Open in Gitpod
                                 </button>}
                             </div>
                             <div className="col-12 my-2">
-                                {data["repository"] && <button
-                                    onClick={() => window.open(`${data["repository"]}`)}
+                                {data["url"] && <button
+                                    onClick={() => window.open(`${data["url"]}`)}
                                     className="btn btn-success btn-md px-4 w-100 ">
                                     <Icon type="download" className="text-danger font-size" /> Manual Download
                                 </button>}
@@ -61,7 +61,7 @@ const ExerciseDetails = ({ data, location }) => {
                                             setStatus("loading");
                                             actions.signupCourse({ 
                                                 ...formData, 
-                                                current_download: data["repository"], 
+                                                current_download: data["url"], 
                                                 utm_url: location.href,
                                                 tags: [data["slug"]] 
                                             })
@@ -82,12 +82,12 @@ const ExerciseDetails = ({ data, location }) => {
                         { store.session.active && 
                             <div className="row border-bottom p-1 m-0 no-gutters small">
                                 <div className="col-6 "><span className="colorRed"><Icon type="github" className="text-danger"/></span><span className="ml-1">Repository:</span></div>
-                                <div className="col-6 d-flex justify-content-end ">{data["repository"]? <a target="_blank" href={data["repository"]}>Click to open</a>:"Not available"}</div>
+                                <div className="col-6 d-flex justify-content-end ">{data["url"]? <a target="_blank" href={data["url"]}>Click to open</a>:"Not available"}</div>
                             </div>
                         }
                         <div className="row border-bottom p-1 m-0 no-gutters small">
                             <div className="col-6 "><span className="colorRed"><Icon type="youtube" className="text-danger"/></span><span className="ml-1">Video Solutions:</span></div>
-                            <div className="col-6 d-flex justify-content-end ">{data["video-solutions"]?"Available":"Not available"}</div>
+                            <div className="col-6 d-flex justify-content-end ">{data["with_solutions"]?"Available":"Not available"}</div>
                         </div>
                         <div className="row border-bottom p-1 m-0 no-gutters small">
                             <div className="col-7 "><span ><Icon type="check" className="font-size" /></span><span className="ml-2">Auto grading:</span></div>
@@ -99,7 +99,7 @@ const ExerciseDetails = ({ data, location }) => {
                         </div>
                         <div className="row border-bottom p-1 m-0 no-gutters small">
                             <div className="col-5"><span><Icon type="code" /></span><span className="ml-1">Language:</span></div>
-                            <div className="col-7 d-flex justify-content-end ">{data.language || data.compiler}</div>
+                            <div className="col-7 d-flex justify-content-end ">{data.lang || data.language || data.compiler}</div>
                         </div>
                         <div className="row p-1 m-0 no-gutters small">
                             <div className="col-12 mb-2">Tags: </div>

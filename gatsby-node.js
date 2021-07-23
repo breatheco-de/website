@@ -3,12 +3,11 @@ const path = require("path");
 const fetch = require('node-fetch');
 const fs = require('fs');
 const log = require('simple-node-logger').createSimpleLogger('project.log');
-const HOST = process.env.GATSBY_ASSETS_URL+"/apis";
 const NEW_HOST = process.env.GATSBY_API_URL;
-// const HOST = "https://8080-f0d8e861-4b22-40c7-8de2-e2406c72dbc6.ws-us02.gitpod.io/apis";
+
 exports.createPages = async (params) =>
     await createLessons(params) &&
-    await createAssets(params) &&
+    // await createAssets(params) &&
     await createExercises(params) &&
     await createQuizzes(params) &&
     await createProjects(params) &&
@@ -108,7 +107,7 @@ const createProjects = async ({ actions, graphql }) => {
   const { createPage } = actions;
   let projects = []; //filtered projects after removing repeated
   let _projects = []; //incoming projects
-  const resp = await fetch(`https://breathecode.herokuapp.com/v1/registry/asset?type=project`);
+  const resp = await fetch(`${NEW_HOST}/registry/asset?type=project`);
   // const resp = await fetch(`https://assets.breatheco.de/apis/project/registry/all`);
   if (resp.status >= 200 && resp.status < 400) {
     _projects = Object.values(await resp.json());
