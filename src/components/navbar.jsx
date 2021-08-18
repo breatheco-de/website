@@ -100,7 +100,7 @@ class Navbar extends React.Component {
 						<a
 							className="btn btn-outline-primary buttonHeight  px-5"
 
-							href="https://student.breatheco.de/login"
+							href="https://learn.breatheco.de/login"
 						>login</a>
 					</form>
 				</div>
