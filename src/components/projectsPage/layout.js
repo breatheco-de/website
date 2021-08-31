@@ -14,7 +14,7 @@
  import Navbar from "../navbar";
  import Footer from "../footer";
  
- const Layout = ({ disableNavbar, className, children, meta }) => (
+ const Layout = ({ disableNavbarFixed, disableNavbar, className, children, meta }) => (
    <StaticQuery
      query={graphql`
        query SiteTitleQuery {
@@ -51,7 +51,7 @@
              <meta name="twitter:site" content="@alesanchezr" />
          </Helmet>
 
-         {disableNavbar ? null : <Navbar/>}
+         {disableNavbar ? null : <Navbar disableNavbarFixed={disableNavbarFixed} />}
           <main className={className} style={{marginTop: "125px"}}>
             {children}
           </main>

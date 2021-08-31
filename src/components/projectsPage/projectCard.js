@@ -18,12 +18,13 @@ export const ProjectCard = ({ project, mode,  defaultPreview, target }) => {
 
 const Card = ({ project, preview }) => {
     const p = project;
-    return <div className="card">                            
+    return <div className="card" style={{minHeight: "490px", maxHeight: "490px", height: "100%"}}>                            
         <Link className="text-dark" to={p.canonicalPath}>
             { preview && 
                 <LazyLoadImage
                     alt={`Preview for ${p.title}`}
                     src={preview} // use normal <img> attributes as props
+                    height={"240px"}
                     width={"100%"} 
                 />
             }
