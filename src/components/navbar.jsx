@@ -16,12 +16,12 @@ class Navbar extends React.Component {
 
 
 	render() {
-		const { pageContext, search } = this.props;
+		const { pageContext, search, disableNavbarFixed } = this.props;
 		const fromIframe = (search.plain === 'true' || search.fromIframe === 'true');
 
 		if(fromIframe) return null;
 		return (
-			<nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light gradient">
+			<nav className={`navbar ${disableNavbarFixed ? '' : 'fixed-top'} navbar-expand-lg navbar-light bg-light gradient`}>
 				<Link to="/">
 					<img
 						className="navbar-brand mb-0"

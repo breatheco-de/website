@@ -65,7 +65,7 @@ font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Ne
     cursor: pointer;
     bottom: 5px;
     right: 5px;
-    padding: 5px;
+    padding: 0px 40px 5px 50px;
     font-size: 10px;
     box-sizing: border-box;
     border-radius: 25px;
@@ -87,11 +87,11 @@ font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Ne
     list-style: none;
     width: 40px;
     padding: 5px;
-    margin-top: -4px;
-    margin-left: -6px;
+    margin-bottom: -35px;
+    margin-left: -45px;
 }
 .language-switcher:hover{
     border: 1px solid #f8f9fa;
     background: rgb(215, 215, 215);
 }
-.language-switcher:hover ul{ display: block; }
+.language-switcher:hover ul{ display: flex; }

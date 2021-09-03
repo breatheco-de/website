@@ -22,7 +22,7 @@ class Single extends React.Component{
     getReadme(_lang=null){
 
         _lang = _lang || this.state.lang || this.props.search.lang || "us";
-        const readmeURL = `${this.state.context.readme_url.substr(0, this.state.context.readme_url.lastIndexOf('.'))}${_lang === "es" ? ".es.md" : ".md"}`
+        const readmeURL = `${this.state.context.readme_url?.substr(0, this.state.context.readme_url.lastIndexOf('.'))}${_lang === "es" ? ".es.md" : ".md"}`
 
         fetch(readmeURL)
             .then(resp => resp.text())
@@ -59,7 +59,6 @@ class Single extends React.Component{
 
         const fromIframe = (search.iframe === 'true');
 
-        console.log("this.state.context::::::", this.state.context)
         return(
             <React.Fragment>
             <LanguageSwitcher 
@@ -74,7 +73,7 @@ class Single extends React.Component{
                         height="60vh"
                     />
                 }
-                <Layout disableNavbar meta={this.state.context}>
+                <Layout meta={this.state.context} disableNavbarFixed>
                     <div className="container fontFamily single-project">
                         <div className="row">
                             <article className="col-12 col-md-6 col-lg-6 col-xl-7 order-2 order-md-1">
