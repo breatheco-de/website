@@ -59,7 +59,6 @@ class Single extends React.Component{
 
         const fromIframe = (search.iframe === 'true');
 
-        console.log("this.state.context::::::", this.state.context)
         return(
             <React.Fragment>
             <LanguageSwitcher 
