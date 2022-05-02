@@ -6,7 +6,13 @@ import withLocation from "../components/withLocation";
 import LanguageSwitcher from "../components/projectsPage/language";
 import Iframe from "../components/projectsPage/iframe";
 import Layout from "../components/projectsPage/layout";
+import usSvg from "../images/us.svg";
+import esSvg from "../images/es.svg";
 
+const langSvg = {
+    'us': usSvg,
+    'es': esSvg,
+}
 
 class Single extends React.Component{
     constructor(props){
@@ -20,9 +26,10 @@ class Single extends React.Component{
     }
 
     getReadme(_lang=null){
-
+        const { pageContext } = this.props;
         _lang = _lang || this.state.lang || this.props.search.lang || "us";
-        const readmeURL = `${this.state.context.readme_url.substr(0, this.state.context.readme_url.lastIndexOf('.'))}${_lang === "es" ? ".es.md" : ".md"}`
+        // const readmeURL = `${this.state.context.readme_url.substr(0, this.state.context.readme_url.lastIndexOf('.'))}${_lang === "es" ? ".es.md" : ".md"}`
+        const readmeURL = `https://breathecode.herokuapp.com/v1/registry/asset/${pageContext.translations_slug[_lang]}.md`;
 
         fetch(readmeURL)
             .then(resp => resp.text())
@@ -130,9 +137,11 @@ class Single extends React.Component{
                                                     <div className="col-5"><span role="img" aria-label="Earth">🌎</span><span className="ml-1">Translations:</span></div>
                                                     <div className="col-7 d-flex justify-content-end ">
                                                         <ul className="d-inline">
-                                                        {this.state.context.translations.map(l => <li key={l}><img style={{ height: "15px"}} className="rounded" 
+                                                        {this.state.context.translations.map(l => {
+                                                        console.log(l, 'l');    
+                                                        return(<li key={l}><img style={{ height: "15px"}} className="rounded" 
                                                         alt="single project img" 
-                                                        src={`https://www.countryflags.io/${l}/flat/64.png`} /></li>)}
+                                                        src={langSvg[l]} /></li>)})}
                                                         </ul>
                                                     </div>
                                                 </div>
