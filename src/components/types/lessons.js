@@ -288,7 +288,7 @@ export class Lessons extends React.Component {
                                                                 {(data.value === "es") ?
                                                                     <span>ES <img className="mb-1" style={flag} src="https://ucarecdn.com/6f04f93e-1971-4e14-b730-94fad8254693/-/resize/18x/" /></span>
                                                                     :
-                                                                    <span>EN <img className="mb-1" style={flag} src="f" /></span>
+                                                                    <span>EN <img className="mb-1" style={flag} src="https://ucarecdn.com/ec2f5da2-1e3d-4a0c-886c-255417a1c529/-/resize/18x/" /></span>
                                                                 }
                                                                 {selected && <Icon type="times" />}
                                                             </li>}
