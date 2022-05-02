@@ -62,20 +62,23 @@ const getState = ({ getStore, setStore, getActions }) => {
 				const store = getStore();
                 const v4 = await publicIp.v4();
                 const v6 = "v6";
-                const response = await fetch(`https://api.ipstack.com/${v4}?access_key=73822e5a584c041268f0e78a3253cf0d`);
-                const data = response.status === 200 ? await response.json() : null;
-                console.log("IP Data",data);
-                // const location = data ? closestLoc(locationsArray, data.latitude, data.longitude) : null;
-                // const location = "Santiago de Chile"
-                let utm_language = "en";
-                if(typeof(data.location) === "object" && Array.isArray(data.location.languages) && data.location.languages.length > 0){
-                    if(data.location.languages[0].code === "en" || data.location.languages[0].code === "es"){
-                        utm_language = data.location.languages[0].code;
-                    }
-                }
-                const urlParams = actions.getQueryString(location.href);
-				const session = { ...store.session, v4, v6, country: data.country_code, region: data.region_name, utm_language, ...urlParams };
-                setStore({ session });
+                const response = await fetch(`https://api.ipstack.com/${v4}?access_key=73822e5a584c041268f0e78a3253cf0d`)
+				.then(async (response) => {
+					const data = response.status === 200 ? await response.json() : null;
+					console.log("IP Data", data);
+					// const location = data ? closestLoc(locationsArray, data.latitude, data.longitude) : null;
+					// const location = "Santiago de Chile"
+					let utm_language = "en";
+					if (typeof (data.location) === "object" && Array.isArray(data.location.languages) && data.location.languages.length > 0) {
+						if (data.location.languages[0].code === "en" || data.location.languages[0].code === "es") {
+							utm_language = data.location.languages[0].code;
+						}
+					}
+					const urlParams = actions.getQueryString(location.href);
+					const session = { ...store.session, v4, v6, country: data.country_code, region: data.region_name, utm_language, ...urlParams };
+					setStore({ session });
+				}).catch(err => console.log(err));
+                
 			},
 			loadEvents: () => {
 				fetch(HOST+"/event/all?status=published&location=downtown-miami&status=upcoming")

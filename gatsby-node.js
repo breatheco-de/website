@@ -170,9 +170,19 @@ const createProjects = async ({ actions, graphql }) => {
     }
     p.url = `${p.url}`;
 
-    if (!Array.isArray(p.translations)) p.translations = ["us"];
-    else p.translations = p.translations.filter(t => !["us", "en"].includes(t)).concat(["us"]);
+    // if (!Array.isArray(p.translations)) p.translations = ["us"];
+    // else p.translations = p.translations.filter(t => !["us", "en"].includes(t)).concat(["us"]);
 
+    p.translations_slug = { ...p.translations };
+    if (!p.translations) p.translations = ["us"];
+    else {
+      p.translations = [];
+      for (let key in p.translations_slug) {
+        if (p.translations_slug.hasOwnProperty(key)) {
+          p.translations.push(key);
+        }
+      }
+    }
 
     if(p.canonicalPath.includes("jest")) console.log("Create page for project: " + p.canonicalPath);
     createPage({
